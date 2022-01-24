@@ -23,8 +23,8 @@
  > * For this project, we will be using C++.
  >   * [toolname](link) - Short description
  > * What will be the input/output of your project? What are the features that the project provides?
- > Inputs include allowing the user to name different lists for tasks, enter, edit and delete tasks. The user will also be able to set a priority to each task.
- > Output includes printing the tasks, which could be in progress or completed, as well as sorting them by priority or completion time. 
+ >   * Inputs include allowing the user to name different lists for tasks, enter, edit and delete tasks. The user will also be able to set a priority to each task.
+ >   * Output includes printing the tasks, which could be in progress or completed, as well as sorting them by priority or completion time. 
 
  > 
  ## Phase II
