@@ -14,7 +14,7 @@
  * We found this project interesting because many people - especially college students - need help managing their list of things to do. The high level of customization with the task lists is an extra challenge for us and should be a good opportunity to grow our skills individually and as a team.
  > What languages/tools/technologies do you plan to use?
  * We will be doing this project in C++
- * Tools: [Git](https://git-scm.com/), [GitHub](https://github.com/), Vim, CMake, Google Test, Command Line Compilation, and Linux File System. 
+ * Tools: [Git](https://git-scm.com/), [GitHub](https://github.com/), [Vim](https://www.vim.org), [CMake](https://cmake.org), [Google Test](https://github.com/google/googletest), [Command Line Compilation](https://docs.microsoft.com/en-us/cpp/build/walkthrough-compile-a-c-program-on-the-command-line?view=msvc-170), and [Linux File System](https://tldp.org/LDP/intro-linux/html/sect_03_01.html). 
  > What will be the input/output of your project?
  * Input:
     * allowing the user to name different lists for tasks, enter, edit, set a priority level, enter a description and delete tasks. These options will be presented to the user through a menu, where the user will be able to enter their choices.
