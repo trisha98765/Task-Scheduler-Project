@@ -14,7 +14,7 @@
  * We found this project interesting because many people - especially college students - need help managing their list of things to do. The high level of customization with the task lists is an extra challenge for us and should be a good opportunity to grow our skills individually and as a team.
  > What languages/tools/technologies do you plan to use?
  * We will be doing this project in C++
- * [toolname](link) - Short description
+ * [toolname](link) - Git, GitHub, Vim, CMake, Google Test, Linux File System and Command Line Compilation
  > What will be the input/output of your project?
  * Inputs include allowing the user to name different lists for tasks, enter, edit and delete tasks. The user will also be able to set a priority to each task.
  * Output includes printing the tasks, which could be in progress or completed, as well as sorting them by priority or completion time.
