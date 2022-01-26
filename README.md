@@ -18,7 +18,7 @@
  >   * Inputs include allowing the user to name different lists for tasks, enter, edit and delete tasks. The user will also be able to set a priority to each task.
  >   * Output includes printing the tasks, which could be in progress or completed, as well as sorting them by priority or completion time.
  >   * Some other features of our project include the ability to undo the deletion of a task and finding a specific task. 
- > * We intend to have 5 files: main.cpp, task.cpp, taskList.cpp, task.h, taskList.h. Most of the functions in the task files will be setters and getters along with functions to delete, edit, and print tasks. In the taskList files, we'll implement functions to delete and edit lists as well as functions to find a task, remove a rast, and print the list details. 
+ > * We intend to have 5 files: main.cpp, task.cpp, taskList.cpp, task.h, taskList.h. Most of the functions in the task files will be setters and getters along with functions to delete, edit, and print tasks. In the taskList files, we'll implement functions to delete and edit lists as well as functions to find a task, remove a task, and print the list details. 
 
  > 
  ## Phase II
