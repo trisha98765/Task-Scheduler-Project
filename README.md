@@ -10,17 +10,19 @@
  >   * It is recommended that you include a design pattern that we will teach this session (Composite, Strategy, or Visitor)
 
 ## Phase I: Project Description
- > * We found this project interesting because many people - especially college students - need help managing their list of things to do. The high level of customization with the task lists is an extra challenge for us and should be a good opportunity to grow our skills individually and as a team.
- > * What languages/tools/technologies do you plan to use?
- >   * We will be doing this project in C++
- >   * [toolname](link) - Short description
- > * What will be the input/output of your project? What are the features that the project provides?
- >   * Inputs include allowing the user to name different lists for tasks, enter, edit and delete tasks. The user will also be able to set a priority to each task.
- >   * Output includes printing the tasks, which could be in progress or completed, as well as sorting them by priority or completion time.
- >   * Some other features of our project include the ability to undo the deletion of a task and finding a specific task. 
- > * We intend to have 5 files: main.cpp, task.cpp, taskList.cpp, task.h, taskList.h. Most of the functions in the task files will be setters and getters along with functions to delete, edit, and print tasks. In the taskList files, we'll implement functions to delete and edit lists as well as functions to find a task, remove a task, and print the list details. 
+ > Why is it important or interesting to you?
+ * We found this project interesting because many people - especially college students - need help managing their list of things to do. The high level of customization with the task lists is an extra challenge for us and should be a good opportunity to grow our skills individually and as a team.
+ > What languages/tools/technologies do you plan to use?
+ * We will be doing this project in C++
+ * [toolname](link) - Short description
+ > What will be the input/output of your project?
+ * Inputs include allowing the user to name different lists for tasks, enter, edit and delete tasks. The user will also be able to set a priority to each task.
+ * Output includes printing the tasks, which could be in progress or completed, as well as sorting them by priority or completion time.
+ > What are the features that the project provides?
+ * Some other features of our project include the ability to undo the deletion of a task and finding a specific task. 
+ * We intend to have 5 files: `main.cpp`, `task.cpp`, `taskList.cpp`, `task.h`, `taskList.h`. Most of the methods in the task files will be setters and getters along with functions to delete, edit, and print tasks. In the taskList files, we'll implement functions to delete and edit lists as well as functions to find a task, remove a task, and print the list details. 
 
- > 
+
  ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
  > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
