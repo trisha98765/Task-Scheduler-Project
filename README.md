@@ -20,7 +20,8 @@
  * Output includes printing the tasks, which could be in progress or completed, as well as sorting them by priority or completion time.
  > What are the features that the project provides?
  * Some other features of our project include the ability to undo the deletion of a task and finding a specific task. 
- * We intend to have 5 files: `main.cpp`, `task.cpp`, `taskList.cpp`, `task.h`, `taskList.h`. Most of the methods in the task files will be setters and getters along with functions to delete, edit, and print tasks. In the taskList files, we'll implement functions to delete and edit lists as well as functions to find a task, remove a task, and print the list details. 
+ * We intend to have 5 files: `main.cpp`, `task.cpp`, `taskList.cpp`, `task.h`, `taskList.h`. 
+ * Most of the methods in the task files will be setters and getters along with functions to delete, edit, and print tasks. In the taskList files, we'll implement functions to delete and edit lists as well as functions to find a task, remove a task, and print the list details. 
 
 
  ## Phase II
