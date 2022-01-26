@@ -14,12 +14,12 @@
  * We found this project interesting because many people - especially college students - need help managing their list of things to do. The high level of customization with the task lists is an extra challenge for us and should be a good opportunity to grow our skills individually and as a team.
  > What languages/tools/technologies do you plan to use?
  * We will be doing this project in C++
- * Git, GitHub, Vim, CMake, Google Test, Command Line Compilation, and Linux File System. 
+ * Tools: Git, GitHub, Vim, CMake, Google Test, Command Line Compilation, and Linux File System. 
  > What will be the input/output of your project?
  * Inputs:
- >   * allowing the user to name different lists for tasks, enter, edit, set a priority level, enter a description and delete tasks. This will be done by presenting a menu to the user.
+    * allowing the user to name different lists for tasks, enter, edit, set a priority level, enter a description and delete tasks. This will be done by presenting a menu to the user.
  * Output:
- >   * printing the tasks, which could be in progress, completed, sorted by completion time or sorted by priority. Thes options will also be presented through a menu.
+    * printing the tasks, which could be in progress, completed, sorted by completion time or sorted by priority. Thes options will also be presented through a menu.
  > What are the features that the project provides? 
  * Some other features of our project include the ability to undo the deletion of a task and finding a specific task. 
  * We intend to have 5 files: `main.cpp`, `task.cpp`, `taskList.cpp`, `task.h`, `taskList.h`. 
