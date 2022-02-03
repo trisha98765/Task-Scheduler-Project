@@ -1,3 +1,7 @@
+### LucidChart Links
+
+ - Structural: https://lucid.app/lucidchart/962bb51e-764d-4b07-a856-6045487fcbe3/edit
+
 ### To Update Diagram:
 
 1. On LucidChart: `File -> Export -> SVG`
