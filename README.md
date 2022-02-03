@@ -25,7 +25,6 @@
  * We intend to have 5 files: `main.cpp`, `task.cpp`, `taskList.cpp`, `task.h`, `taskList.h`. 
  * Most of the methods in the task files will be setters and getters along with functions to delete, edit, and print tasks. In the taskList files, we'll implement functions to delete and edit lists as well as functions to find a task, remove a task, and print the list details. When the user chooses to delete a task, they are also given the option to undo their delete command, which brings the previously deleted task back onto their task list.
 
-
  ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
  > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
@@ -39,9 +38,9 @@
  >     * How work will be divided between the team members
 
 ## Class Diagram
- > !["Structural UML Diagram"](uml/uml.svg)
- > 
- > Our project will include a way to create an individual task as well as group them in a task list. To the left and right of these classes are the method classes we will be implementing in order to perform all of the expected actions on both the tasks and tasks in a list. These include editing, finding, deleting, and printing.
+![Structural UML Diagram](uml/structural.svg)
+
+> Our project will include a way to create an individual task as well as group them in a task list. To the left and right of these classes are the method classes we will be implementing in order to perform all of the expected actions on both the tasks and tasks in a list. These include editing, finding, deleting, and printing.
  
  ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with a reader (using Calendly). Your entire team must be present. This meeting will occur on week 8 but NOT during lab time.
