@@ -1,10 +1,3 @@
-<!--
-  1. On LucidChart: File -> Export -> SVG
-  2. Crop: Crop to content
-  3. Copy file into https://www.freeformatter.com/xml-formatter.html
-  4. Indentaiton level: 2 spaces per indent level
-  5. Replace code below with new version
- -->
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:lucid="lucid" xmlns:xlink="http://www.w3.org/1999/xlink" width="1580" height="911.07">
   <g transform="translate(-40 -140)" lucid:page-tab-id="HWEp-vi-RSFO">
