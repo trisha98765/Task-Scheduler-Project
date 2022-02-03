@@ -39,7 +39,7 @@
  >     * How work will be divided between the team members
 
 ## Class Diagram
- > <img width="750" alt="UML chart" src="uml.svg" />
+ > !["Structural UML Diagram"](uml/uml.svg)
  > 
  > Our project will include a way to create an individual task as well as group them in a task list. To the left and right of these classes are the method classes we will be implementing in order to perform all of the expected actions on both the tasks and tasks in a list. These include editing, finding, deleting, and printing.
  
