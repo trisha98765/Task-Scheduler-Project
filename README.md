@@ -38,7 +38,9 @@
  >     * How work will be divided between the team members
 
 ## Class Diagram
-![Structural UML Diagram](uml/structural.svg)
+
+![UML class](https://user-images.githubusercontent.com/97065285/153124162-06f610f0-ff13-432e-acbf-071dd5d454b5.svg)
+
 
 > * Our project will include a way to create an individual task as well as group them in a task list. To the left and right of these classes are the method classes we will be implementing in order to perform all of the expected actions on both the tasks and tasks in a list. These include editing, finding, deleting, and printing.
 > * The Task class involves setters and getters which will be used to collect information about a specific task. This includes getting the name, description, priority, due date and duration of a task.
