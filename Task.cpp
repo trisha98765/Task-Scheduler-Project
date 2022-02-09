@@ -1,4 +1,8 @@
-#include<iostream>
+#include <iostream>
 #include "Task.h"
 
 using namespace std;
+
+void Task::delete() {
+    // TODO
+}
