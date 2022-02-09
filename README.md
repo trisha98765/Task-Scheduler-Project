@@ -38,9 +38,16 @@
  >     * How work will be divided between the team members
 
 ## Class Diagram
-![Structural UML Diagram](uml/structural.svg)
 
-> Our project will include a way to create an individual task as well as group them in a task list. To the left and right of these classes are the method classes we will be implementing in order to perform all of the expected actions on both the tasks and tasks in a list. These include editing, finding, deleting, and printing.
+![UML class](https://user-images.githubusercontent.com/97065285/153124668-399eee17-a0d4-4d23-8ea6-9a3ca4db020f.svg)
+
+> * Our project will include a way to create an individual task as well as group them in a task list. To the left and right of these classes are the method classes we will be implementing in order to perform all of the expected actions on both the tasks and tasks in a list. These include editing, finding, deleting, and printing.
+> * The Task class involves setters and getters which will be used to collect information about a specific task. This includes getting the name, description, priority, due date and duration of a task.
+> * The Print class is an abstract class, and it has two child classes called PrintTask and PrintTaskList. When the user selects to print a specific task, then only one task will be printed using the PrintTask child class. When the user selects the option to print the entire last, the PrintTaskList child class will be used to print the whole list.
+> * The Edit class is an abstract class, and it has two child classes called EditTask and editTaskList. When the user selects to edit a specific task, the EditTask class will be used to make specific adjustments to the attributes of a task the user selects. When the user chooses to edit the entire task list, the editTaskList class will be used to adjust the attributes of the task list.
+> * The Delete class is an abstract class, and it has two child classes called DeleteTask and DeleteTaskList. When the user selects to delete a specific task, the DeleteTask class will be used to remove the task from the existing task list. When the user selects to delete an entire task list, the DeleteTaskList class will be used to delete the entire class.
+> * The FindTask class has one method which searches through the existing task list to find the task a user is looking for. Finding a task will not be an option that is presented to the user, it will instead be used by the Print, Edit and Delete classes in order to efficiently perform their own functions.
+> * The TaskList class has an aggregration association with the Task class. This is because the TaskList class has a private attribute where a vector of Task objects is made. The TaskList class can be used to set the name of a TaskList which will be entered by the user.
  
  ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with a reader (using Calendly). Your entire team must be present. This meeting will occur on week 8 but NOT during lab time.
