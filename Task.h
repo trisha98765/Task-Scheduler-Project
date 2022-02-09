@@ -6,7 +6,9 @@
 using namespace std;
 
 class Task{
-  
+    private:
+
+    public:
 };
 
 #endif
