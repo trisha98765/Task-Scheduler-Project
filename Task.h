@@ -10,6 +10,8 @@
 using namespace std;
 
 class Task : public Named, public Deletable {
+    private:
+
     public:
         void delete();
 };
