@@ -1,0 +1,11 @@
+# Binary files
+*.o
+task-scheduler
+test
+lib/
+
+# Generated Build files
+CMakeCache.txt
+Makefile
+CMakeFiles/
+cmake_install.cmake
