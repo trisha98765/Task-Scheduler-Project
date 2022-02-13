@@ -26,11 +26,6 @@
  * Most of the methods in the task files will be setters and getters along with functions to delete, edit, and print tasks. In the taskList files, we'll implement functions to delete and edit lists as well as functions to find a task, remove a task, and print the list details. When the user chooses to delete a task, they are also given the option to undo their delete command, which brings the previously deleted task back onto their task list.
 
  ## Phase II
- > * Schedule two check-ins using Calendly. You need to pick both time slots during your lab on week 8. Your entire team must be present for both check-ins.
- >   * The first check-in needs to be scheduled with your lab TA. During that meeting, you will discuss your project design/class diagram from phase II.
- >   * The second check-in should be scheduled with a reader. During that meeting you will discuss:
- >     * The tasks you are planning for the first sprint
- >     * How work will be divided between the team members
 
 ## Class Diagram
 
