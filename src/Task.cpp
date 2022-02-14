@@ -37,6 +37,40 @@ void Task::setProgress(int progress){
     inProgress = progress;
 }
 
+string Task::getName(){
+    return name;
+}
+
+string Task::getDescription(){
+    return description;
+}
+
+int Task::getPriority(){
+    return priority;
+}
+
+int Task::getDuration(){
+    return duration;
+}
+
+string Task::getDueDate(){ // return type could possibly change
+    return dueDate;
+}
+
+string Task::getClassification(){
+    return classification;
+}
+
+bool Task::getCompletion(){
+    return completed;
+}
+
+int Task::getProgress(){
+    return inProgress;
+}
+
+
+
 void Task::print(){
     cout << "Name: " << this->getName() << endl;
     cout << "Due: " << this->getDueDate() << " Priority: " << this->getPriority() << endl;
@@ -44,6 +78,6 @@ void Task::print(){
     cout << "Description: " << this-> getDescription() << endl;
 }
 
-void Task::delete() {
+void Task::deleteTask() {
     // TODO
 }
