@@ -5,13 +5,11 @@
 #include <vector>
 #include <string>
 
-//#include "Named.h"
-//#include "Deletable.h"
 
 using namespace std;
 
-class Task //: public Named, public Deletable {
-{    private:
+class Task {
+    private:
         string name;
         string description;
         int priority;
