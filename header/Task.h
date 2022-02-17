@@ -21,6 +21,7 @@ class Task : public Named, public Deletable {
         bool completed;
         int inProgress;
     public:
+        Task(){};
         void setName(string n);
         void setDescription(string d);
         void setPriority(int val);
