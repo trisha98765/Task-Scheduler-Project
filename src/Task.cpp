@@ -1,9 +1,20 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Task.h"
+#include "../header/Task.h"
 
 using namespace std;
+
+Task::Task(){
+    name = "Homework";
+    description = " ";
+    priority = 1; // assuming 1 is the highest priority
+    classification = "School";
+    duration = 7; // number of days
+    dueDate = "03/12/22"; // we might have to validate input by user for this
+    completed = false;
+    inProgress = 5; // on a scale of 1-10, 5 is half progress made?
+}
 
 void Task::setName(string n){
     name = n;

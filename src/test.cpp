@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
-#include "Task.h"
-#include "TaskList.h"
+#include "../header/Task.h"
+#include "../header/TaskList.h"
 
 TEST(SetterTest, basic){
     Task *test = new Task();
