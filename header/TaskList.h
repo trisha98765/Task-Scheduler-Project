@@ -1,14 +1,13 @@
-#include iostream>
-
-#include "Named.h"
-#include "Deletable.h"
+#include <iostream>
+#include <vector>
+#include <string>
 
 #ifndef TASKLIST_H
 #define TASKLIST_H
 
 using namespace std;
 
-class TaskList : public Named, public Deletable {
+class TaskList {
     public:
         void delete();
 };
