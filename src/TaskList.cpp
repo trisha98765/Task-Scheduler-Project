@@ -12,6 +12,6 @@ void TaskList::print(){
     }
 }
 
-void TaskList::delete() {
+void TaskList::deleteTaskList() {
     // TODO
 }

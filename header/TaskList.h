@@ -9,7 +9,7 @@ using namespace std;
 
 class TaskList {
     public:
-        void delete();
+        void deleteTaskList();
 };
 
 #endif

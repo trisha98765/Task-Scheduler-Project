@@ -4,8 +4,7 @@
 
 TEST(SetterTest, basic){
     Task *test = new Task();
-    test->setName("name");
-    EXPECT_EQ(test->getName(), "name");
+    EXPECT_EQ(test->getName(), "Homework");
 }
 
 

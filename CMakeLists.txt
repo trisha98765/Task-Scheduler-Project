@@ -9,6 +9,7 @@ ADD_EXECUTABLE(task-scheduler
 )
 
 ADD_EXECUTABLE(test
+   src/Task.cpp
    src/test.cpp
 )
 
