@@ -29,12 +29,14 @@
 
 ## Class Diagram
 
-![UML class](https://user-images.githubusercontent.com/97065285/153124668-399eee17-a0d4-4d23-8ea6-9a3ca4db020f.svg)
+![Structural UML Diagram](https://lucid.app/publicSegments/view/44dcc957-5e92-4d40-9203-75094bef565e/image.png)
 
- * Our project will include a way to create an individual task as well as group them in a task list. One class is `Task`, where one object would represent an individual task. Another class is `TaskList`, where one object of this class would represent an entire list of tasks. Finally, the `GUI` class will be used to create visuals of the objects and menu for the user.
- * The `Task` class involves setters and getters which will be used to collect information about a specific task. This includes getting the name, description, priority, due date and duration of a task. It will also consist of the methods that will be presented to the user through a menu, which includes printing, editing and deleting an individual task.
- * The `TaskList` class has an aggregration association with the `Task` class. This is because the TaskList class has a private attribute where a vector of Task objects is made. The `TaskList` class can be used to set the name of a `TaskList` which will be entered by the user. It will consist of methods to print, edit or delete an individual task. It will also have a searching method to find a specific task which will not be a menu option for the user, it will instead be used by the print, edit and delete methods.
- * The `GUI` class will serve as the interface which will create visuals for the user. It will consist of methods involving creating a task and filtering or sorting the tasks in a specific way.
+* Our project will include a way to create an individual task as well as group them in a task list. The main component is `Goal`, a class that consists of getters and methods for printing, editing and deleting. One child class of `Goal` is `Task`, where one object would represent an individual task. Another child class of `Goal` is `TaskList`, where one object of this class would represent an entire list of tasks. Finally, the `MainView`, `TaskListView` and `TaskView` classes will be used to create visuals of the objects and menu for the user.
+ * The `Task` class involves setters and getters which will be used to collect information about a specific task and it is a child of the `Goal` class. This includes getting the name, description, priority, due date and duration of a task. It will also consist of the methods that will be presented to the user through a menu, which includes printing, editing and deleting an individual task.
+ * The `TaskList` class has an aggregation association with the `Goal` class. This is because the TaskList class has a private attribute where a vector of Task objects is made. The `TaskList` class can be used to set the name of a list of tasks which will be entered by the user. It will consist of methods to print, edit or delete an individual task. It will also have a searching method to find a specific task which will not be a menu option for the user, it will instead be used by the print, edit and delete methods.
+ * The `MainView` class is the main graphical interface that will be used to present the program to the user. It will consist of a vector of `Task` objects and a vector of `TaskList` objects. 
+ * The `TaskListView` class is a child class of `MainView` through a composition association. It consists of a vector of `TaskView` objects and methods that allow for visual representations of a task list.
+ * The `TaskView` class is a child class of `TaskListView` through a composition association. It consists of methods that allow for visual representations of tasks.
  
  ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with a reader (using Calendly). Your entire team must be present. This meeting will occur on week 8 but NOT during lab time.
