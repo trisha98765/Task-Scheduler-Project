@@ -26,6 +26,7 @@
  * Most of the methods in the task files will be setters and getters along with functions to delete, edit, and print tasks. In the taskList files, we'll implement functions to delete and edit lists as well as functions to find a task, remove a task, and print the list details. When the user chooses to delete a task, they are also given the option to undo their delete command, which brings the previously deleted task back onto their task list.
 
  ## Phase II
+
 ## Class Diagram
 
 ![Structural UML Diagram](https://lucid.app/publicSegments/view/44dcc957-5e92-4d40-9203-75094bef565e/image.png)
