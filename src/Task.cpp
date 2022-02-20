@@ -7,7 +7,7 @@ using namespace std;
 
 Task::Task(){
     name = "Homework";
-    description = " ";
+    description = "For CS 100";
     priority = 1; // assuming 1 is the highest priority
     classification = "School";
     duration = 7; // number of days
@@ -79,8 +79,6 @@ bool Task::getCompletion(){
 int Task::getProgress(){
     return inProgress;
 }
-
-
 
 void Task::print(){
     cout << "Name: " << this->getName() << endl;
