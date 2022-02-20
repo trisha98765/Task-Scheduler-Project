@@ -36,7 +36,7 @@ void Task::setDueDate(string date){
     dueDate = date;
 }
 
-void Task::setClassification(int label){
+void Task::setClassification(string label){
     classification = label;
 }
 
