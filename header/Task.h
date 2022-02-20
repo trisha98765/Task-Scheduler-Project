@@ -20,12 +20,13 @@ class Task {
         int inProgress;
     public:
         Task();
+        Task(string n, string d, int val, int dur, string date, string label, bool check, int progress);
         void setName(string n);
         void setDescription(string d);
         void setPriority(int val);
         void setDuration(int dur);
         void setDueDate(string date);
-        void setClassification(int label);
+        void setClassification(string label);
         void setCompletion(bool check); // not sure if we want this one
         void setProgress(int progress); // not sure about this either
 

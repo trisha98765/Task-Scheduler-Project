@@ -15,6 +15,17 @@ Task::Task(){
     completed = false;
     inProgress = 5; // on a scale of 1-10, 5 is half progress made?
 }
+    
+Task::Task(string n, string d, int val, int dur, string date, string label, bool check, int progress){
+    name = n;
+    description = d;
+    priority = val;
+    duration = dur;
+    dueDate = date;
+    classification = label;
+    completed = check;      
+    inProgress = progress;
+}
 
 void Task::setName(string n){
     name = n;
@@ -36,7 +47,7 @@ void Task::setDueDate(string date){
     dueDate = date;
 }
 
-void Task::setClassification(int label){
+void Task::setClassification(string label){
     classification = label;
 }
 
