@@ -38,6 +38,7 @@
  * The `TaskView` class is is an implementation of the `View` interface. It contains a pointer to a pointer to a `TaskList` object in order to access information about the list that it is representing, without containing a copy of the `Task` itself.
  * The `TaskListView` class is an implementation of the `View` interface. It contains a pointer to a pointer to a `TaskList` object in order to access information about the list that it is representing, such as its title. It also contains a `vector` of `TaskView` objects that it display displays within itself.
  * The `MainView` class is the root graphical interface that will be used to present the program to the user. It is a composition of `TaskListView` objects.
+ * The `Filter` functions allow the user to view specific task in a task list based on the due date, the progress status, completion status, priority level, and classification. It uses functions from `Task` in order to check for validity with the provided arguments and print the task's details.
 
 ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with a reader (using Calendly). Your entire team must be present. This meeting will occur on week 8 but NOT during lab time.
