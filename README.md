@@ -48,7 +48,7 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
 
  > During the meeting with your reader you will discuss: 
  * How effective your last sprint was (each member should talk about what they did)
-     * Melissa(filter, print) Trisha(test cases, Task files, TaskList files), Evan(), Pranoy().
+     * Melissa(filter, print) Trisha(test cases, Task files, TaskList files), Evan(), Pranoy(editing tasks and tasklist).
  * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
      * We didn't finish the deleting functions and we edited our epics accordingly.
  * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
