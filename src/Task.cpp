@@ -84,7 +84,7 @@ int Task::getProgress(){
 }
 
 void Task::print(std::ostream &out){
-   // std::cout << "Name: " << this->getName() << std::endl;
+  std::cout << "Name: " << this->Goal::getName() << std::endl;
     std::cout << "Due: " << this->getDueDate() << " Priority: " << this->getPriority() << std::endl;
     std::cout << "Classification: " << this->getClassification() << "Duration: " << this->getDuration() << std::endl;
     std::cout << "Description: " << this->getDescription() << std::endl;
