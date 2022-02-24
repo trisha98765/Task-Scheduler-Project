@@ -7,13 +7,24 @@ using namespace std;
 
 Task::Task(){
     name = "Homework";
-    description = " ";
+    description = "For CS 100";
     priority = 1; // assuming 1 is the highest priority
     classification = "School";
     duration = 7; // number of days
     dueDate = "03/12/22"; // we might have to validate input by user for this
     completed = false;
     inProgress = 5; // on a scale of 1-10, 5 is half progress made?
+}
+    
+Task::Task(string n, string d, int val, int dur, string date, string label, bool check, int progress){
+    name = n;
+    description = d;
+    priority = val;
+    duration = dur;
+    dueDate = date;
+    classification = label;
+    completed = check;      
+    inProgress = progress;
 }
 
 void Task::setName(string n){
@@ -79,8 +90,6 @@ bool Task::getCompletion(){
 int Task::getProgress(){
     return inProgress;
 }
-
-
 
 void Task::print(){
     cout << "Name: " << this->getName() << endl;
