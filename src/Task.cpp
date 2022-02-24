@@ -92,12 +92,9 @@ int Task::getProgress(){
 }
 
 void Task::print(){
-    cout << "Name: " << this->getName() << endl;
-    cout << "Due: " << this->getDueDate() << " Priority: " << this->getPriority() << endl;
-    cout << "Classification: " << this-> getClassification() << "Duration: " << this->getDuration() << endl;
-    cout << "Description: " << this-> getDescription() << endl;
+    std::cout << "Name: " << this->getName() << std::endl;
+    std::cout << "Due: " << this->getDueDate() << " Priority: " << this->getPriority() << std::endl;
+    std::cout << "Classification: " << this-> getClassification() << "Duration: " << this->getDuration() << std::endl;
+    std::cout << "Description: " << this-> getDescription() << std::endl;
 }
 
-void Task::deleteTask() {
-    // TODO
-}
