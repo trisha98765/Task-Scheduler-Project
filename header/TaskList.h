@@ -13,6 +13,7 @@ class TaskList: public Goal {
     private:
         vector<Goal> taskList;
     public:
+        TaskList(){}
         void print(std::ostream &out);
         void edit();      // does this take arguments?
         void deleteObj(int index); // name change for virtual method in Goal
