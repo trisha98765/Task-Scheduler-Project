@@ -16,7 +16,7 @@ class TaskList: public Goal {
         TaskList(){}
         void print(std::ostream &out);
         void edit();      // does this take arguments?
-        void deleteObj(int index); // name change for virtual method in Goal
+        void deleteObj(int index, vector<TaskList> &temp);
         Task findTask();  // does this take arguments?
 };
 
