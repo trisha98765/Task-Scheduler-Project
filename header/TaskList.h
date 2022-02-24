@@ -1,15 +1,23 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
 #ifndef TASKLIST_H
 #define TASKLIST_H
 
+#include <iostream>
+#include <vector>
+#include <string>
+#include "Task.h"
+#include "Goal.h"
+
 using namespace std;
 
-class TaskList {
+class TaskList: public Goal {
+    private:
+        vector<Goal> taskList;
     public:
-        void deleteObj();
+        TaskList(){}
+        void print(std::ostream &out);
+        void edit();      // does this take arguments?
+        void deleteObj(int index, vector<TaskList> &temp);
+        Task findTask();  // does this take arguments?
 };
 
 #endif
