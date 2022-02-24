@@ -27,10 +27,6 @@ Task::Task(string n, string d, int val, int dur, string date, string label, bool
     inProgress = progress;
 }
 
-void Task::setName(string n){
-    name = n;
-}
-
 void Task::setDescription(string d){
     description = d;
 }
@@ -59,10 +55,6 @@ void Task::setProgress(int progress){
     inProgress = progress;
 }
 
-string Task::getName(){
-    return name;
-}
-
 string Task::getDescription(){
     return description;
 }
@@ -75,7 +67,7 @@ int Task::getDuration(){
     return duration;
 }
 
-string Task::getDueDate(){ // return type could possibly change
+string Task::getDueDate(){
     return dueDate;
 }
 
@@ -91,10 +83,16 @@ int Task::getProgress(){
     return inProgress;
 }
 
-void Task::print(){
-    std::cout << "Name: " << this->getName() << std::endl;
+void Task::print(std::ostream &out){
+  std::cout << "Name: " << this->Goal::getName() << std::endl;
     std::cout << "Due: " << this->getDueDate() << " Priority: " << this->getPriority() << std::endl;
-    std::cout << "Classification: " << this-> getClassification() << "Duration: " << this->getDuration() << std::endl;
-    std::cout << "Description: " << this-> getDescription() << std::endl;
+    std::cout << "Classification: " << this->getClassification() << "Duration: " << this->getDuration() << std::endl;
+    std::cout << "Description: " << this->getDescription() << std::endl;
 }
 
+void Task::edit(){
+    // TO DO
+}
+
+void Task::deleteObj(int index){ // name changed to redefine pure virtual method in Goal
+}

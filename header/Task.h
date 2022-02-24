@@ -4,18 +4,18 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
+#include "Goal.h"
 
 using namespace std;
 
-class Task {
+class Task: public Goal {
     private:
         string name;
         string description;
         int priority;
         string classification;
         int duration;
-        string dueDate; // we can change the type to int if thats better
+        string dueDate;
         bool completed;
         int inProgress;
     public:
@@ -27,21 +27,21 @@ class Task {
         void setDuration(int dur);
         void setDueDate(string date);
         void setClassification(string label);
-        void setCompletion(bool check); // not sure if we want this one
-        void setProgress(int progress); // not sure about this either
+        void setCompletion(bool check);
+        void setProgress(int progress);
 
         string getName();
         string getDescription();
         int getPriority();
         int getDuration();
-        string getDueDate(); // the return val can also be a int ?
+        string getDueDate(); 
         string getClassification();
-        bool getCompletion(); // not sure
-        int getProgress();    // not sure
+        bool getCompletion();
+        int getProgress();   
 
-        void print();
-        void edit(); //specifications not complete
-        void deleteTask(); // changed method name because 'delete' is c++ key word
+        void print(std::ostream &out);
+        void edit();  // specifications not complete
+        void deleteObj(int index); // name change to work with virtual method in Goal 
 };
 
 #endif
