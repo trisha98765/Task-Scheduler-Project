@@ -12,6 +12,7 @@ ADD_SUBDIRECTORY(googletest)
 ADD_EXECUTABLE(test
     src/test.cpp
     src/Task.cpp
+    src/TaskList.cpp
 )
 TARGET_LINK_LIBRARIES(test gtest)
 TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
