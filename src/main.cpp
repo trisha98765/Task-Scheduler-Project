@@ -7,7 +7,7 @@
 using namespace std;
 
 int main(){
-    // Goal vector<Task>
+    // vector<Task> userList;
     // call menu function from separate cpp file
     //    
     return 0;
