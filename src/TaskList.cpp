@@ -12,8 +12,19 @@ void TaskList::print(){
     }
 }
 
-void TaskList::deleteTaskList() {
-    // TODO
+void TaskList::deleteObj(int index, vector<TaskList> &temp ) {
+    std::string input;
+    std::cout << "Would you like to delete this list? Y?N" << std::endl;
+    std::cin >> input;
+    if(input == "Y"){
+	std::cout << "List deleted. Undo? Y?N" << std::endl;
+	if(input == "Y"){
+	    std::cout << "List restored" << std::endl;
+	}
+	else{
+	    temp.clear();
+	}
+    }
 }
 void TaskList::deleteTask(int index2;) {
     std::string input;

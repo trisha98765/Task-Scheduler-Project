@@ -97,4 +97,22 @@ void Task::print(){
     std::cout << "Classification: " << this-> getClassification() << "Duration: " << this->getDuration() << std::endl;
     std::cout << "Description: " << this-> getDescription() << std::endl;
 }
-
+void Task::deleteObj(int index2, vector<Task> &temp) {
+    std::string input;
+    int index = index2-1; //bc user enters 1 but index is 0
+    std::cout << "Would you like to delete this task? Y/N" << std::endl;
+    cin >> input;
+    if(input == "Y"){
+        std::cout << "Task deleted. Undo? Y/N" << std::endl;
+        cin >> input;
+        if(input == "Y"){
+            std::cout << "Task restored" << std::endl;    
+        }
+        else{
+            temp.at(index).erase();
+        }
+    }
+    else{
+        std::cout << "Task was not deleted" << std::endl;    
+    }
+}

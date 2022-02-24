@@ -30,6 +30,7 @@ class Task {
         void setCompletion(bool check); // not sure if we want this one
         void setProgress(int progress); // not sure about this either
 
+
         string getName();
         string getDescription();
         int getPriority();
@@ -41,7 +42,7 @@ class Task {
 
         void print();
         void edit(); //specifications not complete
-        void deleteTask(); // changed method name because 'delete' is c++ key word
+        void deleteObj(int, vector<Task>); // changed method name because 'delete' is c++ key word
 };
 
 #endif
