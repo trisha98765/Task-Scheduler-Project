@@ -51,7 +51,7 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
  * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
      * We didn't finish the deleting functions and we edited our epics accordingly.
  * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
-     *
+     * We decided to only have an undo feature for deleting a task or task list because undoing edits to a task or task list would be repetitive of the edit features. We also took some time to figure out how to apply the composite design pattern to our project but we were able to implement it by adding the Goal class as the component.
  * What tasks you are planning for this next sprint.
      * Finish delete functions, finish graphics, and finish testing for every method.
 
