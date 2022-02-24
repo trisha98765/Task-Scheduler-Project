@@ -41,20 +41,19 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
  * The `Filter` functions allow the user to view specific task in a task list based on the due date, the progress status, completion status, priority level, and classification. It uses functions from `Task` in order to check for validity with the provided arguments and print the task's details.
 
 ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with a reader (using Calendly). Your entire team must be present. This meeting will occur on week 8 but NOT during lab time.
 
 > What design pattern did you use?
  * We picked the Composite design pattern. We decided this was the best pattern to follow because our project consists of different levels of hierarchy, however the user will treat them the same. Using this pattern, we implemented our goals, tasks, and task lists. Here, goals are the component, task lists are the composite, and tasks are the leaves. The Composite design pattern allowed our code to be more organized and prevented us from having to write multiple repeat functions. 
 
  > During the meeting with your reader you will discuss: 
  * How effective your last sprint was (each member should talk about what they did)
-     * Melissa(filter, print) Trisha(test cases, Task files, TaskList files), Evan(), Pranoy(editing tasks and tasklist).
+     * Melissa(filter, print) Trisha(test cases, Task and TaskList files), Evan(graphics set up for user interface), Pranoy(editing tasks and tasklist).
  * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
      * We didn't finish the deleting functions and we edited our epics accordingly.
  * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
-     * add bugs
+     *
  * What tasks you are planning for this next sprint.
-     * Finish delete functions, finish graphics, and finish testing.
+     * Finish delete functions, finish graphics, and finish testing for every method.
 
 
 ## Final deliverable
