@@ -14,41 +14,26 @@ void TaskList::print(std::ostream &out){ // i think this argument should be a Go
    */
 }
 
+
 void TaskList::edit(){
     // TODO
 }
-/*
-void TaskList::deleteObj() {
-    // TODO
-    // to delete a task list that should happen in the task list class
-}
-*/
-Task TaskList::findTask(){
-    
-
-}
-
-/* to delete an individual task, to work with the composite pattern it needs to be a part of the task class because deleteObj is a pure virtual function to be redefined in both child classes, we can pass the vector of tasks as an argument to get access to the list*/
-void TaskList::deleteObj(int index2) {
+void TaskList::deleteObj(int index, vector<TaskList> &temp ) {
     std::string input;
-    int index = index2-1; //bc user enters 1 but index is 0
-    std::cout << "Would you like to delete this task? Y/N" << std::endl;
-    cin >> input;
+    std::cout << "Would you like to delete this list? Y?N" << std::endl;
+    std::cin >> input;
     if(input == "Y"){
-        std::cout << "Task deleted. Undo? Y/N" << std::endl;
-        cin >> input;
-        if(input == "Y"){
-            std::cout << "Task restored" << std::endl;    
-        }
-        // the else statement doesnt compile because 'this' is not pointing at the vector
-       /* else{
-            for(int i =index; i < this->size()-1; i++){
-                this->at(i) = this->at(i+1);
-            }
-            this->pop_back();
-        }*/ 
+	std::cout << "List deleted. Undo? Y?N" << std::endl;
+	if(input == "Y"){
+	    std::cout << "List restored" << std::endl;
+	}
+	else{
+	    temp.at(index).erase();
+	}
     }
-    else{
-        std::cout << "Task was not deleted" << std::endl;    
-    }
+}
+
+Task TaskList::findTask(){
+   Task temp = new Task();
+    return temp; //just temporary for testing
 }

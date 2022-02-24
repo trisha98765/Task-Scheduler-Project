@@ -93,6 +93,22 @@ void Task::print(std::ostream &out){
 void Task::edit(){
     // TO DO
 }
-
-void Task::deleteObj(int index){ // name changed to redefine pure virtual method in Goal
+void Task::deleteObj(int index2, vector<Task> &temp) {
+    std::string input;
+    int index = index2-1; //bc user enters 1 but index is 0
+    std::cout << "Would you like to delete this task? Y/N" << std::endl;
+    cin >> input;
+    if(input == "Y"){
+        std::cout << "Task deleted. Undo? Y/N" << std::endl;
+        cin >> input;
+        if(input == "Y"){
+            std::cout << "Task restored" << std::endl;    
+        }
+        else{
+            temp.at(index).erase();
+        }
+    }
+    else{
+        std::cout << "Task was not deleted" << std::endl;    
+    }
 }

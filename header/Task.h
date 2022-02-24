@@ -30,6 +30,7 @@ class Task: public Goal {
         void setCompletion(bool check);
         void setProgress(int progress);
 
+
         string getName();
         string getDescription();
         int getPriority();
@@ -39,9 +40,10 @@ class Task: public Goal {
         bool getCompletion();
         int getProgress();   
 
+
         void print(std::ostream &out);
         void edit();  // specifications not complete
-        void deleteObj(int index); // name change to work with virtual method in Goal 
+        void deleteObj(int index, vector<Task> &temp); // changed method name because 'delete' is c++ key word
 };
 
 #endif
