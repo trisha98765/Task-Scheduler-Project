@@ -9,15 +9,18 @@
 
 using namespace std;
 
-class TaskList: public Goal {
+class TaskList: public Goal{
     private:
-        vector<Goal> taskList;
+        vector<Goal*> listObj;
     public:
-        TaskList(){}
-        void print(std::ostream &out);
+        TaskList();
+        void print(); // had this as an argument originally std::ostream &out
         void edit();      // does this take arguments?
-        void deleteObj(int index, vector<TaskList> &temp);
-        Task findTask();  // does this take arguments?
+        void addTask(Goal*);
+        vector<Goal*>& getList(); //passed by reference
+        //void deleteObj(int index, TaskList &tempList);
+        Goal* findTask(string);
+        int findIndex(string);
 };
 
 #endif
