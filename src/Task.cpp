@@ -1,31 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "../header/Task.h"
+#include "Task.h" //change back to ../header/
+#include "TaskList.h"
+#include "Goal.h"
 
 using namespace std;
-
-Task::Task(){
-    name = "Homework";
-    description = "For CS 100";
-    priority = 1; // assuming 1 is the highest priority
-    classification = "School";
-    duration = 7; // number of days
-    dueDate = "03/12/22"; // we might have to validate input by user for this
-    completed = false;
-    inProgress = 5; // on a scale of 1-10, 5 is half progress made?
-}
-    
-Task::Task(string n, string d, int val, int dur, string date, string label, bool check, int progress){
-    name = n;
-    description = d;
-    priority = val;
-    duration = dur;
-    dueDate = date;
-    classification = label;
-    completed = check;      
-    inProgress = progress;
-}
 
 void Task::setDescription(string d){
     description = d;
@@ -83,21 +63,65 @@ int Task::getProgress(){
     return inProgress;
 }
 
-void Task::print(std::ostream &out){
-  std::cout << "Name: " << this->Goal::getName() << std::endl;
+void Task::print(){ // had this as an argument originally std::ostream &out
+    std::cout << "Name: " << this->Goal::getName() << std::endl;
     std::cout << "Due: " << this->getDueDate() << " Priority: " << this->getPriority() << std::endl;
     std::cout << "Classification: " << this->getClassification() << "Duration: " << this->getDuration() << std::endl;
     std::cout << "Description: " << this->getDescription() << std::endl;
 }
 
 void Task::edit(){
-    // TO DO
+    std::string string1, string2, string3, string4;
+    int int1, int2, int3;
+    bool bool1;
+
+    int input3 = 0;
+    std::cout << "What would you like to edit?" << std::endl;
+    std::cout << "1. Name" << std::endl << "2. Description" << std::endl << "3. Priority" << std::endl << "4. Classification"
+    << std::endl << "5. Duration" << std::endl << "6. Due Date" << std::endl << "7. Completion" << std::endl << "8. Progress" 
+    << std::cout << std::endl;
+    cin >> input3;
+    if(input3 == 1){
+        std::cout << "Enter your new value: "; cin >> string1; std::cout << endl;
+        this->setName(string1);
+    }
+    else if(input3 == 2){
+        std::cout << "Enter your new value: "; cin >> string2; std::cout << endl;
+        this->setDescription(string2);
+    }
+    else if(input3 == 3){
+        std::cout << "Enter your new value: "; cin >> int1; std::cout << endl;
+        this->setPriority(int1);
+    }
+    else if(input3 == 4){
+        std::cout << "Enter your new value: "; cin >> string3; std::cout << endl;
+        this->setClassification(string3);
+    }
+    else if(input3 == 5){
+        std::cout << "Enter your new value: "; cin >> int2; std::cout << endl;
+        this->setDuration(int2);
+    }
+    else if(input3 == 6){
+        std::cout << "Enter your new value: "; cin >> string4; std::cout << endl;
+        this->setDueDate(string4);
+    }
+    else if(input3 == 7){
+        std::cout << "Enter your new value: "; cin >> bool1; std::cout << endl;
+        this->setCompletion(bool1);
+    }
+    else if(input3 == 8){
+        std::cout << "Enter your new value: "; cin >> int3; std::cout << endl;
+        this->setProgress(int3);
+    }
 }
-void Task::deleteObj(int index2, vector<Task> &temp) {
+void Task::deleteObj(int index2, TaskList &temp){
     std::string input;
     int index = index2-1; //bc user enters 1 but index is 0
     std::cout << "Would you like to delete this task? Y/N" << std::endl;
     cin >> input;
+    //TaskList tempList = *temp;
+    //*tempList = temp;
+
     if(input == "Y"){
         std::cout << "Task deleted. Undo? Y/N" << std::endl;
         cin >> input;
@@ -105,7 +129,15 @@ void Task::deleteObj(int index2, vector<Task> &temp) {
             std::cout << "Task restored" << std::endl;    
         }
         else{
-            temp.at(index).erase();
+            //will this acutally edit the taskList?
+
+            for(int i = index; i < temp.getList().size()-1; i++){
+                Goal *tempTask;
+                tempTask = temp.getList().at(i+1);
+                temp.getList().at(i+1) = temp.getList().at(i);
+                temp.getList().at(i) = tempTask;
+            }
+            temp.getList().pop_back();
         }
     }
     else{
