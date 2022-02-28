@@ -4,8 +4,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "TaskList.h"
-#include "Goal.h"
+#include "../header/TaskList.h"
+#include "../header/Goal.h"
 
 class Task: public Goal{
     private:
@@ -17,6 +17,7 @@ class Task: public Goal{
         std::string dueDate;
         bool completed;
         int inProgress;
+        bool deleted;
     public:
     ~Task(){}
         Task():Goal(){
@@ -47,6 +48,9 @@ class Task: public Goal{
         void setClassification(std::string label);
         void setCompletion(bool check);
         void setProgress(int progress);
+        void setDeleted(bool input){
+            deleted = input;
+        }
 
 
         std::string getName();
@@ -57,11 +61,14 @@ class Task: public Goal{
         std::string getClassification();
         bool getCompletion();
         int getProgress();   
+        bool getDeleted(){
+            return deleted;
+        } 
 
 
         virtual void print(); //had this as an argument originally std::ostream &out
         virtual void edit();  // specifications not complete
-        //void deleteObj(int index2, TaskList &temp);
+        void deleteObj(int index2);
 
 };
 
