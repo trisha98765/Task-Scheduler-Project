@@ -13,7 +13,7 @@ class TaskList: public Goal{
     private:
         vector<Goal*> listObj;
     public:
-        TaskList();
+        TaskList():Goal(){}
         void print(); // had this as an argument originally std::ostream &out
         void edit();      // does this take arguments?
         void addTask(Goal*);
