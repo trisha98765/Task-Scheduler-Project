@@ -18,7 +18,7 @@ class Task: public Goal{
         bool completed;
         int inProgress;
     public:
-        Task(){
+        Task():Goal(){
             name = "Homework";
             description = "For CS 100";
             priority = 1; // assuming 1 is the highest priority
@@ -28,7 +28,7 @@ class Task: public Goal{
             completed = false;
             inProgress = 5; // on a scale of 1-10, 5 is half progress made?
         }
-        Task(std::string n, std::string d, int val, int dur, std::string date, std::string label, bool check, int progress){
+        Task(std::string n, std::string d, int val, int dur, std::string date, std::string label, bool check, int progress):Goal(n){
             name = n;
             description = d;
             priority = val;
@@ -60,7 +60,7 @@ class Task: public Goal{
 
         virtual void print(); //had this as an argument originally std::ostream &out
         virtual void edit();  // specifications not complete
-        void deleteObj(int index2, TaskList &temp);
+        //void deleteObj(int index2, TaskList &temp);
 
 };
 
