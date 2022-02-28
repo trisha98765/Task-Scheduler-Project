@@ -6,10 +6,6 @@
 
 using namespace std;
 
-TaskList::TaskList(){
-
-}
-
 void TaskList::print(){ // i think this argument should be a Goal object so it can print a task or TaskList object
   // this does not compile because 'this' is not pointing at the vector
     int size = listObj.size();
@@ -18,7 +14,6 @@ void TaskList::print(){ // i think this argument should be a Goal object so it c
     }
    
 }
-
 
 void TaskList::edit(){
     // TODO
