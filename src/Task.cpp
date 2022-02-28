@@ -90,12 +90,13 @@ void Task::edit(){
     << std::endl << "5. Duration" << std::endl << "6. Due Date" << std::endl << "7. Completion" << std::endl << "8. Progress" 
     << std::cout << std::endl;
     cin >> input3;
+    cin.ignore();
     if(input3 == 1){
-        std::cout << "Enter your new value: "; cin >> string1; std::cout << endl;
+        std::cout << "Enter your new value: "; getline(std::cin, string1); std::cout << endl;
         this->Goal::setName(string1);
     }
     else if(input3 == 2){
-        std::cout << "Enter your new value: "; cin >> string2; std::cout << endl;
+        std::cout << "Enter your new value: "; getline(std::cin, string2); std::cout << endl;
         this->setDescription(string2);
     }
     else if(input3 == 3){
@@ -103,7 +104,7 @@ void Task::edit(){
         this->setPriority(int1);
     }
     else if(input3 == 4){
-        std::cout << "Enter your new value: "; cin >> string3; std::cout << endl;
+        std::cout << "Enter your new value: "; getline(cin, string3); std::cout << endl;
         this->setClassification(string3);
     }
     else if(input3 == 5){
@@ -111,11 +112,18 @@ void Task::edit(){
         this->setDuration(int2);
     }
     else if(input3 == 6){
-        std::cout << "Enter your new value: "; cin >> string4; std::cout << endl;
+        std::cout << "Enter your new value: "; getline(cin, string4); std::cout << endl;
         this->setDueDate(string4);
     }
     else if(input3 == 7){
-        std::cout << "Enter your new value: "; cin >> bool1; std::cout << endl;
+        std::string answer;
+        std::cout << "Enter yes or no: "; getline(cin, answer); std::cout << endl;
+        if(answer == "yes"){
+            bool1 = true;
+        }
+        else{
+            bool1 = false;
+        }
         this->setCompletion(bool1);
     }
     else if(input3 == 8){
