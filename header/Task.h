@@ -18,6 +18,7 @@ class Task: public Goal{
         bool completed;
         int inProgress;
     public:
+    ~Task(){}
         Task():Goal(){
             name = "Homework";
             description = "For CS 100";
