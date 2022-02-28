@@ -65,9 +65,18 @@ int Task::getProgress(){
 
 void Task::print(){ // had this as an argument originally std::ostream &out
     std::cout << "Name: " << this->Goal::getName() << std::endl;
-    std::cout << "Due: " << this->getDueDate() << " Priority: " << this->getPriority() << std::endl;
-    std::cout << "Classification: " << this->getClassification() << "Duration: " << this->getDuration() << std::endl;
+    std::cout << "Due: " << this->getDueDate() << std::endl << "Priority: " << this->getPriority() << std::endl;
+    std::cout << "Classification: " << this->getClassification() << std::endl << "Duration: " << this->getDuration() << std::endl;
     std::cout << "Description: " << this->getDescription() << std::endl;
+    std::cout << "Completed? "; 
+    bool complete = this->getCompletion();
+    if(complete){
+        std::cout << "Yes" << std::endl;
+    }
+    else{
+        std::cout << "No" << std::endl;
+    }
+    std::cout << "Progress status: " << this->getProgress() << std::endl << std::endl;
 }
 
 void Task::edit(){
@@ -83,7 +92,7 @@ void Task::edit(){
     cin >> input3;
     if(input3 == 1){
         std::cout << "Enter your new value: "; cin >> string1; std::cout << endl;
-        this->setName(string1);
+        this->Goal::setName(string1);
     }
     else if(input3 == 2){
         std::cout << "Enter your new value: "; cin >> string2; std::cout << endl;
@@ -114,33 +123,33 @@ void Task::edit(){
         this->setProgress(int3);
     }
 }
-void Task::deleteObj(int index2, TaskList &temp){
-    std::string input;
-    int index = index2-1; //bc user enters 1 but index is 0
-    std::cout << "Would you like to delete this task? Y/N" << std::endl;
-    cin >> input;
-    //TaskList tempList = *temp;
-    //*tempList = temp;
+// void Task::deleteObj(int index2, TaskList &temp){
+//     std::string input;
+//     int index = index2-1; //bc user enters 1 but index is 0
+//     std::cout << "Would you like to delete this task? Y/N" << std::endl;
+//     cin >> input;
+//     //TaskList tempList = *temp;
+//     //*tempList = temp;
 
-    if(input == "Y"){
-        std::cout << "Task deleted. Undo? Y/N" << std::endl;
-        cin >> input;
-        if(input == "Y"){
-            std::cout << "Task restored" << std::endl;    
-        }
-        else{
-            //will this acutally edit the taskList?
+//     if(input == "Y"){
+//         std::cout << "Task deleted. Undo? Y/N" << std::endl;
+//         cin >> input;
+//         if(input == "Y"){
+//             std::cout << "Task restored" << std::endl;    
+//         }
+//         else{
+//             //will this acutally edit the taskList?
 
-            for(int i = index; i < temp.getList().size()-1; i++){
-                Goal *tempTask;
-                tempTask = temp.getList().at(i+1);
-                temp.getList().at(i+1) = temp.getList().at(i);
-                temp.getList().at(i) = tempTask;
-            }
-            temp.getList().pop_back();
-        }
-    }
-    else{
-        std::cout << "Task was not deleted" << std::endl;    
-    }
-}
+//             for(int i = index; i < temp.getList().size()-1; i++){
+//                 Goal *tempTask;
+//                 tempTask = temp.getList().at(i+1);
+//                 temp.getList().at(i+1) = temp.getList().at(i);
+//                 temp.getList().at(i) = tempTask;
+//             }
+//             temp.getList().pop_back();
+//         }
+//     }
+//     else{
+//         std::cout << "Task was not deleted" << std::endl;    
+//     }
+// }
