@@ -1,15 +1,35 @@
-#include "TaskList.h" //change these back to say "../header/"
-#include "Task.h"
-#include "Goal.h"
+#include "../header/TaskList.h" //change these back to say "../header/"
+#include "../header/Task.h"
+#include "../header/Goal.h"
 #include <iostream> //are we suppposed to have this?
 #include <vector>
 #include <string>
 
 using namespace std;
 
+TaskList findTaskList(string inputName, vector<TaskList> tempList){
+    for(int i = 0; i < tempList.size(); i++){
+        if(inputName == tempList.at(i).getName()){
+            return tempList.at(i);
+        }
+    }
+    TaskList none = TaskList();
+    return none;
+}
+int findTaskListIndex(string inputName, vector<TaskList> tempList){
+    for(int i = 0; i < tempList.size(); i++){
+        if(inputName == tempList.at(i).getName()){
+            return i;
+        }
+    }
+    
+    return -1;
+}
+
 
 int main(){
-    TaskList unsorted = TaskList();
+    TaskList unsorted = TaskList("Unsorted");
+    vector<TaskList> allLists;
 
     int input = 0;
 
@@ -50,25 +70,79 @@ int main(){
                     tempTask->edit();
                 }
             }
-            // else if(input2 == 3){
-            //     std::string taskName = "";
-            //     std::cout << "Enter the name of the task you want to delete: "; cin >> taskName; std::cout << std::endl;
-            //     Goal *tempGoal = unsorted.findTask(taskName);
+            else if(input2 == 3){
+                std::string taskName = "";
+                std::cout << "Enter the name of the task you want to delete: "; cin >> taskName; std::cout << std::endl;
+                Goal *tempGoal = unsorted.findTask(taskName);
 
-            //     Task *tempTask = dynamic_cast<Task *>(tempGoal);
+                Task *tempTask = dynamic_cast<Task *>(tempGoal);
 
-            //     int tempInt = unsorted.findIndex(taskName);
-            //     tempTask->deleteObj(tempInt, unsorted);
-            // }
+                int tempInt = unsorted.findIndex(taskName);
+                tempTask->deleteObj(tempInt);
+
+                if(tempTask->getDeleted()){
+                    for(int i = tempInt; i < unsorted.getList().size()-1; i++){
+                        Goal *tempTask;
+                        tempTask = unsorted.getList().at(i+1);
+                        unsorted.getList().at(i+1) = unsorted.getList().at(i);
+                        unsorted.getList().at(i) = tempTask;
+                    }
+                    unsorted.getList().pop_back();
+                }
+            }
             else{
                 std::cout << "Invalid input" << std::endl;
             }
         }
         else if(input == 1){
-            std::cout << "edit list";
+            int input2 = 0;
+            std::cout << "1. Create new list" << std::endl << "2. Edit existing list" << std::endl << "3. Delete list" << std::endl;
+            cin >> input2;
+
+            if(input2 == 1){
+                std::string listName;
+                std::cout << "What would you like to call this list?" << std::endl;
+                cin.ignore();
+                getline(cin, listName);
+
+                TaskList newList = TaskList(listName);
+                allLists.push_back(newList);
+            }
+            else if(input2 == 2){
+                std::string listName = "";
+                std::cout << "Enter the name of the list you want to edit: "; cin.ignore(); getline(cin, listName); std::cout << std::endl;
+                TaskList temp = findTaskList(listName, allLists);
+                if(temp.getName() == "default"){
+                    std::cout << "Task list not present" << std::endl;
+                }
+                else{
+                    temp.edit();
+                    if(temp.getLookInMain()){ //adds an already existing task to the list
+                        std::string taskName = "";
+                        std::cout << "Enter the name of the task you want to add: "; cin.ignore(); getline(cin, taskName); std::cout << std::endl;
+                        Goal* tempTask = unsorted.findTask(taskName);
+                        if(tempTask->getName() == ""){
+                            std::cout << "Task not present" << std::endl;
+                        }
+                        else{
+                            temp.addTask(tempTask);
+                            //remove from unsorted
+                        }
+                    }
+                    int lookIndex = findTaskListIndex(listName, allLists);
+                    allLists.at(lookIndex) = temp;
+                }
+            }
         }
         else if(input == 3){
+            std::cout << std::endl;
+            for(int i = 0; i < allLists.size(); i++){
+                allLists.at(i).print();
+                std::cout << std::endl;
+            }
+            std::cout << "Here are your unsorted tasks:" << std::endl << std::endl;
             unsorted.print();
+            std::cout << std::endl;
         }
         else if(input == 4){
             break;
