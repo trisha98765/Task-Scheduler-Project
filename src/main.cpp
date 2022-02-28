@@ -13,9 +13,9 @@ int main(){
 
     int input = 0;
 
-    while(input != 3){
+    while(input != 4){
         std::cout << "What would you like to do?" << std::endl << "1. Create new list/edit existing list" << std::endl 
-        << "2. Create new task/edit existing task" << std::endl << "3. Quit" << std::endl;
+        << "2. Create new task/edit existing task" << std::endl << "3. Print list" << std::endl << "4. Quit" << std::endl;
         cin >> input;
 
         if(input == 2){
@@ -28,14 +28,15 @@ int main(){
             bool bool1;
             if(input2 == 1){
                 bool1 = false; //set to false bc it's a new task
-                std::cout << "Create a name: "; cin >> string1;
-                std::cout << std::endl << "Write a short description: "; cin >> string2;
+                cin.ignore();
+                std::cout << "Create a name: "; getline(std::cin, string1);
+                std::cout << std::endl << "Write a short description: "; getline(std::cin, string2);
                 std::cout << std::endl << "Set the priority level: "; cin >> int1;
-                std::cout << std::endl << "Classify your task: "; cin >> string3;
+                std::cout << std::endl << "Classify your task: "; cin.ignore(); getline(cin, string3);
                 std::cout << std::endl << "Set the duration: "; cin >> int2;
-                std::cout << std::endl << "Create a due date: "; cin >> string4;
+                std::cout << std::endl << "Create a due date: "; cin.ignore(); getline(cin, string4);
                 std::cout << std::endl << "Enter a progress level: 1-10: "; cin >> int3; std::cout << std::endl;
-                Goal *newTask = new Task(string1, string2, int1, int2, string3, string4, bool1, int3);
+                Goal *newTask = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);
                 unsorted.addTask(newTask);
             }
             else if(input2 == 2){ //maybe we could print the tasks out in case user doesn't remember name?
@@ -44,21 +45,27 @@ int main(){
                 Goal* tempTask = unsorted.findTask(taskName);
                 tempTask->edit();
             }
-            else if(input2 == 3){
-                std::string taskName = "";
-                std::cout << "Enter the name of the task you want to delete: "; cin >> taskName; std::cout << std::endl;
-                Goal *tempGoal = unsorted.findTask(taskName);
+            // else if(input2 == 3){
+            //     std::string taskName = "";
+            //     std::cout << "Enter the name of the task you want to delete: "; cin >> taskName; std::cout << std::endl;
+            //     Goal *tempGoal = unsorted.findTask(taskName);
 
-                Task *tempTask = dynamic_cast<Task *>(tempGoal);
+            //     Task *tempTask = dynamic_cast<Task *>(tempGoal);
 
-                int tempInt = unsorted.findIndex(taskName);
-                tempTask->deleteObj(tempInt, unsorted);
+            //     int tempInt = unsorted.findIndex(taskName);
+            //     tempTask->deleteObj(tempInt, unsorted);
+            // }
+            else{
+                std::cout << "Invalid input" << std::endl;
             }
         }
         else if(input == 1){
             std::cout << "edit list";
         }
         else if(input == 3){
+            unsorted.print();
+        }
+        else if(input == 4){
             break;
         }
         else{
