@@ -25,7 +25,7 @@ Main Program
 
 ```bash
 cmake .
-make task-scheduler
+cmake --build
 ```
 
 ### Run
