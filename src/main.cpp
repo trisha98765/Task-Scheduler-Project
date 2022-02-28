@@ -41,9 +41,14 @@ int main(){
             }
             else if(input2 == 2){ //maybe we could print the tasks out in case user doesn't remember name?
                 std::string taskName = "";
-                std::cout << "Enter the name of the task you want to edit: "; cin >> taskName; std::cout << std::endl;
+                std::cout << "Enter the name of the task you want to edit: "; cin.ignore(); getline(cin, taskName); std::cout << std::endl;
                 Goal* tempTask = unsorted.findTask(taskName);
-                tempTask->edit();
+                if(tempTask->getName() == ""){
+                    std::cout << "Task not present" << std::endl;
+                }
+                else{
+                    tempTask->edit();
+                }
             }
             // else if(input2 == 3){
             //     std::string taskName = "";
