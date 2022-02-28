@@ -44,15 +44,24 @@ Goal* TaskList::findTask(string tempName){ //what if you didn't find anything?
     vector<Goal*> tempVec = this->getList();
     Goal *tempTask = tempVec.at(0);
 
-    std::string tempName2 = tempTask->getName();
-    int i = 0;
 
+
+    std::string tempName2 = tempTask->Goal::getName();
+    int i = 0;
+    
     while(tempName2 != tempName){
         i++;
+        if(i >= tempVec.size()){
+            Task *newTask = new Task();
+            Goal *tempGoal = dynamic_cast<Task *>(newTask);
+            //delete newTask;
+            return tempGoal;
+        }
+
         tempTask = tempVec.at(i);
-        tempName2 = tempTask->getName();
+        tempName2 = tempTask->Goal::getName();
     }
-    
+
     return tempVec.at(i);
 }
 
@@ -60,13 +69,13 @@ int TaskList::findIndex(string tempName){
     vector<Goal*> tempVec = this->getList();
     Goal *tempTask = tempVec.at(0);
 
-    std::string tempName2 = tempTask->getName();
+    std::string tempName2 = tempTask->Goal::getName();
     int i = 0;
 
     while(tempName2 != tempName){
         i++;
         tempTask = tempVec.at(i);
-        tempName2 = tempTask->getName();
+        tempName2 = tempTask->Goal::getName();
     }
     return i;
 }
