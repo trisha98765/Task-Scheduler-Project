@@ -13,7 +13,10 @@ class Goal{
     private:
         string name;
     public:
-        Goal(){}
+        ~Goal(){}
+        Goal(){
+            name = "";
+        }
         Goal(string s){
             name = s;
         }
