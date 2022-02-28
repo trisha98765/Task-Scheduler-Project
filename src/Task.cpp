@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Task.h" //change back to ../header/
-#include "TaskList.h"
-#include "Goal.h"
+#include "../header/Task.h" //change back to ../header/
+#include "..header/TaskList.h"
+#include "..header/Goal.h"
 
 using namespace std;
 
@@ -131,33 +131,23 @@ void Task::edit(){
         this->setProgress(int3);
     }
 }
-// void Task::deleteObj(int index2, TaskList &temp){
-//     std::string input;
-//     int index = index2-1; //bc user enters 1 but index is 0
-//     std::cout << "Would you like to delete this task? Y/N" << std::endl;
-//     cin >> input;
-//     //TaskList tempList = *temp;
-//     //*tempList = temp;
+void Task::deleteObj(int index){
+    std::string input;
+    cin.ignore();
+    std::cout << "Would you like to delete this task? Y/N" << std::endl; //fills this in for us and doesn't complete
+    cin >> input;
 
-//     if(input == "Y"){
-//         std::cout << "Task deleted. Undo? Y/N" << std::endl;
-//         cin >> input;
-//         if(input == "Y"){
-//             std::cout << "Task restored" << std::endl;    
-//         }
-//         else{
-//             //will this acutally edit the taskList?
-
-//             for(int i = index; i < temp.getList().size()-1; i++){
-//                 Goal *tempTask;
-//                 tempTask = temp.getList().at(i+1);
-//                 temp.getList().at(i+1) = temp.getList().at(i);
-//                 temp.getList().at(i) = tempTask;
-//             }
-//             temp.getList().pop_back();
-//         }
-//     }
-//     else{
-//         std::cout << "Task was not deleted" << std::endl;    
-//     }
-// }
+    if(input == "Y"){
+        std::cout << "Task deleted. Undo? Y/N" << std::endl;
+        cin >> input;
+        if(input == "Y"){
+            std::cout << "Task restored" << std::endl;    
+        }
+        else{
+            this->setDeleted(true);
+        }
+    }
+    else{
+        std::cout << "Task was not deleted" << std::endl;    
+    }
+}
