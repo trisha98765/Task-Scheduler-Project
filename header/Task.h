@@ -11,24 +11,24 @@ class Task: public Goal{
     private:
         std::string name;
         std::string description;
-        int priority;
+        int priority; // assuming 1 is the highest priority
         std::string classification;
-        int duration;
-        std::string dueDate;
+        int duration; // number of days
+        std::string dueDate; // we might have to validate input by user for this
         bool completed;
-        int inProgress;
-        bool deleted;
+        int inProgress; // on a scale of 1-10, 5 is half progress made?
+        bool deleted; // lets main know that task has been deleted 
     public:
     ~Task(){}
         Task():Goal(){
             name = "Homework";
             description = "For CS 100";
-            priority = 1; // assuming 1 is the highest priority
+            priority = 1;
             classification = "School";
-            duration = 7; // number of days
-            dueDate = "03/12/22"; // we might have to validate input by user for this
+            duration = 7;
+            dueDate = "03/12/22";
             completed = false;
-            inProgress = 5; // on a scale of 1-10, 5 is half progress made?
+            inProgress = 5;
         }
         Task(std::string n, std::string d, int val, int dur, std::string date, std::string label, bool check, int progress):Goal(n){
             name = n;
@@ -68,7 +68,7 @@ class Task: public Goal{
 
         virtual void print(); //had this as an argument originally std::ostream &out
         virtual void edit();  // specifications not complete
-        void deleteObj(int index2);
+        void deleteObj();
 
 };
 
