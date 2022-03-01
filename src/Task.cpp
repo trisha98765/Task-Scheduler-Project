@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "../header/Task.h" //change back to ../header/
+#include "../header/Task.h"
 #include "..header/TaskList.h"
 #include "..header/Goal.h"
 
@@ -131,15 +131,18 @@ void Task::edit(){
         this->setProgress(int3);
     }
 }
-void Task::deleteObj(int index){
+void Task::deleteObj(){
     std::string input;
+    
+    std::cout << "Would you like to delete this task? Y/N: ";
     cin.ignore();
-    std::cout << "Would you like to delete this task? Y/N" << std::endl; //fills this in for us and doesn't complete
     cin >> input;
+    std:: cout << std::endl;
 
     if(input == "Y"){
-        std::cout << "Task deleted. Undo? Y/N" << std::endl;
+        std::cout << "Task deleted. Undo? Y/N: ";
         cin >> input;
+        std::cout << std::endl;
         if(input == "Y"){
             std::cout << "Task restored" << std::endl;    
         }
