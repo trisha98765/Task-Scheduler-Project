@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <ostream>
 #include "../header/Task.h"
 #include "..header/Goal.h"
 
@@ -36,7 +37,7 @@ class TaskList: public Goal{
         bool getLookInMain(){
             return lookInMain;
         }
-        void print(); // had this as an argument originally std::ostream &out
+        void print(std::ostream &out); // had this as an argument originally std::ostream &out
         void edit();      // does this take arguments?
         void addTask(Goal*);
         std::vector<Goal*>& getList(); //passed by reference
