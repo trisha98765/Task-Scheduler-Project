@@ -4,23 +4,30 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <ostream>
+#include "../header/TaskList.h"
+#include "../header/Task.h"
 
-
-using namespace std;
-
-class Goal {
+class Goal{
     private:
-        string name;
+        std::string name;
     public:
-        void setName(string s){
+        ~Goal(){}
+        Goal(){
+            name = "";
+        }
+        Goal(std::string s){
             name = s;
         }
-        string getName(){
+        void setName(std::string s){
+            name = s;
+        }
+        std::string getName(){
             return name;
         }
         virtual void print(std::ostream &out) = 0;
-        virtual void edit() = 0;      // does this take arguments?
-        virtual void deleteObj(int index) = 0;
+        virtual void edit(std::ostream &out) = 0;      // does this take arguments?
+        virtual void deleteObj(std::ostream &out) = 0;
 };
 
 #endif

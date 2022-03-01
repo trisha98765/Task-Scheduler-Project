@@ -4,7 +4,9 @@ SET(CMAKE_CXX_STANDARD 11)
 
 # Main productoin executable
 ADD_EXECUTABLE(task-scheduler
-    src/main.cpp
+    src/main.cpp 
+    src/Task.cpp
+    src/TaskList.cpp
 )
 
 # GTest testing executable

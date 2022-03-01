@@ -1,31 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <ostream>
 #include "../header/Task.h"
+#include "../header/TaskList.h"
+#include "../header/Goal.h"
 
 using namespace std;
-
-Task::Task(){
-    name = "Homework";
-    description = "For CS 100";
-    priority = 1; // assuming 1 is the highest priority
-    classification = "School";
-    duration = 7; // number of days
-    dueDate = "03/12/22"; // we might have to validate input by user for this
-    completed = false;
-    inProgress = 5; // on a scale of 1-10, 5 is half progress made?
-}
-    
-Task::Task(string n, string d, int val, int dur, string date, string label, bool check, int progress){
-    name = n;
-    description = d;
-    priority = val;
-    duration = dur;
-    dueDate = date;
-    classification = label;
-    completed = check;      
-    inProgress = progress;
-}
 
 void Task::setDescription(string d){
     description = d;
@@ -83,32 +64,141 @@ int Task::getProgress(){
     return inProgress;
 }
 
-void Task::print(std::ostream &out){
-  std::cout << "Name: " << this->Goal::getName() << std::endl;
-    std::cout << "Due: " << this->getDueDate() << " Priority: " << this->getPriority() << std::endl;
-    std::cout << "Classification: " << this->getClassification() << "Duration: " << this->getDuration() << std::endl;
-    std::cout << "Description: " << this->getDescription() << std::endl;
+void Task::print(std::ostream &out){ // had this as an argument originally std::ostream &out
+    out << "Name: " << this->Goal::getName() << std::endl;
+    out << "Due: " << this->getDueDate() << std::endl << "Priority: " << this->getPriority() << std::endl;
+    out << "Classification: " << this->getClassification() << std::endl << "Duration: " << this->getDuration() << std::endl;
+    out << "Description: " << this->getDescription() << std::endl;
+    out << "Completed? "; 
+    bool complete = this->getCompletion();
+    if(complete){
+        out << "Yes" << std::endl;
+    }
+    else{
+        out << "No" << std::endl;
+    }
+    out << "Progress status: " << this->getProgress() << std::endl << std::endl;
 }
 
-void Task::edit(){
-    // TO DO
+void Task::edit(std::ostream &out){
+    string updateTask = "";
+    int editChoice = 0;
+    bool taskCompletion = false, choiceValidity = false;
+
+    out << "What would you like to edit?" << endl;
+    out << "1. Name" << endl << "2. Description" << endl << "3. Priority" << endl << "4. Classification" << endl << "5. Duration" << endl << "6. Due Date" << endl << "7. Completion" << endl << "8. Progress" << endl << "9. Done editing" << endl;
+    
+    while(choiceValidity == false) {
+       
+        cin >> editChoice;
+        cin.ignore();
+        out << endl;
+ 
+        switch(editChoice) {
+
+            case 1: {
+                out << "Enter the new name for the task: ";
+                getline(cin, updateTask);
+                this->Goal::setName(updateTask);
+                out << endl;
+                choiceValidity = true;
+                break;
+            };
+
+            case 2: {
+                out << "Enter the new description of the task: ";
+                getline(cin, updateTask); 
+                this->setDescription(updateTask);
+                choiceValidity = true;
+                break;
+            };
+
+            case 3: {
+                out << "Enter the new priority value: ";
+                int prioVal = 0;
+                cin >> prioVal;
+                this->setPriority(prioVal);
+                choiceValidity = true;
+                break;
+            };
+
+            case 4: {
+                out << "Enter the new classification of the task: ";
+                getline(cin, updateTask);
+                this->setClassification(updateTask);
+                choiceValidity = true;
+                break;
+            };
+
+            case 5: {
+                out << "Enter the new duration of the task: ";
+                int taskDuration;
+                cin >> taskDuration;
+                this->setDuration(taskDuration);
+                choiceValidity = true;
+                break;
+            };
+
+            case 6: {
+                out << "Enter the new due date of the task: ";
+                getline(cin, updateTask);
+                this->setDueDate(updateTask);
+                choiceValidity = true;
+                break;
+            };
+
+            case 7: {
+                out << "(Enter yes or no)" << endl;
+                out << "Task completed: ";
+                getline(cin, updateTask);
+                if (updateTask == "yes")
+                     taskCompletion = true;
+                this->setCompletion(taskCompletion);
+                choiceValidity = true;
+                break;
+            };
+
+            case 8: {
+                out << "Enter the progress value: ";
+                int progVal = 0;
+                cin >> progVal;
+                this->setProgress(progVal);
+                choiceValidity = true;
+                break;
+            }
+
+            case 9: {
+                out << "Editing complete" << endl;
+                choiceValidity = true;
+                break;
+            } 
+
+            default: {
+                out << "Invalid choice. Try again: ";
+            }
+        }
+    }
 }
-void Task::deleteObj(int index2, vector<Task> &temp) {
+void Task::deleteObj(std::ostream &out){
     std::string input;
-    int index = index2-1; //bc user enters 1 but index is 0
-    std::cout << "Would you like to delete this task? Y/N" << std::endl;
+    
+    out << "Would you like to delete this task? Y/N: ";
+    cin.ignore();
     cin >> input;
+    out << std::endl;
+
     if(input == "Y"){
-        std::cout << "Task deleted. Undo? Y/N" << std::endl;
+        out << "Task deleted. Undo? Y/N: ";
         cin >> input;
+        out << std::endl;
         if(input == "Y"){
-            std::cout << "Task restored" << std::endl;    
+            out << "Task restored" << std::endl;    
         }
         else{
-            temp.at(index).erase();
+            this->setDeleted(true);
         }
     }
     else{
-        std::cout << "Task was not deleted" << std::endl;    
+        out << "Task was not deleted" << std::endl;    
     }
 }
