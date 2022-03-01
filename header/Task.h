@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <ostream>
 #include "../header/TaskList.h"
 #include "../header/Goal.h"
 
@@ -66,7 +67,7 @@ class Task: public Goal{
         } 
 
 
-        virtual void print(); //had this as an argument originally std::ostream &out
+        virtual void print(std::ostream &out); //had this as an argument originally std::ostream &out
         virtual void edit();  // specifications not complete
         void deleteObj();
 
