@@ -26,8 +26,8 @@ class Goal{
             return name;
         }
         virtual void print(std::ostream &out) = 0;
-        virtual void edit() = 0;      // does this take arguments?
-        virtual void deleteObj() = 0;
+        virtual void edit(std::ostream &out) = 0;      // does this take arguments?
+        virtual void deleteObj(std::ostream &out) = 0;
 };
 
 #endif
