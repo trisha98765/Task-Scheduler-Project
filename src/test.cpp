@@ -2,6 +2,11 @@
 #include "../header/Task.h"
 #include "../header/TaskList.h"
 #include "../header/Goal.h"
+#include<vector>
+using namespace std;
+
+static TaskList testList = TaskList("Test");
+
 TEST(TaskConstructorTest, defaultConstructor){
     Task *test = new Task();
    // EXPECT_EQ(test->getName(), "Homework");
@@ -26,9 +31,15 @@ TEST(TaskConstructorTest, overloadedConstructor){
     EXPECT_EQ(test->getProgress(), 0);
 }
 
-
+TEST(TaskMethodTest, addTask){
+    Goal *task2 = new Task("Study Guide", "For CS 100", 1, 3,"03/11/22", "Winter 2022", false, 0);
+    testList.addTask(task2);
+    testList.print(std::cout);
+}
 
 int main(int argc, char **argv) {
+    Goal *task1 = new Task("Notes", "For CS 100", 2, 10,"03/19/22", "Winter 2022", false, 5);
+    testList.addTask(task1);
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
