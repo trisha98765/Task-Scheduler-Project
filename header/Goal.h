@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <ostream>
 #include "../headher/TaskList.h"
 #include "../header/Task.h"
 
@@ -24,7 +25,7 @@ class Goal{
         std::string getName(){
             return name;
         }
-        virtual void print() = 0; //had this as an argument: std::ostream &out
+        virtual void print(std::ostream &out) = 0;
         virtual void edit() = 0;      // does this take arguments?
         virtual void deleteObj() = 0;
 };
