@@ -1,16 +1,17 @@
 #include <iostream>
 #include <vector>
+#include <ostream>
 #include "../header/TaskList.h"
 #include "../header/Task.h"
 #include "../header/Goal.h"
 
 using namespace std;
 
-void TaskList::print(){
-    std::cout << this->getName() << std::endl;
+void TaskList::print(std::ostream &out){
+    out << this->getName() << std::endl;
     int size = listObj.size();
     for(int i = 0; i < size; i++){
-       listObj.at(i)->print();
+       listObj.at(i)->print(out);
     }
    
 }
