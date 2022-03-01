@@ -38,10 +38,10 @@ class TaskList: public Goal{
             return lookInMain;
         }
         void print(std::ostream &out); // had this as an argument originally std::ostream &out
-        void edit();      // does this take arguments?
+        void edit(std::ostream &out);      // does this take arguments?
         void addTask(Goal*);
         std::vector<Goal*>& getList(); //passed by reference
-        void deleteObj();
+        void deleteObj(std::ostream &out);
         Goal* findTask(std::string);
         int findIndex(std::string);
 };
