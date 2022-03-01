@@ -3,8 +3,8 @@
 #include <string>
 #include <ostream>
 #include "../header/Task.h"
-#include "..header/TaskList.h"
-#include "..header/Goal.h"
+#include "../header/TaskList.h"
+#include "../header/Goal.h"
 
 using namespace std;
 

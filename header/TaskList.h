@@ -6,7 +6,7 @@
 #include <string>
 #include <ostream>
 #include "../header/Task.h"
-#include "..header/Goal.h"
+#include "../header/Goal.h"
 
 class TaskList: public Goal{
     private:
