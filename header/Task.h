@@ -68,8 +68,8 @@ class Task: public Goal{
 
 
         virtual void print(std::ostream &out); //had this as an argument originally std::ostream &out
-        virtual void edit();  // specifications not complete
-        void deleteObj();
+        virtual void edit(std::ostream &out);  // specifications not complete
+        void deleteObj(std::ostream &out);
 
 };
 
