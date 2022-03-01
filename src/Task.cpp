@@ -81,54 +81,102 @@ void Task::print(std::ostream &out){ // had this as an argument originally std::
 }
 
 void Task::edit(std::ostream &out){
-    std::string string1, string2, string3, string4;
-    int int1, int2, int3;
-    bool bool1;
+    string updateTask = "";
+    int editChoice = 0;
+    bool taskCompletion = false, choiceValidity = false;
 
-    int input3 = 0;
-    out << "What would you like to edit?" << std::endl;
-    out << "1. Name" << std::endl << "2. Description" << std::endl << "3. Priority" << std::endl << "4. Classification"
-    << std::endl << "5. Duration" << std::endl << "6. Due Date" << std::endl << "7. Completion" << std::endl << "8. Progress" << std::endl;
-    cin >> input3;
-    cin.ignore();
-    if(input3 == 1){
-        out << "Enter your new value: "; getline(std::cin, string1); out << endl;
-        this->Goal::setName(string1);
-    }
-    else if(input3 == 2){
-        out << "Enter your new value: "; getline(std::cin, string2); out << endl;
-        this->setDescription(string2);
-    }
-    else if(input3 == 3){
-        out << "Enter your new value: "; cin >> int1; out << endl;
-        this->setPriority(int1);
-    }
-    else if(input3 == 4){
-        out << "Enter your new value: "; getline(cin, string3); out << endl;
-        this->setClassification(string3);
-    }
-    else if(input3 == 5){
-        out << "Enter your new value: "; cin >> int2; out << endl;
-        this->setDuration(int2);
-    }
-    else if(input3 == 6){
-        out << "Enter your new value: "; getline(cin, string4); out << endl;
-        this->setDueDate(string4);
-    }
-    else if(input3 == 7){
-        std::string answer;
-        out << "Enter yes or no: "; getline(cin, answer); out << endl;
-        if(answer == "yes"){
-            bool1 = true;
+    out << "What would you like to edit?" << endl;
+    out << "1. Name" << endl << "2. Description" << endl << "3. Priority" << endl << "4. Classification" << endl << "5. Duration" << endl << "6. Due Date" << endl << "7. Completion" << endl << "8. Progress" << endl << "9. Done editing" << endl;
+    
+    while(choiceValidity == false) {
+       
+        cin >> editChoice;
+        cin.ignore();
+        out << endl;
+ 
+        switch(editChoice) {
+
+            case 1: {
+                out << "Enter the new name for the task: ";
+                getline(cin, updateTask);
+                this->Goal::setName(updateTask);
+                out << endl;
+                choiceValidity = true;
+                break;
+            };
+
+            case 2: {
+                out << "Enter the new description of the task: ";
+                getline(cin, updateTask); 
+                this->setDescription(updateTask);
+                choiceValidity = true;
+                break;
+            };
+
+            case 3: {
+                out << "Enter the new priority value: ";
+                int prioVal = 0;
+                cin >> prioVal;
+                this->setPriority(prioVal);
+                choiceValidity = true;
+                break;
+            };
+
+            case 4: {
+                out << "Enter the new classification of the task: ";
+                getline(cin, updateTask);
+                this->setClassification(updateTask);
+                choiceValidity = true;
+                break;
+            };
+
+            case 5: {
+                out << "Enter the new duration of the task: ";
+                int taskDuration;
+                cin >> taskDuration;
+                this->setDuration(taskDuration);
+                choiceValidity = true;
+                break;
+            };
+
+            case 6: {
+                out << "Enter the new due date of the task: ";
+                getline(cin, updateTask);
+                this->setDueDate(updateTask);
+                choiceValidity = true;
+                break;
+            };
+
+            case 7: {
+                out << "(Enter yes or no)" << endl;
+                out << "Task completed: ";
+                getline(cin, updateTask);
+                if (updateTask == "yes")
+                     taskCompletion = true;
+                this->setCompletion(taskCompletion);
+                choiceValidity = true;
+                break;
+            };
+
+            case 8: {
+                out << "Enter the progress value: ";
+                int progVal = 0;
+                cin >> progVal;
+                this->setProgress(progVal);
+                choiceValidity = true;
+                break;
+            }
+
+            case 9: {
+                out << "Editing complete" << endl;
+                choiceValidity = true;
+                break;
+            } 
+
+            default: {
+                out << "Invalid choice. Try again: ";
+            }
         }
-        else{
-            bool1 = false;
-        }
-        this->setCompletion(bool1);
-    }
-    else if(input3 == 8){
-        out << "Enter your new value: "; cin >> int3; out << endl;
-        this->setProgress(int3);
     }
 }
 void Task::deleteObj(std::ostream &out){
