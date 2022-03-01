@@ -1,7 +1,7 @@
 #include "../header/TaskList.h"
 #include "../header/Task.h"
 #include "../header/Goal.h"
-#include <iostream> //are we suppposed to have this?
+#include <iostream>
 #include <ostream>
 #include <vector>
 #include <string>

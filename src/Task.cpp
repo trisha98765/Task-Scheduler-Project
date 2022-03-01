@@ -88,8 +88,7 @@ void Task::edit(std::ostream &out){
     int input3 = 0;
     out << "What would you like to edit?" << std::endl;
     out << "1. Name" << std::endl << "2. Description" << std::endl << "3. Priority" << std::endl << "4. Classification"
-    << std::endl << "5. Duration" << std::endl << "6. Due Date" << std::endl << "7. Completion" << std::endl << "8. Progress" 
-    out << std::endl;
+    << std::endl << "5. Duration" << std::endl << "6. Due Date" << std::endl << "7. Completion" << std::endl << "8. Progress" << std::endl;
     cin >> input3;
     cin.ignore();
     if(input3 == 1){
