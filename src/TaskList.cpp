@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "../header/TaskList.h" //change these back to ../header/
+#include "../header/TaskList.h"
 #include "../header/Task.h"
 #include "../header/Goal.h"
 
@@ -65,11 +65,11 @@ void TaskList::edit(){
             cin.ignore();
             std::cout << "Create a name: "; getline(std::cin, string1);
             std::cout << std::endl << "Write a short description: "; getline(std::cin, string2);
-            std::cout << std::endl << "Set the priority level: "; cin >> int1;
+            std::cout << std::endl << "Set the priority level (1-10): "; cin >> int1;
             std::cout << std::endl << "Classify your task: "; cin.ignore(); getline(cin, string3);
-            std::cout << std::endl << "Set the duration: "; cin >> int2;
-            std::cout << std::endl << "Create a due date: "; cin.ignore(); getline(cin, string4);
-            std::cout << std::endl << "Enter a progress level: 1-10: "; cin >> int3; std::cout << std::endl;
+            std::cout << std::endl << "How many days will this task last? "; cin >> int2;
+            std::cout << std::endl << "Create a due date in the form XX/YY/ZZ: "; cin.ignore(); getline(cin, string4);
+            std::cout << std::endl << "Enter a progress level (1-10): "; cin >> int3; std::cout << std::endl;
             Goal *newTask = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);
             this->addTask(newTask);
             this->setLookInMain(false);
@@ -79,20 +79,24 @@ void TaskList::edit(){
 void TaskList::addTask(Goal *newOne){
     listObj.push_back(newOne);
 }
-// void TaskList::deleteObj(int index, TaskList &tempList) {
-//     std::string input;
-//     std::cout << "Would you like to delete this list? Y?N" << std::endl;
-//     std::cin >> input;
-//     if(input == "Y"){
-//         std::cout << "List deleted. Undo? Y?N" << std::endl;
-//         if(input == "Y"){
-//             std::cout << "List restored" << std::endl;
-//         }
-//         else{
-//             //temp.at(index).erase();
-//         }
-//     }
-// }
+void TaskList::deleteObj() {
+    std::string input;
+    // cin.ignore();
+    std::cout << "Would you like to delete this list? Y/N: ";
+    std::cin >> input;
+    std::cout  << std::endl;
+    if(input == "Y"){
+        std::cout << "List deleted. Undo? Y/N: ";
+        cin >> input;
+        std::cout << std::endl;
+        if(input == "Y"){
+            std::cout << "List restored" << std::endl;
+        }
+        else{
+            this->setBool(true);        
+        }
+    }
+}
 
 vector<Goal*>& TaskList::getList(){
     return listObj;
@@ -100,6 +104,12 @@ vector<Goal*>& TaskList::getList(){
 
 Goal* TaskList::findTask(string tempName){
     vector<Goal*> tempVec = this->getList();
+    if(tempVec.size() == 0){
+        Task *newTask = new Task();
+        Goal *tempGoal = dynamic_cast<Task *>(newTask);
+        //delete newTask;
+        return tempGoal;
+    }
     Goal *tempTask = tempVec.at(0);
     std::string tempName2 = tempTask->Goal::getName();
     int i = 0;
