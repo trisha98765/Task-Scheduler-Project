@@ -1,4 +1,4 @@
-#include "../header/TaskList.h" //change these back to say "../header/"
+#include "../header/TaskList.h"
 #include "../header/Task.h"
 #include "../header/Goal.h"
 #include <iostream> //are we suppposed to have this?
@@ -51,11 +51,11 @@ int main(){
                 cin.ignore();
                 std::cout << "Create a name: "; getline(std::cin, string1);
                 std::cout << std::endl << "Write a short description: "; getline(std::cin, string2);
-                std::cout << std::endl << "Set the priority level: "; cin >> int1;
+                std::cout << std::endl << "Set the priority level (1-10): "; cin >> int1;
                 std::cout << std::endl << "Classify your task: "; cin.ignore(); getline(cin, string3);
-                std::cout << std::endl << "Set the duration: "; cin >> int2;
-                std::cout << std::endl << "Create a due date: "; cin.ignore(); getline(cin, string4);
-                std::cout << std::endl << "Enter a progress level: 1-10: "; cin >> int3; std::cout << std::endl;
+                std::cout << std::endl << "How many days will this task last? "; cin >> int2;
+                std::cout << std::endl << "Create a due date in the form XX/YY/ZZ: "; cin.ignore(); getline(cin, string4);
+                std::cout << std::endl << "Enter a progress level (1-10): "; cin >> int3; std::cout << std::endl;
                 Goal *newTask = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);
                 unsorted.addTask(newTask);
             }
@@ -74,20 +74,25 @@ int main(){
                 std::string taskName = "";
                 std::cout << "Enter the name of the task you want to delete: "; cin >> taskName; std::cout << std::endl;
                 Goal *tempGoal = unsorted.findTask(taskName);
+                if(tempGoal->getName() == ""){
+                    std::cout << "Task not present" << std::endl;
+                }
+                else{
+                    Task *tempTask = dynamic_cast<Task *>(tempGoal);
 
-                Task *tempTask = dynamic_cast<Task *>(tempGoal);
+                    int tempInt = unsorted.findIndex(taskName);
+                    tempTask->deleteObj();
 
-                int tempInt = unsorted.findIndex(taskName);
-                tempTask->deleteObj(tempInt);
-
-                if(tempTask->getDeleted()){
-                    for(int i = tempInt; i < unsorted.getList().size()-1; i++){
-                        Goal *tempTask;
-                        tempTask = unsorted.getList().at(i+1);
-                        unsorted.getList().at(i+1) = unsorted.getList().at(i);
-                        unsorted.getList().at(i) = tempTask;
+                    if(tempTask->getDeleted()){
+                        for(int i = tempInt; i < unsorted.getList().size()-1; i++){
+                            Goal *tempTask;
+                            tempTask = unsorted.getList().at(i+1);
+                            unsorted.getList().at(i+1) = unsorted.getList().at(i);
+                            unsorted.getList().at(i) = tempTask;
+                        }
+                        unsorted.getList().pop_back();
+                        std::cout << "Task deleted" << std::endl;
                     }
-                    unsorted.getList().pop_back();
                 }
             }
             else{
@@ -101,9 +106,10 @@ int main(){
 
             if(input2 == 1){
                 std::string listName;
-                std::cout << "What would you like to call this list?" << std::endl;
+                std::cout << "What would you like to call this list? ";
                 cin.ignore();
                 getline(cin, listName);
+                std::cout << endl;
 
                 TaskList newList = TaskList(listName);
                 allLists.push_back(newList);
@@ -126,12 +132,45 @@ int main(){
                         }
                         else{
                             temp.addTask(tempTask);
-                            //remove from unsorted
+                            
+                            int tempInt = unsorted.findIndex(taskName);
+                            for(int i = tempInt; i < unsorted.getList().size()-1; i++){
+                                Goal *tempTask; 
+                                tempTask = unsorted.getList().at(i+1);
+                                unsorted.getList().at(i+1) = unsorted.getList().at(i);
+                                unsorted.getList().at(i) = tempTask;
+                            }
+                            //delete tempTask;
+                            unsorted.getList().pop_back();
                         }
                     }
                     int lookIndex = findTaskListIndex(listName, allLists);
                     allLists.at(lookIndex) = temp;
                 }
+            }
+            else if(input2 == 3){
+                std::string listName = "";
+                std::cout << "Enter the name of the list you want to edit: "; cin.ignore(); getline(cin, listName); std::cout << std::endl;
+                TaskList temp = findTaskList(listName, allLists);
+                if(temp.getName() == "default"){
+                    std::cout << "Task list not present" << std::endl;
+                }
+                else{
+                    temp.deleteObj();
+                    if(temp.getBool()){
+                        int index = findTaskListIndex(listName, allLists);
+                        for(int i = index; i < allLists.size()-1; i++){
+                            TaskList tempList;
+                            tempList = allLists.at(i+1);
+                            allLists.at(i+1) = allLists.at(i);
+                            allLists.at(i) = tempList;
+                        }
+                        allLists.pop_back();
+                    }
+                }
+            }
+            else{
+                std::cout << "Please enter a valid input" << std::endl;
             }
         }
         else if(input == 3){
