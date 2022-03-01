@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <ostream>
 #include "../header/Task.h"
 #include "..header/TaskList.h"
 #include "..header/Goal.h"
@@ -63,20 +64,20 @@ int Task::getProgress(){
     return inProgress;
 }
 
-void Task::print(){ // had this as an argument originally std::ostream &out
-    std::cout << "Name: " << this->Goal::getName() << std::endl;
-    std::cout << "Due: " << this->getDueDate() << std::endl << "Priority: " << this->getPriority() << std::endl;
-    std::cout << "Classification: " << this->getClassification() << std::endl << "Duration: " << this->getDuration() << std::endl;
-    std::cout << "Description: " << this->getDescription() << std::endl;
-    std::cout << "Completed? "; 
+void Task::print(std::ostream &out){ // had this as an argument originally std::ostream &out
+    out << "Name: " << this->Goal::getName() << std::endl;
+    out << "Due: " << this->getDueDate() << std::endl << "Priority: " << this->getPriority() << std::endl;
+    out << "Classification: " << this->getClassification() << std::endl << "Duration: " << this->getDuration() << std::endl;
+    out << "Description: " << this->getDescription() << std::endl;
+    out << "Completed? "; 
     bool complete = this->getCompletion();
     if(complete){
-        std::cout << "Yes" << std::endl;
+        out << "Yes" << std::endl;
     }
     else{
-        std::cout << "No" << std::endl;
+        out << "No" << std::endl;
     }
-    std::cout << "Progress status: " << this->getProgress() << std::endl << std::endl;
+    out << "Progress status: " << this->getProgress() << std::endl << std::endl;
 }
 
 void Task::edit(){
