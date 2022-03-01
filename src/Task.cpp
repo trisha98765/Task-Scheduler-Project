@@ -80,45 +80,45 @@ void Task::print(std::ostream &out){ // had this as an argument originally std::
     out << "Progress status: " << this->getProgress() << std::endl << std::endl;
 }
 
-void Task::edit(){
+void Task::edit(std::ostream &out){
     std::string string1, string2, string3, string4;
     int int1, int2, int3;
     bool bool1;
 
     int input3 = 0;
-    std::cout << "What would you like to edit?" << std::endl;
-    std::cout << "1. Name" << std::endl << "2. Description" << std::endl << "3. Priority" << std::endl << "4. Classification"
+    out << "What would you like to edit?" << std::endl;
+    out << "1. Name" << std::endl << "2. Description" << std::endl << "3. Priority" << std::endl << "4. Classification"
     << std::endl << "5. Duration" << std::endl << "6. Due Date" << std::endl << "7. Completion" << std::endl << "8. Progress" 
-    << std::cout << std::endl;
+    out << std::endl;
     cin >> input3;
     cin.ignore();
     if(input3 == 1){
-        std::cout << "Enter your new value: "; getline(std::cin, string1); std::cout << endl;
+        out << "Enter your new value: "; getline(std::cin, string1); out << endl;
         this->Goal::setName(string1);
     }
     else if(input3 == 2){
-        std::cout << "Enter your new value: "; getline(std::cin, string2); std::cout << endl;
+        out << "Enter your new value: "; getline(std::cin, string2); out << endl;
         this->setDescription(string2);
     }
     else if(input3 == 3){
-        std::cout << "Enter your new value: "; cin >> int1; std::cout << endl;
+        out << "Enter your new value: "; cin >> int1; out << endl;
         this->setPriority(int1);
     }
     else if(input3 == 4){
-        std::cout << "Enter your new value: "; getline(cin, string3); std::cout << endl;
+        out << "Enter your new value: "; getline(cin, string3); out << endl;
         this->setClassification(string3);
     }
     else if(input3 == 5){
-        std::cout << "Enter your new value: "; cin >> int2; std::cout << endl;
+        out << "Enter your new value: "; cin >> int2; out << endl;
         this->setDuration(int2);
     }
     else if(input3 == 6){
-        std::cout << "Enter your new value: "; getline(cin, string4); std::cout << endl;
+        out << "Enter your new value: "; getline(cin, string4); out << endl;
         this->setDueDate(string4);
     }
     else if(input3 == 7){
         std::string answer;
-        std::cout << "Enter yes or no: "; getline(cin, answer); std::cout << endl;
+        out << "Enter yes or no: "; getline(cin, answer); out << endl;
         if(answer == "yes"){
             bool1 = true;
         }
@@ -128,30 +128,30 @@ void Task::edit(){
         this->setCompletion(bool1);
     }
     else if(input3 == 8){
-        std::cout << "Enter your new value: "; cin >> int3; std::cout << endl;
+        out << "Enter your new value: "; cin >> int3; out << endl;
         this->setProgress(int3);
     }
 }
-void Task::deleteObj(){
+void Task::deleteObj(std::ostream &out){
     std::string input;
     
-    std::cout << "Would you like to delete this task? Y/N: ";
+    out << "Would you like to delete this task? Y/N: ";
     cin.ignore();
     cin >> input;
-    std:: cout << std::endl;
+    out << std::endl;
 
     if(input == "Y"){
-        std::cout << "Task deleted. Undo? Y/N: ";
+        out << "Task deleted. Undo? Y/N: ";
         cin >> input;
-        std::cout << std::endl;
+        out << std::endl;
         if(input == "Y"){
-            std::cout << "Task restored" << std::endl;    
+            out << "Task restored" << std::endl;    
         }
         else{
             this->setDeleted(true);
         }
     }
     else{
-        std::cout << "Task was not deleted" << std::endl;    
+        out << "Task was not deleted" << std::endl;    
     }
 }
