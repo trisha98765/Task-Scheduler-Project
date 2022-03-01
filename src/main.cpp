@@ -2,6 +2,7 @@
 #include "../header/Task.h"
 #include "../header/Goal.h"
 #include <iostream> //are we suppposed to have this?
+#include <ostream>
 #include <vector>
 #include <string>
 
@@ -176,11 +177,11 @@ int main(){
         else if(input == 3){
             std::cout << std::endl;
             for(int i = 0; i < allLists.size(); i++){
-                allLists.at(i).print();
+                allLists.at(i).print(std::cout);
                 std::cout << std::endl;
             }
             std::cout << "Here are your unsorted tasks:" << std::endl << std::endl;
-            unsorted.print();
+            unsorted.print(std::cout);
             std::cout << std::endl;
         }
         else if(input == 4){
