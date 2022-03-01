@@ -7,27 +7,26 @@
 #include "../headher/TaskList.h"
 #include "../header/Task.h"
 
-using namespace std;
-
 class Goal{
     private:
-        string name;
+        std::string name;
     public:
         ~Goal(){}
         Goal(){
             name = "";
         }
-        Goal(string s){
+        Goal(std::string s){
             name = s;
         }
-        void setName(string s){
+        void setName(std::string s){
             name = s;
         }
-        string getName(){
+        std::string getName(){
             return name;
         }
         virtual void print() = 0; //had this as an argument: std::ostream &out
         virtual void edit() = 0;      // does this take arguments?
+        virtual void deleteObj() = 0;
 };
 
 #endif
