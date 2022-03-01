@@ -68,7 +68,7 @@ int main(){
                     std::cout << "Task not present" << std::endl;
                 }
                 else{
-                    tempTask->edit();
+                    tempTask->edit(std::cout);
                 }
             }
             else if(input2 == 3){
@@ -82,7 +82,7 @@ int main(){
                     Task *tempTask = dynamic_cast<Task *>(tempGoal);
 
                     int tempInt = unsorted.findIndex(taskName);
-                    tempTask->deleteObj();
+                    tempTask->deleteObj(std::cout);
 
                     if(tempTask->getDeleted()){
                         for(int i = tempInt; i < unsorted.getList().size()-1; i++){
@@ -123,7 +123,7 @@ int main(){
                     std::cout << "Task list not present" << std::endl;
                 }
                 else{
-                    temp.edit();
+                    temp.edit(std::cout);
                     if(temp.getLookInMain()){ //adds an already existing task to the list
                         std::string taskName = "";
                         std::cout << "Enter the name of the task you want to add: "; cin.ignore(); getline(cin, taskName); std::cout << std::endl;
@@ -157,7 +157,7 @@ int main(){
                     std::cout << "Task list not present" << std::endl;
                 }
                 else{
-                    temp.deleteObj();
+                    temp.deleteObj(std::cout);
                     if(temp.getBool()){
                         int index = findTaskListIndex(listName, allLists);
                         for(int i = index; i < allLists.size()-1; i++){
