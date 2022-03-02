@@ -1,6 +1,7 @@
 #include "../header/TaskList.h"
 #include "../header/Task.h"
 #include "../header/Goal.h"
+#include "../header/Filter.h"
 #include <iostream>
 #include <ostream>
 #include <vector>
@@ -34,9 +35,10 @@ int main(){
 
     int input = 0;
 
-    while(input != 4){
+    while(input != 5){
         std::cout << "What would you like to do?" << std::endl << "1. Create new list/edit existing list" << std::endl 
-        << "2. Create new task/edit existing task" << std::endl << "3. Print list" << std::endl << "4. Quit" << std::endl;
+        << "2. Create new task/edit existing task" << std::endl << "3. Print list" << std::endl <<  "4. Filter" 
+        << std::endl << "5. Quit" << std::endl;
         cin >> input;
 
         if(input == 2){
@@ -184,7 +186,30 @@ int main(){
             unsorted.print(std::cout);
             std::cout << std::endl;
         }
-        else if(input == 4){
+         else if(input == 4){
+            int input2;
+            std::cout << "Which would you like to filter? \n1. Unsorted Tasks \n2. Yours task lists" << std::endl;
+            cin >> input2;
+
+            if(input2 == 1){
+                filter(unsorted);
+            }
+            else if(input2 == 2){
+                std::string listName = "";
+                std::cout << "Enter the name of the list you want to filter: "; cin.ignore(); getline(cin, listName); std::cout << std::endl;
+                TaskList temp = findTaskList(listName, allLists);
+                if(temp.getName() == "default"){
+                        std::cout << "Task list not present" << std::endl;
+                }
+                else{
+                    filter(temp);
+                }
+            }
+            else{
+                std::cout << "invalid input" <<std::endl;
+            }
+        }
+        else if(input == 5){
             break;
         }
         else{
