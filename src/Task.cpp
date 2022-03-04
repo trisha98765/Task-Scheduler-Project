@@ -80,6 +80,7 @@ void Task::print(std::ostream &out){ // had this as an argument originally std::
     out << "Progress status: " << this->getProgress() << std::endl << std::endl;
 }
 
+// format is now: ostream object, menu choice, updated value
 void Task::edit(std::ostream &out,int editChoice, string updateTask){
  //   string updateTask = "";
    // int editChoice = 0;
