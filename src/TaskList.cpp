@@ -16,8 +16,7 @@ void TaskList::print(std::ostream &out){
    
 }
 
-void TaskList::edit(std::ostream &out, int input,string update){
-  //  int input = 0;
+void TaskList::edit(std::ostream &out, int input, string update){
     if (input = 0){
     	out << "What would you like to do?" << std::endl;
    	 out << "1. Edit list name" << std::endl;
@@ -84,7 +83,6 @@ void TaskList::addTask(Goal *newOne){
 }
 void TaskList::deleteObj(std::ostream &out) {
     std::string input;
-    // cin.ignore();
     out << "Would you like to delete this list? Y/N: ";
     std::cin >> input;
     out  << std::endl;

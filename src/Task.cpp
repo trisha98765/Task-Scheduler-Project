@@ -64,7 +64,23 @@ int Task::getProgress(){
     return inProgress;
 }
 
-void Task::print(std::ostream &out){ // had this as an argument originally std::ostream &out
+Goal* Task::userInput(){
+    bool bool1 = false;
+    std::string string1, string2, string3, string4;
+    int int1, int2, int3;
+    cin.ignore();
+    std::cout << "Create a name: "; getline(std::cin, string1);
+    std::cout << std::endl << "Write a short description: "; getline(std::cin, string2);
+    std::cout << std::endl << "Set the priority level (1-10): "; std::cin >> int1;
+    std::cout << std::endl << "Classify your task: "; cin.ignore(); getline(std::cin, string3);
+    std::cout << std::endl << "How many days will this task last? "; std::cin >> int2;
+    std::cout << std::endl << "Create a due date in the form XX/YY/ZZ: "; cin.ignore(); getline(cin, string4);
+    std::cout << std::endl << "Enter a progress level (1-10): "; cin >> int3; std::cout << std::endl;   
+    Goal *returnVal = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);
+    return returnVal;
+}
+
+void Task::print(std::ostream &out){
     out << "Name: " << this->Goal::getName() << std::endl;
     out << "Due: " << this->getDueDate() << std::endl << "Priority: " << this->getPriority() << std::endl;
     out << "Classification: " << this->getClassification() << std::endl << "Duration: " << this->getDuration() << std::endl;
@@ -82,8 +98,6 @@ void Task::print(std::ostream &out){ // had this as an argument originally std::
 
 // format is now: ostream object, menu choice, updated value
 void Task::edit(std::ostream &out,int editChoice, string updateTask){
- //   string updateTask = "";
-   // int editChoice = 0;
     bool taskCompletion = false, choiceValidity = false;
     if(editChoice == 0){
         out << "What would you like to edit?" << endl;
@@ -93,8 +107,6 @@ void Task::edit(std::ostream &out,int editChoice, string updateTask){
      }
     while(choiceValidity == false) {
        
-      //  cin >> editChoice;
-       // cin.ignore();
         out << endl;
  
         switch(editChoice) {
@@ -123,7 +135,6 @@ void Task::edit(std::ostream &out,int editChoice, string updateTask){
             case 3: {
                 if(updateTask == ""){
                     out << "Enter the new priority value: ";
-                 //   int prioVal = 0;
                     cin >> updateTask;
                 }
                 this->setPriority(stoi(updateTask));
@@ -144,7 +155,6 @@ void Task::edit(std::ostream &out,int editChoice, string updateTask){
             case 5: {
                 if(updateTask == ""){
                     out << "Enter the new duration of the task: ";
-               // int taskDuration;
                     cin >> updateTask;
                 }
                 this->setDuration(stoi(updateTask));
@@ -179,7 +189,6 @@ void Task::edit(std::ostream &out,int editChoice, string updateTask){
             case 8: {
                 if(updateTask == ""){
                     out << "Enter the progress value: ";
-               // int progVal = 0;
                     cin >> updateTask;
                 }
                 this->setProgress(stoi(updateTask));
@@ -199,6 +208,7 @@ void Task::edit(std::ostream &out,int editChoice, string updateTask){
         }
     }
 }
+
 void Task::deleteObj(std::ostream &out){
     std::string input;
     
@@ -222,3 +232,4 @@ void Task::deleteObj(std::ostream &out){
         out << "Task was not deleted" << std::endl;    
     }
 }
+

@@ -29,12 +29,6 @@ int findTaskListIndex(string inputName, vector<TaskList> tempList){
 }
 
 void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
-   // int input = 0;
-
-   // while(input != 4){
-     //   std::cout << "What would you like to do?" << std::endl << "1. Create new list/edit existing list" << std::endl 
-       // << "2. Create new task/edit existing task" << std::endl << "3. Print list" << std::endl << "4. Quit" << std::endl;
-       // cin >> input;
 
         if(input == 2){
             int input2 = 0;
@@ -46,15 +40,6 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             bool bool1;
             if(input2 == 1){
                 bool1 = false; //set to false bc it's a new task
-               /* cin.ignore();
-                std::cout << "Create a name: "; getline(std::cin, string1);
-                std::cout << std::endl << "Write a short description: "; getline(std::cin, string2);
-                std::cout << std::endl << "Set the priority level (1-10): "; cin >> int1;
-                std::cout << std::endl << "Classify your task: "; cin.ignore(); getline(cin, string3);
-                std::cout << std::endl << "How many days will this task last? "; cin >> int2;
-                std::cout << std::endl << "Create a due date in the form XX/YY/ZZ: "; cin.ignore(); getline(cin, string4);
-                std::cout << std::endl << "Enter a progress level (1-10): "; cin >> int3; std::cout << std::endl;
-                Goal *newTask = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);*/
                 Task temp; 
                 Goal *newTask = temp.userInput();
                 unsorted.addTask(newTask);
@@ -183,13 +168,9 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             unsorted.print(std::cout);
             std::cout << std::endl;
         }
-        //else if(input == 4){
-          //  break;
-        //}
         else{
             std::cout << "Please enter a a valid input" << std::endl;
             cin >> input;
         }
-   // }
 }
 
