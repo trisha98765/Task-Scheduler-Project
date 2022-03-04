@@ -80,25 +80,29 @@ void Task::print(std::ostream &out){ // had this as an argument originally std::
     out << "Progress status: " << this->getProgress() << std::endl << std::endl;
 }
 
-void Task::edit(std::ostream &out){
-    string updateTask = "";
-    int editChoice = 0;
+void Task::edit(std::ostream &out,int editChoice, string updateTask){
+ //   string updateTask = "";
+   // int editChoice = 0;
     bool taskCompletion = false, choiceValidity = false;
-
-    out << "What would you like to edit?" << endl;
-    out << "1. Name" << endl << "2. Description" << endl << "3. Priority" << endl << "4. Classification" << endl << "5. Duration" << endl << "6. Due Date" << endl << "7. Completion" << endl << "8. Progress" << endl << "9. Done editing" << endl;
-    
-    while(choiceValidity == false) {
-       
+    if(editChoice == 0){
+        out << "What would you like to edit?" << endl;
+        out << "1. Name" << endl << "2. Description" << endl << "3. Priority" << endl << "4. Classification" << endl << "5. Duration" << endl << "6. Due Date" << endl << "7. Completion" << endl << "8. Progress" << endl << "9. Done editing" << endl;
         cin >> editChoice;
         cin.ignore();
+     }
+    while(choiceValidity == false) {
+       
+      //  cin >> editChoice;
+       // cin.ignore();
         out << endl;
  
         switch(editChoice) {
 
             case 1: {
-                out << "Enter the new name for the task: ";
-                getline(cin, updateTask);
+                if(updateTask == ""){
+                    out << "Enter the new name for the task: ";
+               	    getline(cin, updateTask);
+                }
                 this->Goal::setName(updateTask);
                 out << endl;
                 choiceValidity = true;
@@ -106,63 +110,78 @@ void Task::edit(std::ostream &out){
             };
 
             case 2: {
-                out << "Enter the new description of the task: ";
-                getline(cin, updateTask); 
+                if(updateTask == ""){
+                    out << "Enter the new description of the task: ";
+                    getline(cin, updateTask); 
+                }
                 this->setDescription(updateTask);
                 choiceValidity = true;
                 break;
             };
 
             case 3: {
-                out << "Enter the new priority value: ";
-                int prioVal = 0;
-                cin >> prioVal;
-                this->setPriority(prioVal);
+                if(updateTask == ""){
+                    out << "Enter the new priority value: ";
+                 //   int prioVal = 0;
+                    cin >> updateTask;
+                }
+                this->setPriority(stoi(updateTask));
                 choiceValidity = true;
                 break;
             };
 
             case 4: {
-                out << "Enter the new classification of the task: ";
-                getline(cin, updateTask);
+                if(updateTask == ""){
+                    out << "Enter the new classification of the task: ";
+                    getline(cin, updateTask);
+                }
                 this->setClassification(updateTask);
                 choiceValidity = true;
                 break;
             };
 
             case 5: {
-                out << "Enter the new duration of the task: ";
-                int taskDuration;
-                cin >> taskDuration;
-                this->setDuration(taskDuration);
+                if(updateTask == ""){
+                    out << "Enter the new duration of the task: ";
+               // int taskDuration;
+                    cin >> updateTask;
+                }
+                this->setDuration(stoi(updateTask));
                 choiceValidity = true;
                 break;
             };
 
             case 6: {
-                out << "Enter the new due date of the task: ";
-                getline(cin, updateTask);
+                if(updateTask == ""){
+                    out << "Enter the new due date of the task: ";
+                    getline(cin, updateTask);
+                }
                 this->setDueDate(updateTask);
                 choiceValidity = true;
                 break;
             };
 
             case 7: {
-                out << "(Enter yes or no)" << endl;
-                out << "Task completed: ";
-                getline(cin, updateTask);
-                if (updateTask == "yes")
-                     taskCompletion = true;
+                if(updateTask == ""){
+                    out << "(Enter 1 for yes or 0 for no)" << endl;
+                    out << "Task completed: ";
+                    getline(cin, updateTask);
+                }
+                
+                if (updateTask == "1")
+                    taskCompletion = true;
                 this->setCompletion(taskCompletion);
                 choiceValidity = true;
                 break;
             };
 
             case 8: {
-                out << "Enter the progress value: ";
-                int progVal = 0;
-                cin >> progVal;
-                this->setProgress(progVal);
+                if(updateTask == ""){
+                    out << "Enter the progress value: ";
+               // int progVal = 0;
+                    cin >> updateTask;
+                }
+                this->setProgress(stoi(updateTask));
                 choiceValidity = true;
                 break;
             }

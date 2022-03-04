@@ -46,7 +46,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             bool bool1;
             if(input2 == 1){
                 bool1 = false; //set to false bc it's a new task
-                cin.ignore();
+               /* cin.ignore();
                 std::cout << "Create a name: "; getline(std::cin, string1);
                 std::cout << std::endl << "Write a short description: "; getline(std::cin, string2);
                 std::cout << std::endl << "Set the priority level (1-10): "; cin >> int1;
@@ -54,7 +54,9 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 std::cout << std::endl << "How many days will this task last? "; cin >> int2;
                 std::cout << std::endl << "Create a due date in the form XX/YY/ZZ: "; cin.ignore(); getline(cin, string4);
                 std::cout << std::endl << "Enter a progress level (1-10): "; cin >> int3; std::cout << std::endl;
-                Goal *newTask = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);
+                Goal *newTask = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);*/
+                Task temp; 
+                Goal *newTask = temp.userInput();
                 unsorted.addTask(newTask);
             }
             else if(input2 == 2){ //maybe we could print the tasks out in case user doesn't remember name?
@@ -65,7 +67,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                     std::cout << "Task not present" << std::endl;
                 }
                 else{
-                    tempTask->edit(std::cout);
+                    tempTask->edit(std::cout,0,"");
                 }
             }
             else if(input2 == 3){
@@ -120,7 +122,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                     std::cout << "Task list not present" << std::endl;
                 }
                 else{
-                    temp.edit(std::cout);
+                    temp.edit(std::cout,0,"");
                     if(temp.getLookInMain()){ //adds an already existing task to the list
                         std::string taskName = "";
                         std::cout << "Enter the name of the task you want to add: "; cin.ignore(); getline(cin, taskName); std::cout << std::endl;

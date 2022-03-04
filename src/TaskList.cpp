@@ -16,14 +16,15 @@ void TaskList::print(std::ostream &out){
    
 }
 
-void TaskList::edit(std::ostream &out){
-    int input = 0;
-    out << "What would you like to do?" << std::endl;
-    out << "1. Edit list name" << std::endl;
-    out << "2. Remove a task" << std::endl; //this prints a 1 before for some reason
-    out << "3. Add a task" << std::endl;
-    cin >>input;
-
+void TaskList::edit(std::ostream &out, int input,string update){
+  //  int input = 0;
+    if (input = 0){
+    	out << "What would you like to do?" << std::endl;
+   	 out << "1. Edit list name" << std::endl;
+  	  out << "2. Remove a task" << std::endl; //this prints a 1 before for some reason
+   	 out << "3. Add a task" << std::endl;
+  	  cin >>input;
+    }
     if(input == 1){
         std::string newName;
         out << "Please enter the new name" << std::endl;
