@@ -42,7 +42,9 @@ TEST(TaskMethodTest, addTask){
 TEST(TaskMethodTest, editTask){ // test using user input 
     Goal *task3 = new Task("Lab 3", "For CS 100", 1, 20,"03/01/22", "Winter 2022", false, 5);
     testList.addTask(task3);
-       
+    task3->edit(std::cout);
+    
+    // TO DO based on user input   
     testList.print(output);
     EXPECT_EQ(output.str(),"");
 }

@@ -27,17 +27,13 @@ int findTaskListIndex(string inputName, vector<TaskList> tempList){
     return -1;
 }
 
+void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
+   // int input = 0;
 
-int main(){
-    TaskList unsorted = TaskList("Unsorted");
-    vector<TaskList> allLists;
-
-    int input = 0;
-
-    while(input != 4){
-        std::cout << "What would you like to do?" << std::endl << "1. Create new list/edit existing list" << std::endl 
-        << "2. Create new task/edit existing task" << std::endl << "3. Print list" << std::endl << "4. Quit" << std::endl;
-        cin >> input;
+   // while(input != 4){
+     //   std::cout << "What would you like to do?" << std::endl << "1. Create new list/edit existing list" << std::endl 
+       // << "2. Create new task/edit existing task" << std::endl << "3. Print list" << std::endl << "4. Quit" << std::endl;
+       // cin >> input;
 
         if(input == 2){
             int input2 = 0;
@@ -184,13 +180,29 @@ int main(){
             unsorted.print(std::cout);
             std::cout << std::endl;
         }
-        else if(input == 4){
-            break;
-        }
+        //else if(input == 4){
+          //  break;
+        //}
         else{
             std::cout << "Please enter a a valid input" << std::endl;
             cin >> input;
         }
+   // }
+}
+
+
+int main(){
+    TaskList unsorted = TaskList("Unsorted");
+    vector<TaskList> allLists;
+    int input = 0;
+    std::cout << "What would you like to do?" << std::endl << "1. Create new list/edit existing list" << std::endl
+    << "2. Create new task/edit existing task" << std::endl << "3. Print list" << std::endl << "4. Quit" << std::endl;
+    cin >> input;
+    while(input != 4){
+        menu(input,unsorted,allLists);
+        std::cout << "What would you like to do?" << std::endl << "1. Create new list/edit existing list" << std::endl
+        << "2. Create new task/edit existing task" << std::endl << "3. Print list" << std::endl << "4. Quit" << std::endl;
+        cin >> input;
     }
     return 0;
 }
