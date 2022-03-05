@@ -9,7 +9,7 @@ using namespace std;
 static TaskList testList = TaskList("Test");
 static std::stringstream output;
 static vector<TaskList> allLists;
-
+static Goal *staticTask = new Task("Essay", "For HIST 108", 1, 20,"07/01/20", "Summer 2020", false, 2);
 TEST(TaskConstructorTest, defaultConstructor){
     Task *test = new Task();
     EXPECT_EQ(test->Goal::getName(), "");
@@ -48,6 +48,12 @@ TEST(TaskMethodTest, editTask){
     task3->edit(std::cout,6,"12/12/12");      // edit due date
     testList.print(output);
     EXPECT_EQ(output.str(),"Test\nName: Lecture Videos\nDue: 03/19/22\nPriority: 2\nClassification: Winter 2022\nDuration: 10\nDescription: For CS 100\nCompleted? No\nProgress status: 5\n\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nTest\nName: Lecture Videos\nDue: 03/19/22\nPriority: 2\nClassification: Winter 2022\nDuration: 10\nDescription: For CS 100\nCompleted? No\nProgress status: 5\n\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Lab 3\nDue: 12/12/12\nPriority: 1\nClassification: Winter 2022\nDuration: 20\nDescription: hw for cs 100\nCompleted? No\nProgress status: 2\n\n");
+}
+
+TEST(TaskMethodTest, invalidInput){
+    std::stringstream testInvalid;
+    staticTask->edit(testInvalid,10,"Midterm"); // 10 is not a menu option
+    EXPECT_EQ(testInvalid.str(),"\nInvalid choice.");
 }
 
 int main(int argc, char **argv) {

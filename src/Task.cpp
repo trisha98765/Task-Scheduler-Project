@@ -202,8 +202,10 @@ void Task::edit(std::ostream &out,int editChoice, string updateTask){
                 break;
             } 
 
-            default: {
-                out << "Invalid choice. Try again: ";
+            default: { // break and choiceValidity = true was added because it was an infinite loop
+                out << "Invalid choice.";
+                choiceValidity = true;
+                break;               
             }
         }
     }
