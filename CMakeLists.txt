@@ -9,6 +9,7 @@ ADD_EXECUTABLE(task-scheduler
     src/Task.cpp
     src/TaskList.cpp
     src/Filter.cpp
+    src/ColorManager.cpp
 )
 
 # GTest testing executable
