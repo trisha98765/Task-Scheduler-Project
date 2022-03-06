@@ -23,11 +23,18 @@ int findTaskListIndex(string inputName, vector<TaskList> tempList){
         if(inputName == tempList.at(i).getName()){
             return i;
         }
-    }
-    
+    }   
     return -1;
 }
-
+void deleteTask(TaskList &unsorted, int tempInt){
+    for(int i = tempInt; i < unsorted.getList().size()-1; i++){
+        Goal *tempTask;
+        tempTask = unsorted.getList().at(i+1);
+        unsorted.getList().at(i+1) = unsorted.getList().at(i);
+        unsorted.getList().at(i) = tempTask;
+    }
+    unsorted.getList().pop_back();
+}
 void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
 
         if(input == 2){
@@ -69,13 +76,14 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                     tempTask->deleteObj(std::cout);
 
                     if(tempTask->getDeleted()){
-                        for(int i = tempInt; i < unsorted.getList().size()-1; i++){
+                        deleteTask(unsorted,tempInt);
+                       /* for(int i = tempInt; i < unsorted.getList().size()-1; i++){
                             Goal *tempTask;
                             tempTask = unsorted.getList().at(i+1);
                             unsorted.getList().at(i+1) = unsorted.getList().at(i);
                             unsorted.getList().at(i) = tempTask;
                         }
-                        unsorted.getList().pop_back();
+                        unsorted.getList().pop_back();*/
                         std::cout << "Task deleted" << std::endl;
                     }
                 }
@@ -169,7 +177,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             std::cout << std::endl;
         }
         else{
-            std::cout << "Please enter a a valid input" << std::endl;
+            std::cout << "Please enter a valid input" << std::endl;
             cin >> input;
         }
 }

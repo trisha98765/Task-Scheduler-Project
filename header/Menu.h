@@ -13,4 +13,5 @@ using namespace std;
 void menu(int input,TaskList &unsorted, vector<TaskList> &allLists);
 TaskList findTaskList(string inputName, vector<TaskList> tempList);
 int findTaskListIndex(string inputName, vector<TaskList> tempList);
+void deleteTask(TaskList &unsorted, int tempInt);
 #endif

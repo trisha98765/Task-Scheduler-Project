@@ -219,19 +219,19 @@ void Task::deleteObj(std::ostream &out){
     cin >> input;
     out << std::endl;
 
-    if(input == "Y"){
+    if(input == "Y" || input == "y"){
         out << "Task deleted. Undo? Y/N: ";
         cin >> input;
         out << std::endl;
-        if(input == "Y"){
-            out << "Task restored" << std::endl;    
+        if(input == "Y" || input == "y"){
+            out << "Task restored." << std::endl;    
         }
         else{
             this->setDeleted(true);
         }
     }
     else{
-        out << "Task was not deleted" << std::endl;    
+        out << "Task was not deleted." << std::endl;    
     }
 }
 
