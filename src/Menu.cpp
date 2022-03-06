@@ -129,7 +129,8 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             // Edit existing list
             else if(input2 == 2){
                 std::string listName = "";
-                std::cout << "Enter the name of the list you want to edit: "; cin.ignore(); getline(cin, listName); std::cout << std::endl;
+                std::cout << "Enter the name of the list you want to edit: "; 
+                cin.ignore(); getline(cin, listName); std::cout << std::endl;
                 TaskList temp = findTaskList(listName, allLists);
                 if(temp.getName() == "default"){
                     std::cout << "Task list not present" << std::endl;
@@ -138,7 +139,8 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                     temp.edit(std::cout,0,"");
                     if(temp.getLookInMain()){ //adds an already existing task to the list
                         std::string taskName = "";
-                        std::cout << "Enter the name of the task you want to add: "; cin.ignore(); getline(cin, taskName); std::cout << std::endl;
+                        std::cout << "Enter the name of the task you want to add: "; 
+                        cin.ignore(); getline(cin, taskName); std::cout << std::endl;
                         Goal* tempTask = unsorted.findTask(taskName);
                         if(tempTask->getName() == ""){
                             std::cout << "Task not present" << std::endl;
@@ -164,7 +166,8 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
            // Delete list
            else if(input2 == 3){
                 std::string listName = "";
-                std::cout << "Enter the name of the list you want to edit: "; cin.ignore(); getline(cin, listName); std::cout << std::endl;
+                std::cout << "Enter the name of the list you want to delete: "; 
+                cin.ignore(); getline(cin, listName); std::cout << std::endl;
                 TaskList temp = findTaskList(listName, allLists);
                 if(temp.getName() == "default"){
                     std::cout << "Task list not present" << std::endl;

@@ -16,12 +16,12 @@ void TaskList::print(std::ostream &out){
 }
 
 void TaskList::edit(std::ostream &out, int input, string update){
-    if (input = 0){
+    if(input == 0){
         out << "What would you like to do?\n";
-   	out << "1. Edit list name\n";
-  	out << "2. Remove a task\n";
-        out << "3. Add a task\n";;
-  	cin >>input;
+   	cout << "1. Edit list name\n";
+  	cout << "2. Remove a task\n";
+        cout << "3. Add a task\n";;
+  	cin >> input;
     }
     if(input == 1){
         std::string newName;
@@ -32,7 +32,7 @@ void TaskList::edit(std::ostream &out, int input, string update){
         this->setLookInMain(false);
     }
 
-    else if(input == 2){
+    if(input == 2){
         std::string taskName = "";
         out << "Enter the name of the task you want to remove: "; cin.ignore(); getline(cin, taskName); out << std::endl;
         Goal* tempTask = this->findTask(taskName);
@@ -51,7 +51,7 @@ void TaskList::edit(std::ostream &out, int input, string update){
         }
         this->setLookInMain(false);
     }
-    else if(input == 3){
+    if(input == 3){
         int input2;
         out << "Do you want to 1. Add an existing task or 2. Add a new task to this list?" << std::endl;
         cin >>input2;
