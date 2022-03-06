@@ -196,31 +196,36 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
         }
         // Filter
         else if(input == 4){
-            int input2;
-            std::cout << "Which would you like to filter? \n1. Unsorted Tasks \n2. Your task lists" << std::endl;
+            int input2,answer;
+            std::string searchVal;
+            std::cout << "Which would you like to filter? \n1. Unsorted Tasks \n2. Yours task lists" << std::endl;
             cin >> input2;
-
+            std::cout << "Which would you like to sort by?\n1. Due Date\n2.Classification\n3. Priority\n4.Due soon" << std::endl;
+            std::cin >> answer;
+            std::cout << "What is your filtering criteria? (Enter the month (XX) for due date, classification or priority):\n";
+            std::cin >> searchVal;
             if(input2 == 1){
-                filter(unsorted);
+                filter(unsorted,answer,searchVal,std::cout);
             }
             else if(input2 == 2){
                 std::string listName = "";
-                std::cout << "Enter the name of the list you want to filter: "; cin.ignore(); getline(cin, listName); std::cout << std::endl;
+                std::cout << "Enter the name of the list you want to filter: "; 
+                cin.ignore(); getline(cin, listName); std::cout << std::endl;
                 TaskList temp = findTaskList(listName, allLists);
                 if(temp.getName() == "default"){
                         std::cout << "Task list not present" << std::endl;
                 }
                 else{
-                    filter(temp);
+                    filter(temp,answer,searchVal,std::cout);
                 }
             }
             else{
-                std::cout << "invalid input" <<std::endl;
+                std::cout << "Invalid input" <<std::endl;
             }
         } 
         // removed if (input == 5) statement bc this is called in a while loop in main
         else{
-            std::cout << "Please enter a valid input" << std::endl;
+            std::cout << "Please enter a valid menu choice." << std::endl;
             cin >> input;
         }
 }

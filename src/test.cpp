@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-//#include "../header/Filter.h"
+#include "../header/Filter.h"
 #include "../header/Task.h"
 #include "../header/TaskList.h"
 #include "../header/Goal.h"
@@ -22,6 +22,7 @@ TEST(TaskConstructorTest, defaultConstructor){
     EXPECT_EQ(test->getDueDate(), "03/12/22");
     EXPECT_EQ(test->getCompletion(), false);
     EXPECT_EQ(test->getProgress(), 5);
+    delete test;
 }
 
 TEST(TaskConstructorTest, overloadedConstructor){
@@ -34,6 +35,7 @@ TEST(TaskConstructorTest, overloadedConstructor){
     EXPECT_EQ(test->getDueDate(), "02/22/22");
     EXPECT_EQ(test->getCompletion(), false);
     EXPECT_EQ(test->getProgress(), 0);
+    delete test;
 }
 
 TEST(TaskMethodTest, addTask){
@@ -78,14 +80,21 @@ TEST(TaskMethodTest, deleteInTask){ // deleting a task that does not exist
 }
 
 TEST(TaskListMethodTest, defaultConstructor){
-   TaskList testList1 = TaskList();
-   EXPECT_EQ(testList1.getName(),"default");
+    TaskList testList1 = TaskList();
+    EXPECT_EQ(testList1.getName(),"default");
 }
 
 TEST(TaskListMethodTest, overloadedConstructor){
-   TaskList testList1 = TaskList("To Do List");
-   EXPECT_EQ(testList1.getName(),"To Do List");
+    TaskList testList1 = TaskList("To Do List");
+    EXPECT_EQ(testList1.getName(),"To Do List");
 }
+
+TEST(FilterTest, menu){
+    std::stringstream testMenu;
+    filter(testList,1,"12",testMenu); // looking for tasks due in december, only one task is found
+    EXPECT_EQ(testMenu.str(),"Name: Lab 3\nDue: 12/12/12\nPriority: 1\nClassification: Winter 2022\nDuration: 20\nDescription: hw for cs 100\nCompleted? No\nProgress status: 2\n\n");      
+
+} 
 int main(int argc, char **argv) {
     Goal *task1 = new Task("Lecture Videos", "For CS 100", 2, 10,"03/19/22", "Winter 2022", false, 5);
     testList.addTask(task1);
