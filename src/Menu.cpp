@@ -3,6 +3,7 @@
 #include "../header/Filter.h"
 #include "../header/Goal.h"
 #include "../header/Menu.h"
+#include "../header/InputHelper.h"
 
 #include <iostream>
 #include <ostream>
@@ -47,7 +48,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
         if(input == 2){
             int input2 = 0;
             std::cout << "1. Create new task" << std::endl << "2. Edit existing task" << std::endl << "3. Delete task" << std::endl;
-            cin >> input2;
+            input2 = readInt(cin, cout);
 
             std::string string1, string2, string3, string4;
             int int1, int2, int3;
@@ -102,7 +103,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
         else if(input == 1){
             int input2 = 0;
             std::cout << "1. Create new list" << std::endl << "2. Edit existing list" << std::endl << "3. Delete list" << std::endl;
-            cin >> input2;
+            input2 = readInt(cin, cout);
 
             if(input2 == 1){
                 std::string listName;
@@ -189,7 +190,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             int input2,answer;
             std::string searchVal;
             std::cout << "Which would you like to filter? \n1. Unsorted Tasks \n2. Yours task lists" << std::endl;
-            cin >> input2;
+            input2 = readInt(cin, cout);
             std::cout << "Which would you like to sort by?\n1. Due Date\n2.Classification\n3. Priority\n4.Due soon" << std::endl;
             std::cin >> answer;
             std::cout << "What is your filtering criteria? (Enter the month (XX) for due date, classification or priority):\n";
