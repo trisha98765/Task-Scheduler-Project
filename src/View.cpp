@@ -107,15 +107,26 @@ void printList(std::ostream& out, TaskList& list) {
     out << '\n';
     
     // Main content
-    for (int i = 0; i < list.getList().size(); ++i) {
+    if (list.getList().size() > 0) {
+        for (int i = 0; i < list.getList().size(); ++i) {
+            printAlignedText(
+                out,
+                VIEW_WIDTH,
+                '|', '|',
+                " * " + list.getList().at(i)->getName(),
+                ALIGN_LEFT
+            );
+            
+            out << '\n';
+        }
+    } else {
         printAlignedText(
             out,
             VIEW_WIDTH,
             '|', '|',
-            " * " + list.getList().at(i)->getName(),
-            ALIGN_LEFT
+            "No tasks in this list yet",
+            ALIGN_CENTER
         );
-        
         out << '\n';
     }
     
