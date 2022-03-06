@@ -22,6 +22,9 @@ ADD_EXECUTABLE(test
     src/Task.cpp
     src/TaskList.cpp
     src/Filter.cpp
+    src/ColorManager.cpp
+    src/PrintHelper.cpp
+    src/View.cpp
 )
 TARGET_LINK_LIBRARIES(test gtest)
 TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
