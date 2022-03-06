@@ -28,13 +28,13 @@ int findTaskListIndex(string inputName, vector<TaskList> tempList){
 }
 void deleteTask(TaskList &unsorted, int tempInt, std::ostream &out){ 
     if(tempInt != -1){
-    for(int i = tempInt; i < unsorted.getList().size()-1; i++){
-        Goal *tempTask;
-        tempTask = unsorted.getList().at(i+1);
-        unsorted.getList().at(i+1) = unsorted.getList().at(i);
-        unsorted.getList().at(i) = tempTask;
-    }
-    unsorted.getList().pop_back();
+        for(int i = tempInt; i < unsorted.getList().size()-1; i++){
+            Goal *tempTask;
+            tempTask = unsorted.getList().at(i+1);
+            unsorted.getList().at(i+1) = unsorted.getList().at(i);
+            unsorted.getList().at(i) = tempTask;
+        }
+        unsorted.getList().pop_back();
     }
     else{
         out << "Task not found.";
@@ -166,14 +166,16 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             }
         }
         else if(input == 3){
-            std::cout << std::endl;
-            for(int i = 0; i < allLists.size(); i++){
+            for(int i = 0; i < allLists.size(); i++){ // prints every list together
+                std::cout << "Here are your lists:\n";
                 allLists.at(i).print(std::cout);
+                unsorted.print(std::cout);
                 std::cout << std::endl;
             }
-            std::cout << "Here are your unsorted tasks:" << std::endl << std::endl;
-            unsorted.print(std::cout);
-            std::cout << std::endl;
+            if(allLists.size() == 0){ // if there are just tasks with no specific list
+               std::cout << "Here are your unsorted tasks:\n";
+               unsorted.print(std::cout);
+            }
         }
         else{
             std::cout << "Please enter a valid input" << std::endl;

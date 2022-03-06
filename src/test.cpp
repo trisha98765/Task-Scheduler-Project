@@ -63,20 +63,28 @@ TEST(TaskMethodTest, deleteTask){ // for a task that does exist
     int tempInt= testList.findIndex("Lecture Videos");
     std::stringstream testDelete;
     deleteTask(testList,tempInt,testDelete);
-    testList.print(testDelete);
+    testList.print(testDelete); // the first task was deleted
     EXPECT_EQ(testDelete.str(),"Test\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Lab 3\nDue: 12/12/12\nPriority: 1\nClassification: Winter 2022\nDuration: 20\nDescription: hw for cs 100\nCompleted? No\nProgress status: 2\n\n");
 }
 
 TEST(TaskMethodTest, deleteInTask){ // deleting a task that does not exist
     int tempInt= testList.findIndex("Extra Credit"); 
     std::stringstream testDelete;
-    deleteTask(testList,tempInt,testDelete);
+    deleteTask(testList,tempInt,testDelete); // this function prints an error message
     EXPECT_EQ(testDelete.str(), "Task not found.");
-    testList.print(testDelete);
+    testList.print(testDelete); // printing task list with no changes
     EXPECT_EQ(testDelete.str(),"Task not found.Test\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Lab 3\nDue: 12/12/12\nPriority: 1\nClassification: Winter 2022\nDuration: 20\nDescription: hw for cs 100\nCompleted? No\nProgress status: 2\n\n");   
-
 }
 
+TEST(TaskListMethodTest, defaultConstructor){
+   TaskList testList1 = TaskList();
+   EXPECT_EQ(testList1.getName(),"default");
+}
+
+TEST(TaskListMethodTest, overloadedConstructor){
+   TaskList testList1 = TaskList("To Do List");
+   EXPECT_EQ(testList1.getName(),"To Do List");
+}
 int main(int argc, char **argv) {
     Goal *task1 = new Task("Lecture Videos", "For CS 100", 2, 10,"03/19/22", "Winter 2022", false, 5);
     testList.addTask(task1);

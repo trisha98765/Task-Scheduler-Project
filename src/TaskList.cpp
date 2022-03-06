@@ -11,18 +11,18 @@ void TaskList::print(std::ostream &out){
     out << this->getName() << std::endl;
     int size = listObj.size();
     for(int i = 0; i < size; i++){
-       listObj.at(i)->print(out);
+        listObj.at(i)->print(out);
     }
    
 }
 
 void TaskList::edit(std::ostream &out, int input, string update){
     if (input = 0){
-    	out << "What would you like to do?" << std::endl;
-   	 out << "1. Edit list name" << std::endl;
-  	  out << "2. Remove a task" << std::endl; //this prints a 1 before for some reason
-   	 out << "3. Add a task" << std::endl;
-  	  cin >>input;
+        out << "What would you like to do?\n";
+   	out << "1. Edit list name\n";
+  	out << "2. Remove a task\n"; //this prints a 1 before for some reason
+        out << "3. Add a task\n";;
+  	cin >>input;
     }
     if(input == 1){
         std::string newName;
