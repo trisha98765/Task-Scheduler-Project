@@ -1,7 +1,7 @@
-#include "Filter.h"
-#include "TaskList.h"
-#include "Task.h"
-#include "Goal.h"
+#include "../header/Filter.h"
+#include "../header/TaskList.h"
+#include "../header/Task.h"
+#include "../header/Goal.h"
 
 using namespace std;
 
