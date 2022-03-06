@@ -44,6 +44,7 @@ void deleteTask(TaskList &unsorted, int tempInt, std::ostream &out){
 }
 
 void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
+        // Create new task/edit existing task
         if(input == 2){
             int input2 = 0;
             std::cout << "1. Create new task" << std::endl << "2. Edit existing task" << std::endl << "3. Delete task" << std::endl;
@@ -52,6 +53,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             std::string string1, string2, string3, string4;
             int int1, int2, int3;
             bool bool1;
+            // Create new task
             if(input2 == 1){
                 bool1 = false; //set to false bc it's a new task
                 cin.ignore();
@@ -65,6 +67,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 Goal *newTask = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);
                 unsorted.addTask(newTask);
             }
+            // Edit existing task
             else if(input2 == 2){ //maybe we could print the tasks out in case user doesn't remember name?
                 std::string taskName = "";
                 std::cout << "Enter the name of the task you want to edit: "; cin.ignore(); getline(cin, taskName); std::cout << std::endl;
@@ -76,6 +79,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                     tempTask->edit(std::cout,0,"");
                 }
             }
+            // Delete task
             else if(input2 == 3){
                 std::string taskName = "";
                 std::cout << "Enter the name of the task you want to delete: "; cin >> taskName; std::cout << std::endl;
@@ -99,11 +103,13 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 std::cout << "Invalid input" << std::endl;
             }
         }
+        // Create new list/edit existing list
         else if(input == 1){
             int input2 = 0;
             std::cout << "1. Create new list" << std::endl << "2. Edit existing list" << std::endl << "3. Delete list" << std::endl;
             cin >> input2;
 
+            // Create new list
             if(input2 == 1){
                 std::string listName;
                 std::cout << "What would you like to call this list? ";
@@ -114,6 +120,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 TaskList newList = TaskList(listName);
                 allLists.push_back(newList);
             }
+            // Edit existing list
             else if(input2 == 2){
                 std::string listName = "";
                 std::cout << "Enter the name of the list you want to edit: "; cin.ignore(); getline(cin, listName); std::cout << std::endl;
@@ -148,6 +155,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                     allLists.at(lookIndex) = temp;
                 }
             }
+           // Delete list
            else if(input2 == 3){
                 std::string listName = "";
                 std::cout << "Enter the name of the list you want to edit: "; cin.ignore(); getline(cin, listName); std::cout << std::endl;
@@ -173,6 +181,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 std::cout << "Please enter a valid input" << std::endl;
             }
         }
+        // Print list
         else if(input == 3){
             for(int i = 0; i < allLists.size(); i++){ // prints every list together
                 std::cout << "Here are your lists:\n";
@@ -185,6 +194,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                unsorted.print(std::cout);
             }
         }
+        // Filter
         else if(input == 4){
             int input2;
             std::cout << "Which would you like to filter? \n1. Unsorted Tasks \n2. Your task lists" << std::endl;
