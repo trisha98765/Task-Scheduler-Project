@@ -2,6 +2,7 @@
 #include "../header/TaskList.h"
 #include "../header/Task.h"
 #include "../header/Goal.h"
+#include <string>
 
 using namespace std;
 
@@ -45,8 +46,12 @@ void filter(TaskList entry, int answer, string searchVal,std::ostream &out){
             if(tempMonth == month){
                 std::string tempDay = temp.substr(2,4);
                 int num1, num2;
-                num1 = stoi(day);
-                num2 = stoi(tempDay);
+                stringstream container(day);
+                container >> num1;
+                stringstream container2(tempDay);
+                container2 >> num2;
+              //  num1 = stoi(day);
+                //num2 = stoi(tempDay);
 
                 if(num1 - num2 <= 7){
                     tempTask->print(out); 

@@ -215,9 +215,9 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 return;
             }
 
-            std::cout << "Which would you like to sort by?\n1. Due Date\n2.Classification\n3. Priority\n4.Due soon" << std::endl;
+            std::cout << "Which would you like to sort by?\n1. Due Date\n2. Classification\n3. Priority\n4. Due soon" << std::endl;
             std::cin >> answer;
-            std::cout << "What is your filtering criteria? (Enter the month (XX) for due date, classification or priority):\n";
+            std::cout << "What is your filtering criteria? (Enter the month (MM) for due date, classification or priority):\n";
             std::cin >> searchVal;
             if(input2 == 1){
                 filter(unsorted,answer,searchVal,std::cout);

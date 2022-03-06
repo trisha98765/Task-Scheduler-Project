@@ -89,12 +89,33 @@ TEST(TaskListMethodTest, overloadedConstructor){
     EXPECT_EQ(testList1.getName(),"To Do List");
 }
 
-TEST(FilterTest, menu){
-    std::stringstream testMenu;
-    filter(testList,1,"12",testMenu); // looking for tasks due in december, only one task is found
-    EXPECT_EQ(testMenu.str(),"Name: Lab 3\nDue: 12/12/12\nPriority: 1\nClassification: Winter 2022\nDuration: 20\nDescription: hw for cs 100\nCompleted? No\nProgress status: 2\n\n");      
-
+TEST(FilterTest, filterDueDate){
+    std::stringstream testDate;
+    filter(testList,1,"12",testDate); // looking for tasks due in december, only one task is found
+    EXPECT_EQ(testDate.str(),"Name: Lab 3\nDue: 12/12/12\nPriority: 1\nClassification: Winter 2022\nDuration: 20\nDescription: hw for cs 100\nCompleted? No\nProgress status: 2\n\n");      
 } 
+
+TEST(FilterTest, filterClassification){
+    std::stringstream testClass;
+    testList.addTask(staticTask); // adding a task with classification "Summer 2022"
+    filter(testList,2,"Winter 2022",testClass); // this prints 2/3 tasks
+    EXPECT_EQ(testClass.str(),"Name: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Lab 3\nDue: 12/12/12\nPriority: 1\nClassification: Winter 2022\nDuration: 20\nDescription: hw for cs 100\nCompleted? No\nProgress status: 2\n\n");
+}
+
+TEST(FilterTest, filterPriority){ // testing edit and filter here
+    std::stringstream testPriority;
+    staticTask->edit(output2,3,"3");  // change one priority to 3, they were all 1 before
+    filter(testList,3,"1",testPriority); // prints 2/3 tasks
+    EXPECT_EQ(testPriority.str(),"Name: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Lab 3\nDue: 12/12/12\nPriority: 1\nClassification: Winter 2022\nDuration: 20\nDescription: hw for cs 100\nCompleted? No\nProgress status: 2\n\n");
+}
+
+TEST(FilterTest, filterDueSoon){ // testing edit and filter here
+    std::stringstream testDueSoon;
+    staticTask->edit(output2,6,"03/29/99"); // change due date so two tasks are due in march
+    filter(testList,4,"03",testDueSoon); // prints two tasks that are due in march
+    EXPECT_EQ(testDueSoon.str(),"Name: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Essay\nDue: 03/29/99\nPriority: 3\nClassification: Summer 2020\nDuration: 20\nDescription: For HIST 108\nCompleted? No\nProgress status: 2\n\n");
+}
+
 int main(int argc, char **argv) {
     Goal *task1 = new Task("Lecture Videos", "For CS 100", 2, 10,"03/19/22", "Winter 2022", false, 5);
     testList.addTask(task1);
