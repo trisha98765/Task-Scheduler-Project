@@ -9,11 +9,11 @@ void filter(TaskList entry){
     int answer;
     std::string answer2;
     int answer3;
-    std::cout << "Which would you like to sort by?\n1. Due Date\n2.Classification\n3. Priority\n4.Due soon" << std::endl;
+    std::cout << "Which would you like to sort by?\n1. Due Date\n2. Classification\n3. Priority\n4. Due soon" << std::endl;
     std::cin >> answer;
 
     if(answer == 1){
-        std::cout << "Enter month as following: XX" << std::endl; //we haven't validated answers yet
+        std::cout << "Enter month as following: MM" << std::endl; //we haven't validated answers yet
         std::cin >> answer2;
 
         for(int i = 0; i < entry.getList().size(); i++){
@@ -51,7 +51,7 @@ void filter(TaskList entry){
         }
     }
     else if(answer == 4){
-        std::cout << "Enter today's date: XX/YY/ZZ" << std::endl;
+        std::cout << "Enter today's date: MM/DD/YY" << std::endl;
         std::cin >> answer2;
 
         std::string month = answer2.substr(0,2);
