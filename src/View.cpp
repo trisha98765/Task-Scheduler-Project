@@ -88,7 +88,34 @@ void printMain(ostream& out, vector<TaskList>& allLists, TaskList& unsorted) {
         else {
             printFillerBlock(out, VIEW_WIDTH / 2, ' ', ' ', '|');
         }
+        
+        out << '\n';
+    }
+    
+    // Print footer
+    printFillerBlock(out, VIEW_WIDTH, '|', '=', '|');
+    out << '\n';
+}
 
+
+void printList(std::ostream& out, TaskList& list) {
+    // Print title
+    clear();
+    printAlignedText(out, VIEW_WIDTH, '|', '|', "TASK LIST: " + list.getName(), ALIGN_CENTER);
+    out << '\n';
+    printFillerBlock(out, VIEW_WIDTH, '|', '=', '|');
+    out << '\n';
+    
+    // Main content
+    for (int i = 0; i < list.getList().size(); ++i) {
+        printAlignedText(
+            out,
+            VIEW_WIDTH,
+            '|', '|',
+            " * " + list.getList().at(i)->getName(),
+            ALIGN_LEFT
+        );
+        
         out << '\n';
     }
     
