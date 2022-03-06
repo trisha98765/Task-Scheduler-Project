@@ -8,6 +8,7 @@ ADD_EXECUTABLE(task-scheduler
     src/Menu.cpp
     src/Task.cpp
     src/TaskList.cpp
+    src/Filter.cpp
 )
 
 # GTest testing executable
@@ -17,6 +18,7 @@ ADD_EXECUTABLE(test
     src/Menu.cpp
     src/Task.cpp
     src/TaskList.cpp
+    src/Filter.cpp
 )
 TARGET_LINK_LIBRARIES(test gtest)
 TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
