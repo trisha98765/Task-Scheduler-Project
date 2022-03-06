@@ -5,6 +5,7 @@ SET(CMAKE_CXX_STANDARD 11)
 # Main productoin executable
 ADD_EXECUTABLE(task-scheduler
     src/main.cpp 
+    src/Menu.cpp
     src/Task.cpp
     src/TaskList.cpp
 )
@@ -13,6 +14,7 @@ ADD_EXECUTABLE(task-scheduler
 ADD_SUBDIRECTORY(googletest)
 ADD_EXECUTABLE(test
     src/test.cpp
+    src/Menu.cpp
     src/Task.cpp
     src/TaskList.cpp
 )

@@ -37,8 +37,8 @@ class TaskList: public Goal{
         bool getLookInMain(){
             return lookInMain;
         }
-        void print(std::ostream &out); // had this as an argument originally std::ostream &out
-        void edit(std::ostream &out);      // does this take arguments?
+        void print(std::ostream &out);
+        void edit(std::ostream &out, int val, std::string update);
         void addTask(Goal*);
         std::vector<Goal*>& getList(); //passed by reference
         void deleteObj(std::ostream &out);

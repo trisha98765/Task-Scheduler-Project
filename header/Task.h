@@ -8,6 +8,8 @@
 #include "../header/TaskList.h"
 #include "../header/Goal.h"
 
+using namespace std;
+
 class Task: public Goal{
     private:
         std::string name;
@@ -15,12 +17,12 @@ class Task: public Goal{
         int priority; // assuming 1 is the highest priority
         std::string classification;
         int duration; // number of days
-        std::string dueDate; // we might have to validate input by user for this
+        std::string dueDate;
         bool completed;
         int inProgress; // on a scale of 1-10, 5 is half progress made?
         bool deleted; // lets main know that task has been deleted 
     public:
-    ~Task(){}
+        ~Task(){}
         Task():Goal(){
             name = "Homework";
             description = "For CS 100";
@@ -41,6 +43,7 @@ class Task: public Goal{
             completed = check;      
             inProgress = progress;
         }
+
         void setName(std::string n);
         void setDescription(std::string d);
         void setPriority(int val);
@@ -67,10 +70,10 @@ class Task: public Goal{
         } 
 
 
-        virtual void print(std::ostream &out); //had this as an argument originally std::ostream &out
-        virtual void edit(std::ostream &out);  // specifications not complete
+        virtual void print(std::ostream &out);
+        virtual void edit(std::ostream &out,int choice,std::string update);
         void deleteObj(std::ostream &out);
-
+        Goal* userInput();
 };
 
 #endif
