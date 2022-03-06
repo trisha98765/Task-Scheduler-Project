@@ -9,6 +9,7 @@ ADD_EXECUTABLE(task-scheduler
     src/Task.cpp
     src/TaskList.cpp
     src/Filter.cpp
+    src/InputHelper.cpp
 )
 
 # GTest testing executable
@@ -19,6 +20,7 @@ ADD_EXECUTABLE(test
     src/Task.cpp
     src/TaskList.cpp
     src/Filter.cpp
+    src/InputHelper.cpp
 )
 TARGET_LINK_LIBRARIES(test gtest)
 TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
