@@ -4,12 +4,12 @@
 
 using namespace std;
 
-int readInt(istream in, ostream out) {
+int readInt(istream& in, ostream& out) {
     int input;
     
     in >> input;
     
-    while (!cin.good()) {
+    while (!in.good()) {
         out << "Please enter an integer\n";
         in.clear();
         in.ignore(256, '\n');
