@@ -19,7 +19,7 @@ void TaskList::edit(std::ostream &out, int input, string update){
     if (input = 0){
         out << "What would you like to do?\n";
    	out << "1. Edit list name\n";
-  	out << "2. Remove a task\n"; //this prints a 1 before for some reason
+  	out << "2. Remove a task\n";
         out << "3. Add a task\n";;
   	cin >>input;
     }
