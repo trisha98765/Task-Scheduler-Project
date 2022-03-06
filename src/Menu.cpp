@@ -187,7 +187,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
         }
         else if(input == 4){
             int input2;
-            std::cout << "Which would you like to filter? \n1. Unsorted Tasks \n2. Yours task lists" << std::endl;
+            std::cout << "Which would you like to filter? \n1. Unsorted Tasks \n2. Your task lists" << std::endl;
             cin >> input2;
 
             if(input2 == 1){
