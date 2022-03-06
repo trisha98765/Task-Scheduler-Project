@@ -78,9 +78,11 @@ void TaskList::edit(std::ostream &out, int input, string update){
         }
     }
 }
+
 void TaskList::addTask(Goal *newOne){
     listObj.push_back(newOne);
 }
+
 void TaskList::deleteObj(std::ostream &out) {
     std::string input;
     out << "Would you like to delete this list? Y/N: ";
