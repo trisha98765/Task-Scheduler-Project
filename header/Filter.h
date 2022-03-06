@@ -8,6 +8,6 @@
 #include "Goal.h"
 #include "Menu.h"
 
-void filter(TaskList entry);
+void filter(TaskList entry, int answer, std::string searchVal,std::ostream &out);
 
 #endif
