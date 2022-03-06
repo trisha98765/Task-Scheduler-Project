@@ -131,6 +131,24 @@ TEST(TaskListMethodTest, deleteTaskInList){
     testList.print(delete1);          // 2/3 tasks print
     EXPECT_EQ(delete1.str(),"Test\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Lab 3\nDue: 12/12/12\nPriority: 1\nClassification: Winter 2022\nDuration: 20\nDescription: hw for cs 100\nCompleted? No\nProgress status: 2\n\n");
 }
+
+TEST(TaskListMethodTest, addToNewList){
+    std::stringstream testAdd;
+    TaskList list2 = TaskList("List 3"); // test adding to new list
+    list2.addToList(staticTask);
+    list2.print(testAdd);
+    EXPECT_EQ(testAdd.str(),"List 3\nName: Essay\nDue: 03/11/22\nPriority: 3\nClassification: Summer 2020\nDuration: 20\nDescription: For HIST 108\nCompleted? No\nProgress status: 2\n\n");
+}
+
+TEST(TaskListMethodTest, addToOldList){ // testing adding new task to already existing list
+    std::stringstream testAdd2;
+    Goal *addToOld  = new Task("Extra Credit", "For CS 111", 2, 10,"03/19/08", "Fall 2022", false, 5);   
+    testList.addToList(addToOld);
+    testList.edit(testAdd2,2,"Lab 3");  // delete task called "Lab 3"
+    testList.print(testAdd2);           // also testing deleting a previously created task
+    EXPECT_EQ(testAdd2.str(),"Test\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Extra Credit\nDue: 03/19/08\nPriority: 2\nClassification: Fall 2022\nDuration: 10\nDescription: For CS 111\nCompleted? No\nProgress status: 5\n\n");
+}
+
 int main(int argc, char **argv) {
     Goal *task1 = new Task("Lecture Videos", "For CS 100", 2, 10,"03/19/22", "Winter 2022", false, 5);
     testList.addTask(task1);

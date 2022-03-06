@@ -62,17 +62,18 @@ void TaskList::edit(std::ostream &out, int input, string update){
             this->setLookInMain(true);
     }
     if (input == 4){
-        std::string string1, string2, string3, string4;
-        int int1, int2, int3;
-        bool bool1 = false; //set to false bc it's a new task
         Task temp;
         Goal *newTask = temp.userInput();
-        this->addTask(newTask);
-        this->setLookInMain(false);
+        this->addToList(newTask);
+        /*this->addTask(newTask);
+        this->setLookInMain(false);*/
     }
-    
 }
 
+void TaskList::addToList(Goal* newTask){
+    this->addTask(newTask);
+    this->setLookInMain(false);
+}
 void TaskList::addTask(Goal *newOne){
     listObj.push_back(newOne);
 }
