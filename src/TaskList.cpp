@@ -66,18 +66,9 @@ void TaskList::edit(std::ostream &out, int input, string update){
         int int1, int2, int3;
         bool bool1 = false; //set to false bc it's a new task
         Task temp;
-        Goal *newTask = temp.userInput();/*
-         cin.ignore();
-            out << "Create a name: "; getline(std::cin, string1);
-            out << std::endl << "Write a short description: "; getline(std::cin, string2);
-            out << std::endl << "Set the priority level (1-10): "; cin >> int1;
-            out << std::endl << "Classify your task: "; cin.ignore(); getline(cin, string3);
-            out << std::endl << "How many days will this task last? "; cin >> int2;
-            out << std::endl << "Create a due date in the form XX/YY/ZZ: "; cin.ignore(); getline(cin, string4);
-            out << std::endl << "Enter a progress level (1-10): "; cin >> int3; out << std::endl;
-            Goal *newTask = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);*/
-            this->addTask(newTask);
-            this->setLookInMain(false);
+        Goal *newTask = temp.userInput();
+        this->addTask(newTask);
+        this->setLookInMain(false);
     }
     
 }
