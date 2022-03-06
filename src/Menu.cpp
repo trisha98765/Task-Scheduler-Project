@@ -6,7 +6,7 @@
 #include <ostream>
 #include <vector>
 #include <string>
-
+#include <sstream>
 using namespace std;
 
 TaskList findTaskList(string inputName, vector<TaskList> tempList){
@@ -26,15 +26,21 @@ int findTaskListIndex(string inputName, vector<TaskList> tempList){
     }   
     return -1;
 }
-void deleteTask(TaskList &unsorted, int tempInt){
+void deleteTask(TaskList &unsorted, int tempInt, std::ostream &out){ 
+    if(tempInt != -1){
     for(int i = tempInt; i < unsorted.getList().size()-1; i++){
-        Goal *tempTask;
-        tempTask = unsorted.getList().at(i+1);
-        unsorted.getList().at(i+1) = unsorted.getList().at(i);
-        unsorted.getList().at(i) = tempTask;
+                Goal *tempTask;
+                tempTask = unsorted.getList().at(i+1);
+                unsorted.getList().at(i+1) = unsorted.getList().at(i);
+                unsorted.getList().at(i) = tempTask;
     }
     unsorted.getList().pop_back();
+    }
+    else{
+        out << "Task not found.";
+    }
 }
+
 void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
 
         if(input == 2){
@@ -76,7 +82,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                     tempTask->deleteObj(std::cout);
 
                     if(tempTask->getDeleted()){
-                        deleteTask(unsorted,tempInt);
+                        deleteTask(unsorted,tempInt,std::cout);
                        /* for(int i = tempInt; i < unsorted.getList().size()-1; i++){
                             Goal *tempTask;
                             tempTask = unsorted.getList().at(i+1);
