@@ -58,15 +58,8 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             // Create new task
             if(input2 == 1){
                 bool1 = false; //set to false bc it's a new task
-                cin.ignore();
-                std::cout << "Create a name: "; getline(std::cin, string1);
-                std::cout << std::endl << "Write a short description: "; getline(std::cin, string2);
-                std::cout << std::endl << "Set the priority level (1-10): "; cin >> int1;
-                std::cout << std::endl << "Classify your task: "; cin.ignore(); getline(cin, string3);
-                std::cout << std::endl << "How many days will this task last? "; cin >> int2;
-                std::cout << std::endl << "Create a due date in the form MM/DD/YY: "; cin.ignore(); getline(cin, string4);
-                std::cout << std::endl << "Enter a progress level (1-10): "; cin >> int3; std::cout << std::endl;
-                Goal *newTask = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);
+                Task temp;
+                Goal *newTask = temp.userInput();
                 unsorted.addTask(newTask);
             }
             // Edit existing task
