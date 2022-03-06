@@ -12,8 +12,7 @@ void TaskList::print(std::ostream &out){
     int size = listObj.size();
     for(int i = 0; i < size; i++){
         listObj.at(i)->print(out);
-    }
-   
+    }  
 }
 
 void TaskList::edit(std::ostream &out, int input, string update){

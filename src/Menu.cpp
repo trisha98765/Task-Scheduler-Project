@@ -1,7 +1,9 @@
 #include "../header/TaskList.h"
 #include "../header/Task.h"
+#include "../header/Filter.h"
 #include "../header/Goal.h"
 #include "../header/Menu.h"
+
 #include <iostream>
 #include <ostream>
 #include <vector>
@@ -71,7 +73,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                     std::cout << "Task not present" << std::endl;
                 }
                 else{
-                    tempTask->edit(std::cout);
+                    tempTask->edit(std::cout,0,"");
                 }
             }
             else if(input2 == 3){
