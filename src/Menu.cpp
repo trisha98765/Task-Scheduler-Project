@@ -29,10 +29,10 @@ int findTaskListIndex(string inputName, vector<TaskList> tempList){
 void deleteTask(TaskList &unsorted, int tempInt, std::ostream &out){ 
     if(tempInt != -1){
     for(int i = tempInt; i < unsorted.getList().size()-1; i++){
-                Goal *tempTask;
-                tempTask = unsorted.getList().at(i+1);
-                unsorted.getList().at(i+1) = unsorted.getList().at(i);
-                unsorted.getList().at(i) = tempTask;
+        Goal *tempTask;
+        tempTask = unsorted.getList().at(i+1);
+        unsorted.getList().at(i+1) = unsorted.getList().at(i);
+        unsorted.getList().at(i) = tempTask;
     }
     unsorted.getList().pop_back();
     }
@@ -83,13 +83,6 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
 
                     if(tempTask->getDeleted()){
                         deleteTask(unsorted,tempInt,std::cout);
-                       /* for(int i = tempInt; i < unsorted.getList().size()-1; i++){
-                            Goal *tempTask;
-                            tempTask = unsorted.getList().at(i+1);
-                            unsorted.getList().at(i+1) = unsorted.getList().at(i);
-                            unsorted.getList().at(i) = tempTask;
-                        }
-                        unsorted.getList().pop_back();*/
                         std::cout << "Task deleted" << std::endl;
                     }
                 }
