@@ -12,6 +12,7 @@ static TaskList testList = TaskList("Test");
 static std::stringstream output2;
 static vector<TaskList> allLists;
 static Goal *staticTask = new Task("Essay", "For HIST 108", 1, 20,"07/01/20", "Summer 2020", false, 2);
+vector<Goal*> toDelete;
 
 TEST(TaskConstructorTest, defaultConstructor){
     Task *test = new Task();
@@ -23,7 +24,7 @@ TEST(TaskConstructorTest, defaultConstructor){
     EXPECT_EQ(test->getDueDate(), "03/12/22");
     EXPECT_EQ(test->getCompletion(), false);
     EXPECT_EQ(test->getProgress(), 5);
-    delete test;
+    toDelete.push_back(test);
 }
 
 TEST(TaskConstructorTest, overloadedConstructor){
@@ -36,7 +37,7 @@ TEST(TaskConstructorTest, overloadedConstructor){
     EXPECT_EQ(test->getDueDate(), "02/22/22");
     EXPECT_EQ(test->getCompletion(), false);
     EXPECT_EQ(test->getProgress(), 0);
-    delete test;
+    toDelete.push_back(test);
 }
 
 TEST(TaskMethodTest, addTask){
@@ -45,6 +46,7 @@ TEST(TaskMethodTest, addTask){
     std::stringstream output;
     testList.print(output);
     EXPECT_EQ(output.str(),"Test\nName: Lecture Videos\nDue: 03/19/22\nPriority: 2\nClassification: Winter 2022\nDuration: 10\nDescription: For CS 100\nCompleted? No\nProgress status: 5\n\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\n");
+    toDelete.push_back(task2);
 }
 
 TEST(TaskMethodTest, editTask){ // editing two attributes of the same task
@@ -55,6 +57,7 @@ TEST(TaskMethodTest, editTask){ // editing two attributes of the same task
     std::stringstream editStream;
     testList.print(editStream);
     EXPECT_EQ(editStream.str(),"Test\nName: Lecture Videos\nDue: 03/19/22\nPriority: 2\nClassification: Winter 2022\nDuration: 10\nDescription: For CS 100\nCompleted? No\nProgress status: 5\n\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Lab 3\nDue: 12/12/12\nPriority: 1\nClassification: Winter 2022\nDuration: 20\nDescription: hw for cs 100\nCompleted? No\nProgress status: 2\n\n");
+    toDelete.push_back(task3);
 }
 
 TEST(TaskMethodTest, invalidInput){
@@ -115,6 +118,7 @@ TEST(FilterTest, filterAndEdit){
     list2.addTask(staticTask);                 // adding edited version to list
     filter(list2,4,"03",filterEdit);  // 1/2 tasks print, updated version has filtering date
     EXPECT_EQ(filterEdit.str(),"\nName: Essay\nDue: 03/11/22\nPriority: 3\nClassification: Summer 2020\nDuration: 20\nDescription: For HIST 108\nCompleted? No\nProgress status: 2\n\n");
+    toDelete.push_back(task2);
 }
 TEST(TaskListMethodTest, defaultConstructor){
     TaskList testList1 = TaskList();
@@ -148,6 +152,7 @@ TEST(TaskListMethodTest, addToOldList){ // testing adding new task to already ex
     testList.edit(testAdd2,2,"Lab 3");  // delete task called "Lab 3"
     testList.print(testAdd2);           // also testing deleting a previously created task
     EXPECT_EQ(testAdd2.str(),"Test\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Extra Credit\nDue: 03/19/08\nPriority: 2\nClassification: Fall 2022\nDuration: 10\nDescription: For CS 111\nCompleted? No\nProgress status: 5\n\n");
+    toDelete.push_back(addToOld);
 }
 
 int main(int argc, char **argv) {
@@ -155,6 +160,10 @@ int main(int argc, char **argv) {
     testList.addTask(task1);
     ::testing::InitGoogleTest(&argc, argv);
     int result = RUN_ALL_TESTS();
+    for (Goal* ptr : toDelete) {
+        delete ptr;
+    }
+    delete task1;
     delete staticTask;
     return result;
 }
