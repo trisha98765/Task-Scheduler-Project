@@ -4,6 +4,7 @@
 #include "../header/TaskList.h"
 #include "../header/Goal.h"
 #include "../header/Menu.h"
+#include "../testing/View_test.hpp"
 #include<vector>
 using namespace std;
 
