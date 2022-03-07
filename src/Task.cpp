@@ -74,7 +74,7 @@ Goal* Task::userInput(){
     std::cout << std::endl << "Set the priority level (1-10): "; std::cin >> int1;
     std::cout << std::endl << "Classify your task: "; cin.ignore(); getline(std::cin, string3);
     std::cout << std::endl << "How many days will this task last? "; std::cin >> int2;
-    std::cout << std::endl << "Create a due date in the form XX/YY/ZZ: "; cin.ignore(); getline(cin, string4);
+    std::cout << std::endl << "Create a due date in the form MM/DD/YY: "; cin.ignore(); getline(cin, string4);
     std::cout << std::endl << "Enter a progress level (1-10): "; cin >> int3; std::cout << std::endl;   
     Goal *returnVal = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);
     return returnVal;
