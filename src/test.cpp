@@ -154,5 +154,7 @@ int main(int argc, char **argv) {
     Goal *task1 = new Task("Lecture Videos", "For CS 100", 2, 10,"03/19/22", "Winter 2022", false, 5);
     testList.addTask(task1);
     ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+    int result = RUN_ALL_TESTS();
+    delete staticTask;
+    return result;
 }
