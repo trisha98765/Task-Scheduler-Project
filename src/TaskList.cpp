@@ -15,6 +15,10 @@ void TaskList::print(std::ostream &out){
     }  
 }
 
+void TaskList::setName(std::string n){
+	name = n;
+}
+
 void TaskList::edit(std::ostream &out, int input, string update){
     if(input == 0){
         out << "What would you like to do?\n";
@@ -30,8 +34,12 @@ void TaskList::edit(std::ostream &out, int input, string update){
             out << "Please enter the new name" << std::endl;
             cin.ignore(); getline(cin, newName);
             update = newName;
+	    this->setName(newName);
         }
-        this->setName(update);
+	else{
+	    this->Goal::setName(update);
+	}
+        //this->Goal::setName(update);
         this->setLookInMain(false);
     }
 

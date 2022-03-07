@@ -45,6 +45,7 @@ class TaskList: public Goal{
         Goal* findTask(std::string);
         int findIndex(std::string);
         void addToList(Goal* newTask);
+	void setName(std::string n);
 };
 
 #endif
