@@ -44,6 +44,7 @@ class TaskList: public Goal{
         void deleteObj(std::ostream &out);
         Goal* findTask(std::string);
         int findIndex(std::string);
+        void addToList(Goal* newTask);
 };
 
 #endif

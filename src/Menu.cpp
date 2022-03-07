@@ -58,15 +58,8 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             // Create new task
             if(input2 == 1){
                 bool1 = false; //set to false bc it's a new task
-                cin.ignore();
-                std::cout << "Create a name: "; getline(std::cin, string1);
-                std::cout << std::endl << "Write a short description: "; getline(std::cin, string2);
-                std::cout << std::endl << "Set the priority level (1-10): "; cin >> int1;
-                std::cout << std::endl << "Classify your task: "; cin.ignore(); getline(cin, string3);
-                std::cout << std::endl << "How many days will this task last? "; cin >> int2;
-                std::cout << std::endl << "Create a due date in the form MM/DD/YY: "; cin.ignore(); getline(cin, string4);
-                std::cout << std::endl << "Enter a progress level (1-10): "; cin >> int3; std::cout << std::endl;
-                Goal *newTask = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);
+                Task temp;
+                Goal *newTask = temp.userInput();
                 unsorted.addTask(newTask);
             }
             // Edit existing task
@@ -129,7 +122,8 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             // Edit existing list
             else if(input2 == 2){
                 std::string listName = "";
-                std::cout << "Enter the name of the list you want to edit: "; cin.ignore(); getline(cin, listName); std::cout << std::endl;
+                std::cout << "Enter the name of the list you want to edit: "; 
+                cin.ignore(); getline(cin, listName); std::cout << std::endl;
                 TaskList temp = findTaskList(listName, allLists);
                 if(temp.getName() == "default"){
                     std::cout << "Task list not present" << std::endl;
@@ -138,7 +132,8 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                     temp.edit(std::cout,0,"");
                     if(temp.getLookInMain()){ //adds an already existing task to the list
                         std::string taskName = "";
-                        std::cout << "Enter the name of the task you want to add: "; cin.ignore(); getline(cin, taskName); std::cout << std::endl;
+                        std::cout << "Enter the name of the task you want to add: "; 
+                        cin.ignore(); getline(cin, taskName); std::cout << std::endl;
                         Goal* tempTask = unsorted.findTask(taskName);
                         if(tempTask->getName() == ""){
                             std::cout << "Task not present" << std::endl;
@@ -164,7 +159,8 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
            // Delete list
            else if(input2 == 3){
                 std::string listName = "";
-                std::cout << "Enter the name of the list you want to edit: "; cin.ignore(); getline(cin, listName); std::cout << std::endl;
+                std::cout << "Enter the name of the list you want to delete: "; 
+                cin.ignore(); getline(cin, listName); std::cout << std::endl;
                 TaskList temp = findTaskList(listName, allLists);
                 if(temp.getName() == "default"){
                     std::cout << "Task list not present" << std::endl;
@@ -215,9 +211,9 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 return;
             }
 
-            std::cout << "Which would you like to sort by?\n1. Due Date\n2.Classification\n3. Priority\n4.Due soon" << std::endl;
+            std::cout << "Which would you like to sort by?\n1. Due Date\n2. Classification\n3. Priority\n4. Due soon" << std::endl;
             std::cin >> answer;
-            std::cout << "What is your filtering criteria? (Enter the month (XX) for due date, classification or priority):\n";
+            std::cout << "What is your filtering criteria? (Enter the month (MM) for due date, classification or priority):\n";
             std::cin >> searchVal;
             if(input2 == 1){
                 filter(unsorted,answer,searchVal,std::cout);
