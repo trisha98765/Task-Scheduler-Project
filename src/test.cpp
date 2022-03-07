@@ -146,7 +146,6 @@ TEST(TaskListMethodTest, addToOldList){ // testing adding new task to already ex
     testList.edit(testAdd2,2,"Lab 3");  // delete task called "Lab 3"
     testList.print(testAdd2);           // also testing deleting a previously created task
     EXPECT_EQ(testAdd2.str(),"Test\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Extra Credit\nDue: 03/19/08\nPriority: 2\nClassification: Fall 2022\nDuration: 10\nDescription: For CS 111\nCompleted? No\nProgress status: 5\n\n");
-   
 }
 
 int main(int argc, char **argv) {
@@ -155,3 +154,4 @@ int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+
