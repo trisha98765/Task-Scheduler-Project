@@ -4,6 +4,7 @@
 #include "../header/Menu.h"
 #include "../header/ColorManager.h"
 #include "../header/InputHelper.h"
+#include "../header/View.h"
 //#include "../header/Filter.h"
 #include <iostream>
 #include <ostream>
@@ -18,12 +19,13 @@ int main(){
     int input = 0;
     // start
     clear();
+    printMain(std::cout, allLists, unsorted);
     std::cout << "What would you like to do?" << std::endl << "1. Create new list/edit existing list" << std::endl
     << "2. Create new task/edit existing task" << std::endl << "3. Print list" << std::endl <<  "4. Filter"
         << std::endl << "5. Quit" << std::endl << std::endl;
     input = readInt(cin, cout);
     while(input != 5){
-        clear();
+        printMain(std::cout, allLists, unsorted);
         menu(input,unsorted,allLists);
         std::cout << "What would you like to do?" << std::endl << "1. Create new list/edit existing list" << std::endl 
         << "2. Create new task/edit existing task" << std::endl << "3. Print list" << std::endl <<  "4. Filter" 
