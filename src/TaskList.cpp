@@ -16,31 +16,38 @@ void TaskList::print(std::ostream &out){
 }
 
 void TaskList::edit(std::ostream &out, int input, string update){
-    if (input = 0){
+    if(input == 0){
         out << "What would you like to do?\n";
-   	out << "1. Edit list name\n";
-  	out << "2. Remove a task\n";
-        out << "3. Add a task\n";;
-  	cin >>input;
+   	cout << "1. Edit list name\n";
+  	cout << "2. Remove a task\n";
+        cout << "3. Add an existing task\n";
+        cout << "4. Add a new task\n";
+  	cin >> input;
     }
     if(input == 1){
-        std::string newName;
-        out << "Please enter the new name" << std::endl;
-        cin.ignore(); getline(cin, newName);
-        this->setName(newName);
-
+        if(update == ""){
+            std::string newName;
+            out << "Please enter the new name" << std::endl;
+            cin.ignore(); getline(cin, newName);
+            update = newName;
+        }
+        this->setName(update);
         this->setLookInMain(false);
     }
 
-    else if(input == 2){
-        std::string taskName = "";
-        out << "Enter the name of the task you want to remove: "; cin.ignore(); getline(cin, taskName); out << std::endl;
-        Goal* tempTask = this->findTask(taskName);
+    if(input == 2){
+        if(update == ""){
+            std::string taskName = "";
+            out << "Enter the name of the task you want to remove: "; 
+            cin.ignore(); getline(cin, taskName); out << std::endl;
+            update = taskName;
+        }
+        Goal* tempTask = this->findTask(update);
         if(tempTask->getName() == ""){
             out << "Task not present" << std::endl;
         }
         else{
-            int tempInt = this->findIndex(taskName);
+            int tempInt = this->findIndex(update);
             for(int i = tempInt; i < this->getList().size()-1; i++){
                 Goal *tempTask;
                 tempTask = this->getList().at(i+1);
@@ -51,33 +58,22 @@ void TaskList::edit(std::ostream &out, int input, string update){
         }
         this->setLookInMain(false);
     }
-    else if(input == 3){
-        int input2;
-        out << "Do you want to 1. Add an existing task or 2. Add a new task to this list?" << std::endl;
-        cin >>input2;
-        
-        if(input2 == 1){
+    if(input == 3){
             this->setLookInMain(true);
-        }
-        else{
-            std::string string1, string2, string3, string4;
-            int int1, int2, int3;
-            bool bool1 = false; //set to false bc it's a new task
-            cin.ignore();
-            out << "Create a name: "; getline(std::cin, string1);
-            out << std::endl << "Write a short description: "; getline(std::cin, string2);
-            out << std::endl << "Set the priority level (1-10): "; cin >> int1;
-            out << std::endl << "Classify your task: "; cin.ignore(); getline(cin, string3);
-            out << std::endl << "How many days will this task last? "; cin >> int2;
-            out << std::endl << "Create a due date in the form XX/YY/ZZ: "; cin.ignore(); getline(cin, string4);
-            out << std::endl << "Enter a progress level (1-10): "; cin >> int3; out << std::endl;
-            Goal *newTask = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);
-            this->addTask(newTask);
-            this->setLookInMain(false);
-        }
+    }
+    if (input == 4){
+        Task temp;
+        Goal *newTask = temp.userInput();
+        this->addToList(newTask);
+        /*this->addTask(newTask);
+        this->setLookInMain(false);*/
     }
 }
 
+void TaskList::addToList(Goal* newTask){
+    this->addTask(newTask);
+    this->setLookInMain(false);
+}
 void TaskList::addTask(Goal *newOne){
     listObj.push_back(newOne);
 }

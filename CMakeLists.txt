@@ -9,6 +9,7 @@ ADD_EXECUTABLE(task-scheduler
     src/Task.cpp
     src/TaskList.cpp
     src/Filter.cpp
+    src/InputHelper.cpp
     src/ColorManager.cpp
     src/PrintHelper.cpp
     src/View.cpp
@@ -22,6 +23,7 @@ ADD_EXECUTABLE(test
     src/Task.cpp
     src/TaskList.cpp
     src/Filter.cpp
+    src/InputHelper.cpp
     src/ColorManager.cpp
     src/PrintHelper.cpp
     src/View.cpp
