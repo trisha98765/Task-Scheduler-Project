@@ -5,7 +5,7 @@
 #include "../header/ColorManager.h"
 #include "../header/InputHelper.h"
 #include "../header/View.h"
-//#include "../header/Filter.h"
+#include <stdlib.h>
 #include <iostream>
 #include <ostream>
 #include <vector>
@@ -32,5 +32,15 @@ int main(){
         << std::endl << "5. Quit" << std::endl << std::endl;
         input = readInt(cin, cout);
     }
+
+    for(int i = 0; i < unsorted.getList().size(); i++){
+	free(unsorted.getList().at(i));
+    }
+    for(int i = 0; i < allLists.size(); i++){
+	for(int j = 0; j < allLists.at(i).getList().size(); j++){
+	    free(allLists.at(i).getList().at(j));
+	}
+    }
+
     return 0;
 }
