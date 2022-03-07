@@ -44,7 +44,7 @@ TEST(TaskMethodTest, addTask){
     std::stringstream output;
     testList.print(output);
     EXPECT_EQ(output.str(),"Test\nName: Lecture Videos\nDue: 03/19/22\nPriority: 2\nClassification: Winter 2022\nDuration: 10\nDescription: For CS 100\nCompleted? No\nProgress status: 5\n\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\n");
-}
+} 
 
 TEST(TaskMethodTest, editTask){ // editing two attributes of the same task
     Goal *task3 = new Task("Lab 3", "For CS 111", 1, 20,"03/01/22", "Winter 2022", false, 2);
@@ -108,8 +108,6 @@ TEST(FilterTest, filterDueSoon){
 TEST(FilterTest, filterAndEdit){
     std::stringstream filterEdit;
     TaskList list2 = TaskList("List 2");
-    Goal *task2 = new Task("Office Hours", "For CS 100", 2, 8, "10/11/22","Winter 2022", false, 2);
-    list2.addTask(task2);   // adding new task
     staticTask->edit(filterEdit,6,"03/11/22"); // editing alrady existing task
     list2.addTask(staticTask);                 // adding edited version to list
     filter(list2,4,"03",filterEdit);  // 1/2 tasks print, updated version has filtering date
@@ -147,6 +145,7 @@ TEST(TaskListMethodTest, addToOldList){ // testing adding new task to already ex
     testList.edit(testAdd2,2,"Lab 3");  // delete task called "Lab 3"
     testList.print(testAdd2);           // also testing deleting a previously created task
     EXPECT_EQ(testAdd2.str(),"Test\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Extra Credit\nDue: 03/19/08\nPriority: 2\nClassification: Fall 2022\nDuration: 10\nDescription: For CS 111\nCompleted? No\nProgress status: 5\n\n");
+   
 }
 
 int main(int argc, char **argv) {

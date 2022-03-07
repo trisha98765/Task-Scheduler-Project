@@ -20,7 +20,7 @@ void filter(TaskList entry, int answer, string searchVal,std::ostream &out){
     }
     else if(answer == 2){
         for(int i = 0; i < entry.getList().size(); i++){
-             Task *tempTask = dynamic_cast<Task *>(entry.getList().at(i));
+            Task *tempTask = dynamic_cast<Task *>(entry.getList().at(i));
             std::string tempClass = tempTask->getClassification();
             if(tempClass == searchVal){
                 tempTask->print(out); 
