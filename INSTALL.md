@@ -13,10 +13,6 @@ In order to build from the source code, you will need to install CMake and the n
 3. Choose the correct entry from the "Binary distributions" subheading and for your operating system. It is recommended to get the installer executable (`.msi`, `.dmg`, or `.sh`) instead of the archive file (`.tar.gz`)
 4. Double click the file and follow the instructions to complete the installation.
 
-### ncurses
-
-See the instructions under `ncurses/README.md`
-
 
 Main Program
 --------------------
