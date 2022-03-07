@@ -49,7 +49,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
         if(input == 2){
             int input2 = 0;
 
-            std::cout << "1. Create new task" << std::endl << "2. Edit existing task" << std::endl << "3. Delete task" << std::endl << "4. Go back" << std::endl;
+            std::cout << "1. Create new task" << std::endl << "2. Edit existing task" << std::endl << "3. Delete task" << std::endl << "4. Go back" << std::endl << std::endl;
             input2 = readInt(cin, cout);
 
             std::string string1, string2, string3, string4;
@@ -68,7 +68,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 std::cout << "Enter the name of the task you want to edit: "; cin.ignore(); getline(cin, taskName); std::cout << std::endl;
                 Goal* tempTask = unsorted.findTask(taskName);
                 if(tempTask->getName() == ""){
-                    std::cout << "Task not present" << std::endl;
+                    std::cout << "Task not present" << std::endl << std::endl;
                 }
                 else{
                     tempTask->edit(std::cout,0,"");
@@ -105,7 +105,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
         else if(input == 1){
             int input2 = 0;
           
-            std::cout << "1. Create new list" << std::endl << "2. Edit existing list" << std::endl << "3. Delete list" << std::endl << "4. Go back" << std::endl;
+            std::cout << "1. Create new list" << std::endl << "2. Edit existing list" << std::endl << "3. Delete list" << std::endl << "4. Go back" << std::endl << std::endl;
             input2 = readInt(cin, cout);
 
             // Create new list
@@ -197,6 +197,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             if(allLists.size() == 0){ // if there are just tasks with no specific list
                std::cout << "Here are your unsorted tasks:\n";
                unsorted.print(std::cout);
+               std::cout << std::endl;
             }
         }
         // Filter
@@ -204,14 +205,14 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             int input2,answer;
             std::string searchVal;
 
-            std::cout << "Which would you like to filter? \n1. Unsorted Tasks \n2. Yours task lists\n3. Go back" << std::endl;
+            std::cout << "Which would you like to filter? \n1. Unsorted Tasks \n2. Yours task lists\n3. Go back" << std::endl << std::endl;
             input2 = readInt(cin, cout);
 
             if (input2 == 3) {
                 return;
             }
 
-            std::cout << "Which would you like to sort by?\n1. Due Date\n2. Classification\n3. Priority\n4. Due soon" << std::endl;
+            std::cout << "Which would you like to sort by?\n1. Due Date\n2. Classification\n3. Priority\n4. Due soon" << std::endl << std::endl;
             std::cin >> answer;
             std::cout << "What is your filtering criteria? (Enter the month (MM) for due date, classification or priority):\n";
             std::cin >> searchVal;
