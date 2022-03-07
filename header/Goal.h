@@ -12,7 +12,7 @@ class Goal{
     private:
         std::string name;
     public:
-        ~Goal(){}
+        ~Goal(){ }
         Goal(){
             name = "";
         }

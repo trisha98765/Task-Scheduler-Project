@@ -8,10 +8,13 @@
 #include<vector>
 using namespace std;
 
-static TaskList testList = TaskList("Test");
+TaskList testList = TaskList("Test");
 static std::stringstream output2;
-static vector<TaskList> allLists;
-static Goal *staticTask = new Task("Essay", "For HIST 108", 1, 20,"07/01/20", "Summer 2020", false, 2);
+vector<TaskList> allLists;
+Task *staticTask = new Task("Essay", "For HIST 108", 1, 20,"07/01/20", "Summer 2020", false, 2);
+Task *task2 = new Task("Study Guide", "For CS 100", 1, 3,"03/11/22", "Winter 2022", false, 0);
+Task *task3 = new Task("Lab 3", "For CS 111", 1, 20,"03/01/22", "Winter 2022", false, 2);
+Task *addToOld  = new Task("Extra Credit", "For CS 111", 2, 10,"03/19/08", "Fall 2022", false, 5);
 
 TEST(TaskConstructorTest, defaultConstructor){
     Task *test = new Task();
@@ -40,7 +43,7 @@ TEST(TaskConstructorTest, overloadedConstructor){
 }
 
 TEST(TaskMethodTest, addTask){
-    Goal *task2 = new Task("Study Guide", "For CS 100", 1, 3,"03/11/22", "Winter 2022", false, 0);
+ //   Goal *task2 = new Task("Study Guide", "For CS 100", 1, 3,"03/11/22", "Winter 2022", false, 0);
     testList.addTask(task2);
     std::stringstream output;
     testList.print(output);
@@ -48,7 +51,7 @@ TEST(TaskMethodTest, addTask){
 } 
 
 TEST(TaskMethodTest, editTask){ // editing two attributes of the same task
-    Goal *task3 = new Task("Lab 3", "For CS 111", 1, 20,"03/01/22", "Winter 2022", false, 2);
+ //   Goal *task3 = new Task("Lab 3", "For CS 111", 1, 20,"03/01/22", "Winter 2022", false, 2);
     testList.addTask(task3);
     task3->edit(output2,2,"hw for cs 100"); // edit description
     task3->edit(output2,6,"12/12/12");      // edit due date
@@ -141,17 +144,20 @@ TEST(TaskListMethodTest, addToNewList){
 
 TEST(TaskListMethodTest, addToOldList){ // testing adding new task to already existing list
     std::stringstream testAdd2;
-    Goal *addToOld  = new Task("Extra Credit", "For CS 111", 2, 10,"03/19/08", "Fall 2022", false, 5);   
+   // Task *addToOld  = new Task("Extra Credit", "For CS 111", 2, 10,"03/19/08", "Fall 2022", false, 5);   
     testList.addToList(addToOld);
     testList.edit(testAdd2,2,"Lab 3");  // delete task called "Lab 3"
     testList.print(testAdd2);           // also testing deleting a previously created task
     EXPECT_EQ(testAdd2.str(),"Test\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Extra Credit\nDue: 03/19/08\nPriority: 2\nClassification: Fall 2022\nDuration: 10\nDescription: For CS 111\nCompleted? No\nProgress status: 5\n\n");
-}
+    }
 
 int main(int argc, char **argv) {
-    Goal *task1 = new Task("Lecture Videos", "For CS 100", 2, 10,"03/19/22", "Winter 2022", false, 5);
+    Task *task1 = new Task("Lecture Videos", "For CS 100", 2, 10,"03/19/22", "Winter 2022", false, 5);
     testList.addTask(task1);
     ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+    int val = RUN_ALL_TESTS();
+    delete task1; delete task2; delete task3; delete staticTask; delete addToOld;
+    allLists.clear();
+    return val;
 }
 
