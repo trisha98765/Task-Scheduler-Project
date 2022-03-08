@@ -69,4 +69,5 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
 See `INSTALL.md` for installation instructions
 
 ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ > We used the Google Test Suite for testing our code and wrote unit tests to ensure all of our functions work as expected. 
+ <img width="541" src = https://user-images.githubusercontent.com/74077340/157297257-a7774aed-d8e8-4d9a-928e-f889ef1c52e3.png>
