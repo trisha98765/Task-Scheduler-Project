@@ -99,7 +99,7 @@ void TaskList::deleteObj(std::ostream &out) {
             out << "List restored" << std::endl;
         }
         else{
-            this->setBool(true);        
+            this->setDeleted(true);
         }
     }
 }

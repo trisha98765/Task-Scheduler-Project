@@ -12,10 +12,10 @@
 #include <sstream>
 using namespace std;
 
-TaskList findTaskList(string inputName, vector<TaskList> tempList){
-    for(int i = 0; i < tempList.size(); i++){
-        if(inputName == tempList.at(i).getName()){
-            return tempList.at(i);
+TaskList* findTaskList(string inputName, vector<TaskList> listToSearch){
+    for(int i = 0; i < listToSearch.size(); i++){
+        if(inputName == listToSearch.at(i).getName()){
+            return &listToSearch.at(i);
         }
     }
     TaskList none = TaskList();
@@ -166,6 +166,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 else{
                     temp.deleteObj(std::cout);
                     if(temp.getBool()){
+                    if(temp.isDeleted()){
                         int index = findTaskListIndex(listName, allLists);
                         for(int i = index; i < allLists.size()-1; i++){
                             TaskList tempList;

@@ -27,10 +27,10 @@ class TaskList: public Goal{
         std::string getName(){
             return name;
         }
-        void setBool(bool input){
+        void setDeleted(bool input){
             deleted =  input;
         }
-        bool getBool(){
+        bool isDeleted(){
             return deleted;
         }
         void setLookInMain(bool answer){
