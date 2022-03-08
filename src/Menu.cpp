@@ -52,8 +52,6 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             std::cout << "1. Create new task" << std::endl << "2. Edit existing task" << std::endl << "3. Delete task" << std::endl << "4. Go back" << std::endl << std::endl;
             input2 = readInt(cin, cout);
 
-            std::string string1, string2, string3, string4;
-            int int1, int2, int3;
             bool bool1;
             // Create new task
             if(input2 == 1){
@@ -202,7 +200,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
         }
         // Filter
         else if(input == 4){
-            int input2,answer;
+            int input2 = 0, answer = 0;
             std::string searchVal;
 
             std::cout << "Which would you like to filter? \n1. Unsorted Tasks \n2. Yours task lists\n3. Go back" << std::endl << std::endl;

@@ -15,7 +15,9 @@ class TaskList: public Goal{
         bool lookInMain; //lets program know that user wants to add an existing task to the list
         bool deleted; //lets main know that list has been deleted
     public:
-        ~TaskList(){}
+        ~TaskList(){
+            listObj.clear();
+        }
         TaskList():Goal(){
             name = "default";
         }

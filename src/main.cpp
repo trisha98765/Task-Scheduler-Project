@@ -43,6 +43,5 @@ int main(){
 	    //free(allLists.at(i).getList().at(j));
 	}
     }
-
     return 0;
 }
