@@ -26,7 +26,7 @@ TEST(TaskConstructorTest, defaultConstructor){
     EXPECT_EQ(test->getDueDate(), "03/12/22");
     EXPECT_EQ(test->getCompletion(), false);
     EXPECT_EQ(test->getProgress(), 5);
-    toDelete.push_back(test);
+    delete test;
 }
 
 TEST(TaskConstructorTest, overloadedConstructor){
@@ -39,11 +39,10 @@ TEST(TaskConstructorTest, overloadedConstructor){
     EXPECT_EQ(test->getDueDate(), "02/22/22");
     EXPECT_EQ(test->getCompletion(), false);
     EXPECT_EQ(test->getProgress(), 0);
-    toDelete.push_back(test);
+    delete test;
 }
 
 TEST(TaskMethodTest, addTask){
- //   Goal *task2 = new Task("Study Guide", "For CS 100", 1, 3,"03/11/22", "Winter 2022", false, 0);
     testList.addTask(task2);
     std::stringstream output;
     testList.print(output);
@@ -52,14 +51,12 @@ TEST(TaskMethodTest, addTask){
 
 
 TEST(TaskMethodTest, editTask){ // editing two attributes of the same task
- //   Goal *task3 = new Task("Lab 3", "For CS 111", 1, 20,"03/01/22", "Winter 2022", false, 2);
     testList.addTask(task3);
     task3->edit(output2,2,"hw for cs 100"); // edit description
     task3->edit(output2,6,"12/12/12");      // edit due date
     std::stringstream editStream;
     testList.print(editStream);
     EXPECT_EQ(editStream.str(),"Test\nName: Lecture Videos\nDue: 03/19/22\nPriority: 2\nClassification: Winter 2022\nDuration: 10\nDescription: For CS 100\nCompleted? No\nProgress status: 5\n\nName: Study Guide\nDue: 03/11/22\nPriority: 1\nClassification: Winter 2022\nDuration: 3\nDescription: For CS 100\nCompleted? No\nProgress status: 0\n\nName: Lab 3\nDue: 12/12/12\nPriority: 1\nClassification: Winter 2022\nDuration: 20\nDescription: hw for cs 100\nCompleted? No\nProgress status: 2\n\n");
-    toDelete.push_back(task3);
 }
 
 TEST(TaskMethodTest, invalidInput){
@@ -118,7 +115,6 @@ TEST(FilterTest, filterAndEdit){
     list2.addTask(staticTask);                 // adding edited version to list
     filter(list2,4,"03",filterEdit);  // 1/2 tasks print, updated version has filtering date
     EXPECT_EQ(filterEdit.str(),"\nName: Essay\nDue: 03/11/22\nPriority: 3\nClassification: Summer 2020\nDuration: 20\nDescription: For HIST 108\nCompleted? No\nProgress status: 2\n\n");
-    toDelete.push_back(task4);
 }
 
 TEST(TaskListMethodTest, defaultConstructor){
