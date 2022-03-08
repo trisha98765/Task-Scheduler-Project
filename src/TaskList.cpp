@@ -153,3 +153,13 @@ int TaskList::findIndex(string tempName){
     }
     return i;
 }
+
+void TaskList::free() {
+    for (int i = 0; i < listObj.size(); ++i) {
+        if (listObj[i] != nullptr) {
+            delete listObj[i];
+            listObj[i] = nullptr;
+        }
+    }
+    listObj.clear();
+}
