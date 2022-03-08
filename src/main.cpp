@@ -32,6 +32,9 @@ int main(){
         << std::endl << "5. Quit" << std::endl << std::endl;
         input = readInt(cin, cout);
     }
-
+    unsorted.free();
+    for (int i = 0; i < allLists.size(); ++i) {
+        allLists.at(i).free();
+    }
     return 0;
 }

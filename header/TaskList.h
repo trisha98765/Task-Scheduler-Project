@@ -15,11 +15,6 @@ class TaskList: public Goal{
         bool lookInMain; //lets program know that user wants to add an existing task to the list
         bool deleted; //lets main know that list has been deleted
     public:
-        ~TaskList(){
-            for (int i = 0; i < listObj.size(); ++i) {
-                delete listObj[i];
-            }
-        }
         TaskList():Goal(){
             name = "default";
         }
@@ -49,7 +44,9 @@ class TaskList: public Goal{
         Goal* findTask(std::string);
         int findIndex(std::string);
         void addToList(Goal* newTask);
-	void setName(std::string n);
+        void setName(std::string n);
+        // Tasks may be shared between multiple lists, so freeing on destruction will cause segfaults for shared tasks
+        void free();
 };
 
 #endif
