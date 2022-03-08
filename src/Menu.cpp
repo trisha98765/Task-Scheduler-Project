@@ -12,14 +12,14 @@
 #include <sstream>
 using namespace std;
 
-TaskList findTaskList(string inputName, vector<TaskList> listToSearch){
+TaskList* findTaskList(string inputName, vector<TaskList>& listToSearch){
     for(int i = 0; i < listToSearch.size(); i++){
         if(inputName == listToSearch.at(i).getName()){
-            return listToSearch.at(i);
+            return &listToSearch.at(i);
         }
     }
-    TaskList none = TaskList();
-    return none;
+    
+    return nullptr;
 }
 int findTaskListIndex(string inputName, vector<TaskList> tempList){
     for(int i = 0; i < tempList.size(); i++){
@@ -120,13 +120,13 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 std::string listName = "";
                 std::cout << "Enter the name of the list you want to edit: "; 
                 cin.ignore(); getline(cin, listName); std::cout << std::endl;
-                TaskList temp = findTaskList(listName, allLists);
-                if(temp.getName() == "default"){
+                TaskList* temp = findTaskList(listName, allLists);
+                if(temp == nullptr){
                     std::cout << "Task list not present" << std::endl;
                 }
                 else{
-                    temp.edit(std::cout,0,"");
-                    if(temp.getLookInMain()){ //adds an already existing task to the list
+                    temp->edit(std::cout,0,"");
+                    if(temp->getLookInMain()){ //adds an already existing task to the list
                         std::string taskName = "";
                         std::cout << "Enter the name of the task you want to add: "; 
                         cin.ignore(); getline(cin, taskName); std::cout << std::endl;
@@ -135,7 +135,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                             std::cout << "Task not present" << std::endl;
                         }
                         else{
-                            temp.addTask(tempTask);
+                            temp->addTask(tempTask);
                             
                             int tempInt = unsorted.findIndex(taskName);
                             for(int i = tempInt; i < unsorted.getList().size()-1; i++){
@@ -149,7 +149,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                         }
                     }
                     int lookIndex = findTaskListIndex(listName, allLists);
-                    allLists.at(lookIndex) = temp;
+                    allLists.at(lookIndex) = *temp;
                 }
             }
            // Delete list
@@ -157,13 +157,13 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 std::string listName = "";
                 std::cout << "Enter the name of the list you want to delete: "; 
                 cin.ignore(); getline(cin, listName); std::cout << std::endl;
-                TaskList temp = findTaskList(listName, allLists);
-                if(temp.getName() == "default"){
+                TaskList* temp = findTaskList(listName, allLists);
+                if(temp == nullptr){
                     std::cout << "Task list not present" << std::endl;
                 }
                 else{
-                    temp.deleteObj(std::cout);
-                    if(temp.isDeleted()){
+                    temp->deleteObj(std::cout);
+                    if(temp->isDeleted()){
                         int index = findTaskListIndex(listName, allLists);
                         for(int i = index; i < allLists.size()-1; i++){
                             TaskList tempList;
@@ -219,12 +219,12 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 std::string listName = "";
                 std::cout << "Enter the name of the list you want to filter: "; 
                 cin.ignore(); getline(cin, listName); std::cout << std::endl;
-                TaskList temp = findTaskList(listName, allLists);
-                if(temp.getName() == "default"){
+                TaskList* temp = findTaskList(listName, allLists);
+                if(temp->getName() == "default"){
                         std::cout << "Task list not present" << std::endl;
                 }
                 else{
-                    filter(temp,answer,searchVal,std::cout);
+                    filter(*temp,answer,searchVal,std::cout);
                 }
             }
             else{
