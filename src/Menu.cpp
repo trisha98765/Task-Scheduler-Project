@@ -54,9 +54,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
 
             // Create new task
             if(submenuInput == 1){
-                Task temp;
-                Goal *newTask = temp.userInput();
-                unsorted.addTask(newTask);
+                unsorted.addTask(taskFromInput());
             }
             // Edit existing task
             else if(submenuInput == 2){ //maybe we could print the tasks out in case user doesn't remember name?

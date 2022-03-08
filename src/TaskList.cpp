@@ -70,9 +70,7 @@ void TaskList::edit(std::ostream &out, int input, string update){
             this->setLookInMain(true);
     }
     if (input == 4){
-        Task temp;
-        Goal *newTask = temp.userInput();
-        this->addToList(newTask);
+        this->addToList(taskFromInput());
         /*this->addTask(newTask);
         this->setLookInMain(false);*/
     }

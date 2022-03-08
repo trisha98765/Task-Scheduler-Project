@@ -73,7 +73,8 @@ class Task: public Goal{
         virtual void print(std::ostream &out);
         virtual void edit(std::ostream &out,int choice,std::string update);
         void deleteObj(std::ostream &out);
-        Goal* userInput();
 };
+
+Goal* taskFromInput();
 
 #endif

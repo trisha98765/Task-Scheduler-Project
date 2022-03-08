@@ -64,7 +64,7 @@ int Task::getProgress(){
     return inProgress;
 }
 
-Goal* Task::userInput(){
+Goal* taskFromInput() {
     bool completed = false;
     std::string name, description, label, date;
     int priority, duration, progress;
