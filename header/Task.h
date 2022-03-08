@@ -22,7 +22,7 @@ class Task: public Goal{
         int inProgress; // on a scale of 1-10, 5 is half progress made?
         bool deleted; // lets main know that task has been deleted 
     public:
-        ~Task(){};
+        ~Task(){}
         Task():Goal(){
             name = "Homework";
             description = "For CS 100";
