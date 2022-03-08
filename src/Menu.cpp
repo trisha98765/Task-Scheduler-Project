@@ -52,10 +52,8 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             std::cout << "1. Create new task" << std::endl << "2. Edit existing task" << std::endl << "3. Delete task" << std::endl << "4. Go back" << std::endl << std::endl;
             submenuInput = readInt(cin, cout);
 
-            bool bool1;
             // Create new task
             if(submenuInput == 1){
-                bool1 = false; //set to false bc it's a new task
                 Task temp;
                 Goal *newTask = temp.userInput();
                 unsorted.addTask(newTask);
