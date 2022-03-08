@@ -46,7 +46,6 @@ void filter(TaskList entry, int answer, string searchVal,std::ostream &out){
             std::string tempMonth = temp.substr(0,2);
             if(tempMonth == month){
                 std::string tempDay = temp.substr(2,4);
-               // int num1, num2;
                 stringstream container(day);
                 container >> num1;
                 stringstream container2(tempDay);

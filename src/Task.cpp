@@ -77,8 +77,9 @@ Goal* Task::userInput(){
     std::cout << std::endl << "Create a due date in the form MM/DD/YY: "; cin.ignore(); getline(cin, string4);
     std::cout << std::endl << "Enter a progress level (1-10): "; cin >> int3; std::cout << std::endl;   
     Goal *returnVal = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);
-    return returnVal;
-    //delete returnVal;
+    Goal *retCopy = returnVal;
+    delete returnVal;
+    return retCopy;
 }
 
 void Task::print(std::ostream &out){
