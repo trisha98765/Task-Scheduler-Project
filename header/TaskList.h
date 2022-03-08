@@ -16,7 +16,9 @@ class TaskList: public Goal{
         bool deleted; //lets main know that list has been deleted
     public:
         ~TaskList(){
-            listObj.clear();
+            for (int i = 0; i < listObj.size(); ++i) {
+                delete listObj[i];
+            }
         }
         TaskList():Goal(){
             name = "default";
