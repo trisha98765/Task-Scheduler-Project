@@ -47,21 +47,21 @@ void deleteTask(TaskList &unsorted, int tempInt, std::ostream &out){
 void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
         // Create new task/edit existing task
         if(input == 2){
-            int input2 = 0;
+            int submenuInput = 0;
 
             std::cout << "1. Create new task" << std::endl << "2. Edit existing task" << std::endl << "3. Delete task" << std::endl << "4. Go back" << std::endl << std::endl;
-            input2 = readInt(cin, cout);
+            submenuInput = readInt(cin, cout);
 
             bool bool1;
             // Create new task
-            if(input2 == 1){
+            if(submenuInput == 1){
                 bool1 = false; //set to false bc it's a new task
                 Task temp;
                 Goal *newTask = temp.userInput();
                 unsorted.addTask(newTask);
             }
             // Edit existing task
-            else if(input2 == 2){ //maybe we could print the tasks out in case user doesn't remember name?
+            else if(submenuInput == 2){ //maybe we could print the tasks out in case user doesn't remember name?
                 std::string taskName = "";
                 std::cout << "Enter the name of the task you want to edit: "; cin.ignore(); getline(cin, taskName); std::cout << std::endl;
                 Goal* tempTask = unsorted.findTask(taskName);
@@ -73,7 +73,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 }
             }
             // Delete task
-            else if(input2 == 3){
+            else if(submenuInput == 3){
                 std::string taskName = "";
                 std::cout << "Enter the name of the task you want to delete: "; cin >> taskName; std::cout << std::endl;
                 Goal *tempGoal = unsorted.findTask(taskName);
@@ -92,7 +92,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                     }
                 }
             }
-            else if(input2 == 4) {
+            else if(submenuInput == 4) {
                 return;
             }
             else{
@@ -101,13 +101,13 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
         }
         // Create new list/edit existing list
         else if(input == 1){
-            int input2 = 0;
+            int submenuInput = 0;
           
             std::cout << "1. Create new list" << std::endl << "2. Edit existing list" << std::endl << "3. Delete list" << std::endl << "4. Go back" << std::endl << std::endl;
-            input2 = readInt(cin, cout);
+            submenuInput = readInt(cin, cout);
 
             // Create new list
-            if(input2 == 1){
+            if(submenuInput == 1){
                 std::string listName;
                 std::cout << "What would you like to call this list? ";
                 cin.ignore();
@@ -178,7 +178,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                     }
                 }
             }
-            else if(input2 == 4) {
+            else if(submenuInput == 4) {
                 return;
             }
             else{
@@ -201,13 +201,13 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
         }
         // Filter
         else if(input == 4){
-            int input2 = 0, answer = 0;
+            int submenuInput = 0, answer = 0;
             std::string searchVal;
 
             std::cout << "Which would you like to filter? \n1. Unsorted Tasks \n2. Yours task lists\n3. Go back" << std::endl << std::endl;
-            input2 = readInt(cin, cout);
+            submenuInput = readInt(cin, cout);
 
-            if (input2 == 3) {
+            if (submenuInput == 3) {
                 return;
             }
 
@@ -215,10 +215,10 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             std::cin >> answer;
             std::cout << "What is your filtering criteria? (Enter the month (MM) for due date, classification or priority):\n";
             std::cin >> searchVal;
-            if(input2 == 1){
+            if(submenuInput == 1){
                 filter(unsorted,answer,searchVal,std::cout);
             }
-            else if(input2 == 2){
+            else if(submenuInput == 2){
                 std::string listName = "";
                 std::cout << "Enter the name of the list you want to filter: "; 
                 cin.ignore(); getline(cin, listName); std::cout << std::endl;
