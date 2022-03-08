@@ -112,14 +112,15 @@ TEST(FilterTest, filterDueSoon){
 TEST(FilterTest, filterAndEdit){
     std::stringstream filterEdit;
     TaskList list2 = TaskList("List 2");
-    Goal *task2 = new Task("Office Hours", "For CS 100", 2, 8, "10/11/22","Winter 2022", false, 2);
-    list2.addTask(task2);   // adding new task
+    Goal *task4 = new Task("Office Hours", "For CS 100", 2, 8, "10/11/22","Winter 2022", false, 2);
+    list2.addTask(task4);   // adding new task
     staticTask->edit(filterEdit,6,"03/11/22"); // editing alrady existing task
     list2.addTask(staticTask);                 // adding edited version to list
     filter(list2,4,"03",filterEdit);  // 1/2 tasks print, updated version has filtering date
     EXPECT_EQ(filterEdit.str(),"\nName: Essay\nDue: 03/11/22\nPriority: 3\nClassification: Summer 2020\nDuration: 20\nDescription: For HIST 108\nCompleted? No\nProgress status: 2\n\n");
-    toDelete.push_back(task2);
+    toDelete.push_back(task4);
 }
+
 TEST(TaskListMethodTest, defaultConstructor){
     TaskList testList1 = TaskList();
     EXPECT_EQ(testList1.getName(),"default");
