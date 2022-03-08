@@ -7,6 +7,28 @@
 
 using namespace std;
 
+TaskList::TaskList():Goal(){
+    name = "default";
+}
+TaskList::TaskList(std::string n):Goal(n){
+    name = n;
+}
+std::string TaskList::getName(){
+    return name;
+}
+void TaskList::setDeleted(bool input){
+    deleted =  input;
+}
+bool TaskList::isDeleted(){
+    return deleted;
+}
+void TaskList::setLookInMain(bool answer){
+    lookInMain = answer;
+}
+bool TaskList::getLookInMain(){
+    return lookInMain;
+}
+
 void TaskList::print(std::ostream &out){
     out << this->getName() << std::endl;
     int size = listObj.size();
