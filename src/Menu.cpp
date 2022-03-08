@@ -12,10 +12,10 @@
 #include <sstream>
 using namespace std;
 
-TaskList* findTaskList(string inputName, vector<TaskList> listToSearch){
+TaskList findTaskList(string inputName, vector<TaskList> listToSearch){
     for(int i = 0; i < listToSearch.size(); i++){
         if(inputName == listToSearch.at(i).getName()){
-            return &listToSearch.at(i);
+            return listToSearch.at(i);
         }
     }
     TaskList none = TaskList();
@@ -116,7 +116,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 allLists.push_back(newList);
             }
             // Edit existing list
-            else if(input2 == 2){
+            else if(submenuInput == 2){
                 std::string listName = "";
                 std::cout << "Enter the name of the list you want to edit: "; 
                 cin.ignore(); getline(cin, listName); std::cout << std::endl;
@@ -153,7 +153,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 }
             }
            // Delete list
-           else if(input2 == 3){
+           else if(submenuInput == 3){
                 std::string listName = "";
                 std::cout << "Enter the name of the list you want to delete: "; 
                 cin.ignore(); getline(cin, listName); std::cout << std::endl;
@@ -163,7 +163,6 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 }
                 else{
                     temp.deleteObj(std::cout);
-                    if(temp.getBool()){
                     if(temp.isDeleted()){
                         int index = findTaskListIndex(listName, allLists);
                         for(int i = index; i < allLists.size()-1; i++){
