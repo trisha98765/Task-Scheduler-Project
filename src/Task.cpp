@@ -8,6 +8,28 @@
 
 using namespace std;
 
+Task::Task():Goal(){
+    name = "Homework";
+    description = "For CS 100";
+    priority = 1;
+    classification = "School";
+    duration = 7;
+    dueDate = "03/12/22";
+    completed = false;
+    inProgress = 5;
+}
+Task::Task(std::string n, std::string d, int val, int dur, std::string date, std::string label, bool check, int progress):Goal(n){
+    name = n;
+    description = d;
+    priority = val;
+    duration = dur;
+    dueDate = date;
+    classification = label;
+    completed = check;
+    inProgress = progress;
+}
+
+
 void Task::setDescription(string d){
     description = d;
 }
@@ -36,6 +58,11 @@ void Task::setProgress(int progress){
     inProgress = progress;
 }
 
+void Task::setDeleted(bool input){
+    deleted = input;
+}
+
+
 string Task::getDescription(){
     return description;
 }
@@ -63,6 +90,10 @@ bool Task::getCompletion(){
 int Task::getProgress(){
     return inProgress;
 }
+
+bool Task::getDeleted(){
+    return deleted;
+};
 
 Goal* taskFromInput() {
     bool completed = false;
