@@ -17,7 +17,8 @@
     * 
  What are the features that the project provides? 
  * Some other features of our project include the ability to undo the deletion of a task, finding a specific task and print a filtered version of a task list based on the users specifications.. 
- * We intend to have 10 files: `Menu.cpp, Menu.h, Filter.cpp, Filter.h, main.cpp, Task.cpp, TaskList.cpp, Task.h, TaskList.h. Goal.h`. 
+ * We intend to have 13 files: `Menu.cpp, Menu.h, Filter.cpp, Filter.h, main.cpp, Task.cpp, TaskList.cpp, Task.h, TaskList.h. Goal.h Goal.cpp InputHelper.h InputHelper.cpp`.
+ * The graphics involve the files: `ColorManager.h ColorManager.cpp PrintHelper.h PrintHelper.cpp View.h View.cpp` 
  * Most of the methods in the task files will be setters and getters along with functions to delete, edit, and print tasks. In the taskList files, we'll implement functions to delete and edit lists as well as functions to find a task, remove a task, and print the list details (sorted or unsorted). When the user chooses to delete a task, they are also given the option to undo their delete command, which brings the previously deleted task back onto their task list.
 
 ## Phase II
@@ -28,16 +29,11 @@
 
 Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were created using the Composite strategy. As seen above, `TaskList` and `Task` both inherit from `Goal` while the latter two compose a Task list.
 
-* Our project will include a way to create an individual task as well as group them in a task list. The main component is `Goal`, a class that consists of getters and methods for printing, editing and deleting. One child class of `Goal` is `Task`, where one object would represent an individual task. Another child class of `Goal` is `TaskList`, where one object of this class would represent an entire list of tasks. Finally, the `MainView`, `TaskListView` and `TaskView` classes will be used to create visuals of the objects and menu for the user.
+* Our project will include a way to create an individual task as well as group them in a task list. The main component is `Goal`, a class that consists of getters and methods for printing, editing and deleting. One child class of `Goal` is `Task`, where one object would represent an individual task. Another child class of `Goal` is `TaskList`, where one object of this class would represent an entire list of tasks. Finally, the `ColorManager.h PrintHelper.h and View.h` files will be used to organize the output in boxes when presented to the user.
  * The `Task` class involves setters and getters which will be used to collect information about a specific task and it is a child of the `Goal` class. This includes getting the name, description, priority, due date and duration of a task. It will also consist of the methods that will be presented to the user through a menu, which includes printing, editing and deleting an individual task.
  * The `TaskList` class has an aggregation association with the `Goal` class. This is because the TaskList class has a private attribute where a vector of Task objects is made. The `TaskList` class can be used to set the name of a list of tasks which will be entered by the user. It will consist of methods to print, edit or delete an individual task. It will also have a searching method to find a specific task which will not be a menu option for the user, it will instead be used by the print, edit and delete methods.
  * The `Filter` functions allow the user to view specific task in a task list based on the due date, priority level, and classification. It uses functions from `Task` in order to check for validity with the provided arguments and print the task's details.
  * The `Menu` functions present options to the user by printing a menu with various choices before operating on Task and TaskList objects.
- > No longer used in project:
- > The `View` interface is is an abstract class that contains the pure methods the method `draw`, which writes visual information to a display buffer, and `refresh`, which updates the user's screen with the contents of the buffer.
- > The `TaskView` class is is an implementation of the `View` interface. It contains a pointer to a pointer to a `TaskList` object in order to access information about the list that it is representing, without containing a copy of the `Task` itself.
- > The `TaskListView` class is an implementation of the `View` interface. It contains a pointer to a pointer to a `TaskList` object in order to access information about the list that it is representing, such as its title. It also contains a `vector` of `TaskView` objects that it display displays within itself.
- > The `MainView` class is the root graphical interface that will be used to present the program to the user. It is a composition of `TaskListView` objects.
 
 ## Phase III
 
