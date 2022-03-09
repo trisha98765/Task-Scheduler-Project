@@ -22,27 +22,8 @@ class Task: public Goal{
         int inProgress; // on a scale of 1-10, 5 is half progress made?
         bool deleted; // lets main know that task has been deleted 
     public:
-        ~Task(){ }
-        Task():Goal(){
-            name = "Homework";
-            description = "For CS 100";
-            priority = 1;
-            classification = "School";
-            duration = 7;
-            dueDate = "03/12/22";
-            completed = false;
-            inProgress = 5;
-        }
-        Task(std::string n, std::string d, int val, int dur, std::string date, std::string label, bool check, int progress):Goal(n){
-            name = n;
-            description = d;
-            priority = val;
-            duration = dur;
-            dueDate = date;
-            classification = label;
-            completed = check;      
-            inProgress = progress;
-        }
+        Task();
+        Task(std::string n, std::string d, int val, int dur, std::string date, std::string label, bool check, int progress);
 
         void setName(std::string n);
         void setDescription(std::string d);
@@ -52,9 +33,7 @@ class Task: public Goal{
         void setClassification(std::string label);
         void setCompletion(bool check);
         void setProgress(int progress);
-        void setDeleted(bool input){
-            deleted = input;
-        }
+        void setDeleted(bool input);
 
 
         std::string getName();
@@ -65,15 +44,14 @@ class Task: public Goal{
         std::string getClassification();
         bool getCompletion();
         int getProgress();   
-        bool getDeleted(){
-            return deleted;
-        } 
+        bool getDeleted();
 
 
         virtual void print(std::ostream &out);
         virtual void edit(std::ostream &out,int choice,std::string update);
         void deleteObj(std::ostream &out);
-        Goal* userInput();
 };
+
+Goal* taskFromInput();
 
 #endif

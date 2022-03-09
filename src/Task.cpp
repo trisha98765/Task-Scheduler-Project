@@ -8,6 +8,28 @@
 
 using namespace std;
 
+Task::Task():Goal(){
+    name = "Homework";
+    description = "For CS 100";
+    priority = 1;
+    classification = "School";
+    duration = 7;
+    dueDate = "03/12/22";
+    completed = false;
+    inProgress = 5;
+}
+Task::Task(std::string n, std::string d, int val, int dur, std::string date, std::string label, bool check, int progress):Goal(n){
+    name = n;
+    description = d;
+    priority = val;
+    duration = dur;
+    dueDate = date;
+    classification = label;
+    completed = check;
+    inProgress = progress;
+}
+
+
 void Task::setDescription(string d){
     description = d;
 }
@@ -35,6 +57,11 @@ void Task::setCompletion(bool check){
 void Task::setProgress(int progress){
     inProgress = progress;
 }
+
+void Task::setDeleted(bool input){
+    deleted = input;
+}
+
 
 string Task::getDescription(){
     return description;
@@ -64,19 +91,23 @@ int Task::getProgress(){
     return inProgress;
 }
 
-Goal* Task::userInput(){
-    bool bool1 = false;
-    std::string string1, string2, string3, string4;
-    int int1, int2, int3;
+bool Task::getDeleted(){
+    return deleted;
+};
+
+Goal* taskFromInput() {
+    bool completed = false;
+    std::string name, description, label, date;
+    int priority, duration, progress;
     cin.ignore();
-    std::cout << "Create a name: "; getline(std::cin, string1);
-    std::cout << std::endl << "Write a short description: "; getline(std::cin, string2);
-    std::cout << std::endl << "Set the priority level (1-10): "; std::cin >> int1;
-    std::cout << std::endl << "Classify your task: "; cin.ignore(); getline(std::cin, string3);
-    std::cout << std::endl << "How many days will this task last? "; std::cin >> int2;
-    std::cout << std::endl << "Create a due date in the form MM/DD/YY: "; cin.ignore(); getline(cin, string4);
-    std::cout << std::endl << "Enter a progress level (1-10): "; cin >> int3; std::cout << std::endl;   
-    Goal *returnVal = new Task(string1, string2, int1, int2, string4, string3, bool1, int3);
+    std::cout << "Create a name: "; getline(std::cin, name);
+    std::cout << std::endl << "Write a short description: "; getline(std::cin, description);
+    std::cout << std::endl << "Set the priority level (1-10): "; std::cin >> priority;
+    std::cout << std::endl << "Classify your task: "; cin.ignore(); getline(std::cin, label);
+    std::cout << std::endl << "How many days will this task last? "; std::cin >> duration;
+    std::cout << std::endl << "Create a due date in the form MM/DD/YY: "; cin.ignore(); getline(cin, date);
+    std::cout << std::endl << "Enter a progress level (1-10): "; cin >> progress; std::cout << std::endl;
+    Goal *returnVal = new Task(name, description, priority, duration, date, label, completed, progress);
     return returnVal;
 }
 

@@ -12,14 +12,14 @@
 #include <sstream>
 using namespace std;
 
-TaskList findTaskList(string inputName, vector<TaskList> tempList){
-    for(int i = 0; i < tempList.size(); i++){
-        if(inputName == tempList.at(i).getName()){
-            return tempList.at(i);
+TaskList* findTaskList(string inputName, vector<TaskList>& listToSearch){
+    for(int i = 0; i < listToSearch.size(); i++){
+        if(inputName == listToSearch.at(i).getName()){
+            return &listToSearch.at(i);
         }
     }
-    TaskList none = TaskList();
-    return none;
+    
+    return nullptr;
 }
 int findTaskListIndex(string inputName, vector<TaskList> tempList){
     for(int i = 0; i < tempList.size(); i++){
@@ -47,21 +47,17 @@ void deleteTask(TaskList &unsorted, int tempInt, std::ostream &out){
 void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
         // Create new task/edit existing task
         if(input == 2){
-            int input2 = 0;
+            int submenuInput = 0;
 
             std::cout << "1. Create new task" << std::endl << "2. Edit existing task" << std::endl << "3. Delete task" << std::endl << "4. Go back" << std::endl << std::endl;
-            input2 = readInt(cin, cout);
+            submenuInput = readInt(cin, cout);
 
-            bool bool1;
             // Create new task
-            if(input2 == 1){
-                bool1 = false; //set to false bc it's a new task
-                Task temp;
-                Goal *newTask = temp.userInput();
-                unsorted.addTask(newTask);
+            if(submenuInput == 1){
+                unsorted.addTask(taskFromInput());
             }
             // Edit existing task
-            else if(input2 == 2){ //maybe we could print the tasks out in case user doesn't remember name?
+            else if(submenuInput == 2){ //maybe we could print the tasks out in case user doesn't remember name?
                 std::string taskName = "";
                 std::cout << "Enter the name of the task you want to edit: "; cin.ignore(); getline(cin, taskName); std::cout << std::endl;
                 Goal* tempTask = unsorted.findTask(taskName);
@@ -73,7 +69,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 }
             }
             // Delete task
-            else if(input2 == 3){
+            else if(submenuInput == 3){
                 std::string taskName = "";
                 std::cout << "Enter the name of the task you want to delete: "; cin >> taskName; std::cout << std::endl;
                 Goal *tempGoal = unsorted.findTask(taskName);
@@ -92,7 +88,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                     }
                 }
             }
-            else if(input2 == 4) {
+            else if(submenuInput == 4) {
                 return;
             }
             else{
@@ -101,13 +97,13 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
         }
         // Create new list/edit existing list
         else if(input == 1){
-            int input2 = 0;
+            int submenuInput = 0;
           
             std::cout << "1. Create new list" << std::endl << "2. Edit existing list" << std::endl << "3. Delete list" << std::endl << "4. Go back" << std::endl << std::endl;
-            input2 = readInt(cin, cout);
+            submenuInput = readInt(cin, cout);
 
             // Create new list
-            if(input2 == 1){
+            if(submenuInput == 1){
                 std::string listName;
                 std::cout << "What would you like to call this list? ";
                 cin.ignore();
@@ -118,17 +114,17 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                 allLists.push_back(newList);
             }
             // Edit existing list
-            else if(input2 == 2){
+            else if(submenuInput == 2){
                 std::string listName = "";
                 std::cout << "Enter the name of the list you want to edit: "; 
                 cin.ignore(); getline(cin, listName); std::cout << std::endl;
-                TaskList temp = findTaskList(listName, allLists);
-                if(temp.getName() == "default"){
+                TaskList* temp = findTaskList(listName, allLists);
+                if(temp == nullptr){
                     std::cout << "Task list not present" << std::endl;
                 }
                 else{
-                    temp.edit(std::cout,0,"");
-                    if(temp.getLookInMain()){ //adds an already existing task to the list
+                    temp->edit(std::cout,0,"");
+                    if(temp->getLookInMain()){ //adds an already existing task to the list
                         std::string taskName = "";
                         std::cout << "Enter the name of the task you want to add: "; 
                         cin.ignore(); getline(cin, taskName); std::cout << std::endl;
@@ -137,7 +133,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                             std::cout << "Task not present" << std::endl;
                         }
                         else{
-                            temp.addTask(tempTask);
+                            temp->addTask(tempTask);
                             
                             int tempInt = unsorted.findIndex(taskName);
                             for(int i = tempInt; i < unsorted.getList().size()-1; i++){
@@ -151,21 +147,21 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                         }
                     }
                     int lookIndex = findTaskListIndex(listName, allLists);
-                    allLists.at(lookIndex) = temp;
+                    allLists.at(lookIndex) = *temp;
                 }
             }
            // Delete list
-           else if(input2 == 3){
+           else if(submenuInput == 3){
                 std::string listName = "";
                 std::cout << "Enter the name of the list you want to delete: "; 
                 cin.ignore(); getline(cin, listName); std::cout << std::endl;
-                TaskList temp = findTaskList(listName, allLists);
-                if(temp.getName() == "default"){
+                TaskList* temp = findTaskList(listName, allLists);
+                if(temp == nullptr){
                     std::cout << "Task list not present" << std::endl;
                 }
                 else{
-                    temp.deleteObj(std::cout);
-                    if(temp.getBool()){
+                    temp->deleteObj(std::cout);
+                    if(temp->isDeleted()){
                         int index = findTaskListIndex(listName, allLists);
                         for(int i = index; i < allLists.size()-1; i++){
                             TaskList tempList;
@@ -177,7 +173,7 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                     }
                 }
             }
-            else if(input2 == 4) {
+            else if(submenuInput == 4) {
                 return;
             }
             else{
@@ -200,13 +196,13 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
         }
         // Filter
         else if(input == 4){
-            int input2 = 0, answer = 0;
+            int submenuInput = 0, answer = 0;
             std::string searchVal;
 
             std::cout << "Which would you like to filter? \n1. Unsorted Tasks \n2. Yours task lists\n3. Go back" << std::endl << std::endl;
-            input2 = readInt(cin, cout);
+            submenuInput = readInt(cin, cout);
 
-            if (input2 == 3) {
+            if (submenuInput == 3) {
                 return;
             }
 
@@ -214,19 +210,19 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
             std::cin >> answer;
             std::cout << "What is your filtering criteria? (Enter the month (MM) for due date, classification or priority):\n";
             std::cin >> searchVal;
-            if(input2 == 1){
+            if(submenuInput == 1){
                 filter(unsorted,answer,searchVal,std::cout);
             }
-            else if(input2 == 2){
+            else if(submenuInput == 2){
                 std::string listName = "";
                 std::cout << "Enter the name of the list you want to filter: "; 
                 cin.ignore(); getline(cin, listName); std::cout << std::endl;
-                TaskList temp = findTaskList(listName, allLists);
-                if(temp.getName() == "default"){
+                TaskList* temp = findTaskList(listName, allLists);
+                if(temp->getName() == "default"){
                         std::cout << "Task list not present" << std::endl;
                 }
                 else{
-                    filter(temp,answer,searchVal,std::cout);
+                    filter(*temp,answer,searchVal,std::cout);
                 }
             }
             else{

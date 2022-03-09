@@ -15,27 +15,13 @@ class TaskList: public Goal{
         bool lookInMain; //lets program know that user wants to add an existing task to the list
         bool deleted; //lets main know that list has been deleted
     public:
-        TaskList():Goal(){
-            name = "default";
-        }
-        TaskList(std::string n):Goal(n){
-            name = n;
-        }
-        std::string getName(){
-            return name;
-        }
-        void setBool(bool input){
-            deleted =  input;
-        }
-        bool getBool(){
-            return deleted;
-        }
-        void setLookInMain(bool answer){
-            lookInMain = answer;
-        }
-        bool getLookInMain(){
-            return lookInMain;
-        }
+        TaskList();
+        TaskList(std::string n);
+        std::string getName();
+        void setDeleted(bool input);
+        bool isDeleted();
+        void setLookInMain(bool answer);
+        bool getLookInMain();
         void print(std::ostream &out);
         void edit(std::ostream &out, int val, std::string update);
         void addTask(Goal*);
