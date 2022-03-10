@@ -34,7 +34,7 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
  * The `TaskList` class has an aggregation association with the `Goal` class. This is because the `TaskList` class has a private attribute where a vector of Task objects is made. The `TaskList` class can be used to set the name of a list of tasks which will be entered by the user. It will consist of methods to print, edit or delete an individual task. It will also have a searching method to find a specific task which will not be a menu option for the user, it will instead be used by the print, edit and delete methods.
  * The `Filter` functions allow the user to view specific task in a task list based on the due date, priority level, and classification. It uses functions from `Task` in order to check for validity with the provided arguments and print the task's details.
  * The `Menu` functions present options to the user by printing a menu with various choices before operating on Task and `TaskList` objects.
- * `ColorManager` handles nonstandard terminal functoinality, such as text coloratoin and clearing the screen.
+ * `ColorManager` handles nonstandard terminal functionality, such as text coloration and clearing the screen.
  * `View` provides a visual overview of the `TaskList`s, their contents, and any unsorted `Tasks`s.
      * `PrintHelper` provides supporting text alignment functions for `View`
  * `InputHelper.h` standardizes input validation for numeric inputs.
