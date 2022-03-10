@@ -14,7 +14,7 @@
     * Allowing the user to name different lists for tasks, enter, edit, set a priority level, enter a description and delete tasks. These options will be presented to the user through a menu, where the user will be able to enter their choices.
  * Output:
     * A menu is printed that allows the user to pick an action; create new task, new task list, delete task, delete task list, edit task, edit task list, print list, filter through lists and quit the program. Output is printed in a box format with texts of different colors.
-    * 
+
  What are the features that the project provides? 
  * Some other features of our project include the ability to undo the deletion of a task, finding a specific task and print a filtered version of a task list based on the users specifications.. 
  * We intend to have 13 files: `Menu.cpp, Menu.h, Filter.cpp, Filter.h, main.cpp, Task.cpp, TaskList.cpp, Task.h, TaskList.h. Goal.h Goal.cpp InputHelper.h InputHelper.cpp`.
@@ -52,8 +52,6 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
 
 
 ## Final deliverable
- > All group members will give a demo to the TA/reader during lab time. The TA/reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
  * Our Kanban Board is up to date and contains plans for a future sprint. All our completed issues with user stories have been moved to the Done column and the only remaining issues in To Do are bug fixes and enhancement ideas.  
  * Our README file reflects the current status of our project including the UML diagram and any feature descriptions. Previous versions are still visible through the commit history as well as in small notes under our diagram about what we changed throughout the project.
 
