@@ -11,5 +11,5 @@ for file in testing/input_*.txt; do
         --show-leak-kinds=all \
         --track-origins=yes \
         ./task-scheduler < "$file" \
-        2> "tmp/$(basename $file).log"
+        2> "test-logs/$(basename $file).log"
 done
