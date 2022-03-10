@@ -59,8 +59,26 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
  * Our `README` file reflects the current status of our project including the UML diagram and any feature descriptions. Previous versions are still visible through the commit history as well as in small notes under our diagram about what we changed throughout the project.
 
 ## Screenshots
+ 
+The below screenshot is what the user sees upon starting our Task Scheduler program. There's options to create or edit a task list or task, filter your lists, print all your tasks and lists at once, or exit the program. Also provided are boxes showing your current lists and tasks.
 
-> Screenshots of the input/output after running your application
+ <img width="567" alt="Opening Shot" src="https://user-images.githubusercontent.com/74077340/157580190-6eac3809-5bc9-45a0-8920-2dcad4f01aa2.png">
+ 
+This is what users see when they are working on a task list. Here, the user is creating a new list and calling it "new list" for simplicity. Other options include editing an existing list or deleting a list.  
+
+<img width="565" alt="New List" src="https://user-images.githubusercontent.com/74077340/157581562-7da592dc-c6a3-4712-8d9f-1f522b119bcf.png">
+
+Here is what the user sees when creating a new task. They are prompted to input all specifications and we now see that the new list created also appears in the "Your Lists" box above. 
+
+<img width="565" alt="New Task" src="https://user-images.githubusercontent.com/74077340/157580767-8da19124-d51c-4cf7-b40f-608cd52641e4.png">
+
+Similarly, this is what the user sees when they wish to edit a task. There's a list of options to edit and here the user selected to edit the description of the task.
+
+<img width="462" alt="Edit Task" src="https://user-images.githubusercontent.com/74077340/157582868-fbaf8eff-b5f2-4f15-855f-76213b748a1a.png">
+
+Below is an example of filtering tasks and how they are printed. The user has set the filter criteria to be tasks with the classification "Test". Other criteria include due date, upcoming, and priority level.
+
+<img width="568" alt="Post Filtering" src="https://user-images.githubusercontent.com/74077340/157582664-add920aa-b2d4-4d4e-8ca6-eb310a00f348.png">
 
 ## Installation/Usage
 
