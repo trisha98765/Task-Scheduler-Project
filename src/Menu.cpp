@@ -146,8 +146,6 @@ void menu(int input,TaskList &unsorted, vector<TaskList> &allLists){
                             unsorted.getList().pop_back();
                         }
                     }
-                    int lookIndex = findTaskListIndex(listName, allLists);
-                    allLists.at(lookIndex) = *temp;
                 }
             }
            // Delete list
