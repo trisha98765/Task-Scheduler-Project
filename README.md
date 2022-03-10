@@ -70,3 +70,4 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
      * In test suite "TaskListMethodTest," the default and overloaded constructor were tested. Deleting a task in a task list, adding a task to an old list and adding a task to a new list was also tested. 
   * The screenshot below shows no memory leaks for the 18 unit tests that were written for this program.
  <img width="541" src = https://user-images.githubusercontent.com/74077340/157297257-a7774aed-d8e8-4d9a-928e-f889ef1c52e3.png>
+ * We also created a bash script for automating valgrind testing. The script pipes sample input from text files and saves the valgrind output to log files in a separate directory. This speeds up testing and ensures greater consistency.
