@@ -13,9 +13,6 @@ TaskList::TaskList():Goal(){
 TaskList::TaskList(std::string n):Goal(n){
     name = n;
 }
-std::string TaskList::getName(){
-    return name;
-}
 void TaskList::setDeleted(bool input){
     deleted =  input;
 }
@@ -35,10 +32,6 @@ void TaskList::print(std::ostream &out){
     for(int i = 0; i < size; i++){
         listObj.at(i)->print(out);
     }  
-}
-
-void TaskList::setName(std::string n){
-	name = n;
 }
 
 void TaskList::edit(std::ostream &out, int input, string update){
