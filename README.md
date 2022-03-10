@@ -19,7 +19,7 @@
  * Some other features of our project include the ability to undo the deletion of a task, finding a specific task and print a filtered version of a task list based on the users specifications.. 
  * We intend to have 13 files: `Menu.cpp`, `Menu.h`, `Filter.cpp`, `Filter.h`, `main.cpp`, `Task.cpp`, `TaskList.cpp`, `Task.h`, `TaskList.h`, `Goal.h`, `Goal.cpp`, `InputHelper.h`, `InputHelper.cpp`.
  * The graphics involve the files: `ColorManager.h`, `ColorManager.cpp`, `PrintHelper.h`, `PrintHelper.cpp`, `View.h`, `View.cpp`
- * Most of the methods in the task files will be setters and getters along with functions to delete, edit, and print tasks. In the taskList files, we'll implement functions to delete and edit lists as well as functions to find a task, remove a task, and print the list details (sorted or unsorted). When the user chooses to delete a task, they are also given the option to undo their delete command, which brings the previously deleted task back onto their task list.
+ * Most of the methods in the `Task` files will be setters and getters along with functions to delete, edit, and print tasks. In the `TaskList` files, we'll implement functions to delete and edit lists as well as functions to find a task, remove a task, and print the list details (sorted or unsorted). When the user chooses to delete a task, they are also given the option to undo their delete command, which brings the previously deleted task back onto their task list.
 
 ## Phase II
 
@@ -45,11 +45,11 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
  * We picked the Composite design pattern. We decided this was the best pattern to follow because our project consists of different levels of hierarchy, however the user will treat them the same. Using this pattern, we implemented our goals, tasks, and task lists. Here, goals are the component, task lists are the composite, and tasks are the leaves. The Composite design pattern allowed our code to be more organized and prevented us from having to write multiple repeat functions. 
 
 > How effective your last sprint was (each member should talk about what they did)
- * Melissa(filter, print) Trisha(test cases, Task and TaskList files), Evan(graphics set up for user interface), Pranoy(editing tasks and tasklist).
+ * Melissa(filter, print) Trisha(test cases, `Task` and `TaskList` files), Evan(graphics set up for user interface), Pranoy(editing `Task`s and `TaskList`s).
 > Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
  * We didn't finish the deleting functions and we edited our epics accordingly.
 > Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- * We decided to only have an undo feature for deleting a task or task list because undoing edits to a task or task list would be repetitive of the edit features. We also took some time to figure out how to apply the composite design pattern to our project but we were able to implement it by adding the Goal class as the component.
+ * We decided to only have an undo feature for deleting a task or task list because undoing edits to a task or task list would be repetitive of the edit features. We also took some time to figure out how to apply the composite design pattern to our project but we were able to implement it by adding the `Goal` class as the component.
 > What tasks you are planning for this next sprint.
  * Finish delete functions, finish graphics, and finish testing for every method.
 
