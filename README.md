@@ -57,6 +57,20 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
 
 ## Screenshots
  > Screenshots of the input/output after running your application
+ 
+The below screenshot is what the user sees upon starting our Task Scheduler program. There's options to create or edit a task list or task, filter your lists, print all your tasks and lists at once, or exit the program. Also provided are boxes showing your current lists and tasks.
+
+ <img width="567" alt="Opening Shot" src="https://user-images.githubusercontent.com/74077340/157580190-6eac3809-5bc9-45a0-8920-2dcad4f01aa2.png">
+ 
+This is what users see when they are working on a task list. Here, the user is creating a new list and calling it "new list" for simplicity. Other options include editing an existing list or deleting a list.  
+
+<img width="565" alt="New List" src="https://user-images.githubusercontent.com/74077340/157581562-7da592dc-c6a3-4712-8d9f-1f522b119bcf.png">
+
+Here is what the user sees when creating a new task. They are prompted to input all specifications and we now see that the new list created also appears in the "Your Lists" box above. 
+
+<img width="565" alt="New Task" src="https://user-images.githubusercontent.com/74077340/157580767-8da19124-d51c-4cf7-b40f-608cd52641e4.png">
+
+
 ## Installation/Usage
 
 * See `INSTALL.md` for installation instructions
