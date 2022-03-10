@@ -9,3 +9,6 @@ CMakeCache.txt
 Makefile
 CMakeFiles/
 cmake_install.cmake
+
+# Testing outputs
+test-logs
