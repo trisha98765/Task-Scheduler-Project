@@ -14,7 +14,7 @@
     * Allowing the user to name different lists for tasks, enter, edit, set a priority level, enter a description and delete tasks. These options will be presented to the user through a menu, where the user will be able to enter their choices.
  * Output:
     * A menu is printed that allows the user to pick an action; create new task, new task list, delete task, delete task list, edit task, edit task list, print list, filter through lists and quit the program. Output is printed in a box format with texts of different colors.
-    * 
+
  What are the features that the project provides? 
  * Some other features of our project include the ability to undo the deletion of a task, finding a specific task and print a filtered version of a task list based on the users specifications.. 
  * We intend to have 13 files: `Menu.cpp, Menu.h, Filter.cpp, Filter.h, main.cpp, Task.cpp, TaskList.cpp, Task.h, TaskList.h. Goal.h Goal.cpp InputHelper.h InputHelper.cpp`.
@@ -52,8 +52,6 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
 
 
 ## Final deliverable
- > All group members will give a demo to the TA/reader during lab time. The TA/reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
  * Our Kanban Board is up to date and contains plans for a future sprint. All our completed issues with user stories have been moved to the Done column and the only remaining issues in To Do are bug fixes and enhancement ideas.  
  * Our README file reflects the current status of our project including the UML diagram and any feature descriptions. Previous versions are still visible through the commit history as well as in small notes under our diagram about what we changed throughout the project.
 
@@ -66,4 +64,9 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
 
 ## Testing
  * We used the Google Test Suite for testing our code and wrote unit tests to ensure all of our functions work as expected. The unit tests tested the functionality of every method in the Task and TaskList class that would be used by the user to add, edit or delete tasks.
+     * In test suite "TaskConstructorTest," the default and overloaded constructors were tested as well as the getters for every private variable in the class.
+     * In test suite "TaskMethodTest," adding, editing and deleting a task was tested. Invalid input and deleting a task that does not exist was also tested.
+     * In test suite "FilterTest," the four different filtering methods, by due date, classification, priority and due soon, were tested by comparing the expected output to actual output.
+     * In test suite "TaskListMethodTest," the default and overloaded constructor were tested. Deleting a task in a task list, adding a task to an old list and adding a task to a new list was also tested. 
+  * The screenshot below shows no memory leaks for the 18 unit tests that were written for this program.
  <img width="541" src = https://user-images.githubusercontent.com/74077340/157297257-a7774aed-d8e8-4d9a-928e-f889ef1c52e3.png>
