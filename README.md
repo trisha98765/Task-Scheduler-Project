@@ -66,4 +66,9 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
 
 ## Testing
  * We used the Google Test Suite for testing our code and wrote unit tests to ensure all of our functions work as expected. The unit tests tested the functionality of every method in the Task and TaskList class that would be used by the user to add, edit or delete tasks.
+     * In test suite "TaskConstructorTest," the default and overloaded constructors were tested as well as the getters for every private variable in the class.
+     * In test suite "TaskMethodTest," adding, editing and deleting a task was tested. Invalid input and deleting a task that does not exist was also tested.
+     * In test suite "FilterTest," the four different filtering methods, by due date, classification, priority and due soon, were tested by comparing the expected output to actual output.
+     * In test suite "TaskListMethodTest," the default and overloaded constructor were tested. Deleting a task in a task list, adding a task to an old list and adding a task to a new list was also tested. 
+  * The screenshot below shows no memory leaks for the 18 unit tests that were written for this program.
  <img width="541" src = https://user-images.githubusercontent.com/74077340/157297257-a7774aed-d8e8-4d9a-928e-f889ef1c52e3.png>
