@@ -61,7 +61,8 @@ Our `Goal`, `TaskList`, and `Task` classes on the left half of the diagram were 
  > Screenshots of the input/output after running your application
 ## Installation/Usage
 
-See `INSTALL.md` for installation instructions
+* See `INSTALL.md` for installation instructions
+* See `USAGE.md` for usage instructions when running the program.
 
 ## Testing
  * We used the Google Test Suite for testing our code and wrote unit tests to ensure all of our functions work as expected. The unit tests tested the functionality of every method in the Task and TaskList class that would be used by the user to add, edit or delete tasks.
