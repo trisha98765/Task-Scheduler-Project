@@ -129,115 +129,97 @@ void Task::print(std::ostream &out){
 
 // format is now: ostream object, menu choice, updated value
 void Task::edit(std::ostream &out,int editChoice, string updateTask){
-    bool taskCompletion = false, choiceValidity = false;
+    bool taskCompletion = false;
     if(editChoice == 0){
         out << "What would you like to edit?" << endl;
-        out << "1. Name" << endl << "2. Description" << endl << "3. Priority" << endl << "4. Classification" << endl << "5. Duration" << endl << "6. Due Date" << endl << "7. Completion" << endl << "8. Progress" << endl << "9. Done editing" << endl;
+        out << "1. Name" << endl << "2. Description" << endl << "3. Priority" << endl << "4. Classification" << endl << "5. Duration" << endl << "6. Due Date" << endl << "7. Completion" << endl << "8. Progress" << endl;
         cin >> editChoice;
         cin.ignore();
-     }
-    while(choiceValidity == false) {
+    }
        
-        out << endl;
+    out << endl;
  
-        switch(editChoice) {
+    switch(editChoice) {
 
-            case 1: {
-                if(updateTask == ""){
-                    out << "Enter the new name for the task: ";
-               	    getline(cin, updateTask);
-                }
-                this->Goal::setName(updateTask);
-                out << endl;
-                choiceValidity = true;
-                break;
-            };
+        case 1: {
+            if(updateTask == ""){ 
+                out << "Enter the new name for the task: ";
+                getline(cin, updateTask);
+            }
+            this->Goal::setName(updateTask);
+            out << endl;
+            break;
+        };
 
-            case 2: {
-                if(updateTask == ""){
-                    out << "Enter the new description of the task: ";
-                    getline(cin, updateTask); 
-                }
-                this->setDescription(updateTask);
-                choiceValidity = true;
-                break;
-            };
+        case 2: {
+            if(updateTask == ""){
+                out << "Enter the new description of the task: ";
+                getline(cin, updateTask); 
+            }
+            this->setDescription(updateTask);
+            break;
+        };
 
-            case 3: {
-                if(updateTask == ""){
-                    out << "Enter the new priority value: ";
-                    cin >> updateTask;
-                }
-                this->setPriority(stoi(updateTask));
-                choiceValidity = true;
-                break;
-            };
+        case 3: {
+            if(updateTask == ""){
+                out << "Enter the new priority value: ";
+                cin >> updateTask;
+            }
+            this->setPriority(stoi(updateTask));
+            break;
+        };
 
-            case 4: {
-                if(updateTask == ""){
-                    out << "Enter the new classification of the task: ";
-                    getline(cin, updateTask);
-                }
-                this->setClassification(updateTask);
-                choiceValidity = true;
-                break;
-            };
+        case 4: {
+            if(updateTask == ""){
+                out << "Enter the new classification of the task: ";
+                getline(cin, updateTask);
+            }
+            this->setClassification(updateTask);
+            break;
+        };
 
-            case 5: {
-                if(updateTask == ""){
-                    out << "Enter the new duration of the task: ";
-                    cin >> updateTask;
-                }
-                this->setDuration(stoi(updateTask));
-                choiceValidity = true;
-                break;
-            };
+        case 5: {
+            if(updateTask == ""){
+                out << "Enter the new duration of the task: ";
+                cin >> updateTask;
+            }
+            this->setDuration(stoi(updateTask));
+            break;
+        };
 
-            case 6: {
-                if(updateTask == ""){
-                    out << "Enter the new due date of the task: ";
-                    getline(cin, updateTask);
-                }
-                this->setDueDate(updateTask);
-                choiceValidity = true;
-                break;
-            };
+        case 6: {
+            if(updateTask == ""){
+                out << "Enter the new due date of the task: ";
+                getline(cin, updateTask);
+            }
+            this->setDueDate(updateTask);
+            break;
+        };
 
-            case 7: {
-                if(updateTask == ""){
-                    out << "(Enter 1 for yes or 0 for no)" << endl;
-                    out << "Task completed: ";
-                    getline(cin, updateTask);
-                }
+        case 7: {
+            if(updateTask == ""){
+                out << "(Enter 1 for yes or 0 for no)" << endl;
+                out << "Task completed: ";
+                getline(cin, updateTask);
+            }
                 
-                if (updateTask == "1")
-                    taskCompletion = true;
-                this->setCompletion(taskCompletion);
-                choiceValidity = true;
-                break;
-            };
+            if (updateTask == "1")
+                taskCompletion = true;
+            this->setCompletion(taskCompletion);
+            break;
+        };
 
-            case 8: {
-                if(updateTask == ""){
-                    out << "Enter the progress value: ";
-                    cin >> updateTask;
-                }
-                this->setProgress(stoi(updateTask));
-                choiceValidity = true;
-                break;
+        case 8: {
+            if(updateTask == ""){
+                out << "Enter the progress value: ";
+                cin >> updateTask;
             }
+            this->setProgress(stoi(updateTask));
+            break;
+        }
 
-            case 9: {
-                out << "Editing complete" << endl;
-                choiceValidity = true;
-                break;
-            } 
-
-            default: { // break and choiceValidity = true was added because it was an infinite loop
-                out << "Invalid choice.";
-                choiceValidity = true;
-                break;               
-            }
+        default: { 
+            out << "Invalid choice.";
         }
     }
 }

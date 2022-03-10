@@ -7,7 +7,7 @@
 #include <ostream>
 
 class Goal{
-    private:
+    protected:
         std::string name;
     public:
         Goal();
