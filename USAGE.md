@@ -3,8 +3,8 @@ Usage Instructions
 ### To compile program using Linux:
 1. Open terminal.
 2. Move to Task-Scheduler-Project directory.
-3. Type 'g++ -g -O0 -fno-inline src/main.cpp src/Goal.cpp src/Menu.cpp src/Task.cpp src/TaskList.cpp src/Filter.cpp src/InputHelper.cpp src/ColorManager.cpp src/PrintHelper.cpp src/View.cpp -o Task-scheduler' to compile.
-4. Type './Task-scheduler' to open executable and being using program.
+3. Type `g++ -g -O0 -fno-inline src/main.cpp src/Goal.cpp src/Menu.cpp src/Task.cpp src/TaskList.cpp src/Filter.cpp src/InputHelper.cpp src/ColorManager.cpp src/PrintHelper.cpp src/View.cpp -o Task-scheduler` to compile.
+4. Type `./Task-scheduler` to open executable and being using program.
 
 ### To create a task list:
 1. Enter "1" to select "Create new list/edit existing list" from the menu.
