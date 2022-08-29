@@ -1,8 +1,8 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)A
 
 SET(CMAKE_CXX_STANDARD 11)
 
-# Main productoin executable
+# Main production executable
 ADD_EXECUTABLE(task-scheduler
     src/main.cpp
     src/Goal.cpp
