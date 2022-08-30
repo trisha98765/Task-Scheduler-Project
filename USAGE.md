@@ -4,7 +4,7 @@ Usage Instructions
 1. Open terminal.
 2. Move to Task-Scheduler-Project directory.
 3. Type `g++ -o task-scheduler -I ./src *.cpp` to compile.
-4. Type `./Task-scheduler` to open executable and being using program.
+4. Type `./Task-scheduler` to open executable and begin using program.
 
 ### To create a task list:
 1. Enter "1" to select "Create new list/edit existing list" from the menu.
